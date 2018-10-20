@@ -40,7 +40,7 @@
 		  if (_person.instantMessageAddresses != NULL) {
 			  for (CNLabeledValue<CNInstantMessageAddress *> *sipAddr in _person.instantMessageAddresses) {
 				  if ([FastAddressBook isSipAddress:sipAddr]) {
-					  NSString *username =  sipAddr.value.username;
+                      NSString *username =  sipAddr.value.username;
 					[_sipAddresses addObject:username];
 				  }
 			  }

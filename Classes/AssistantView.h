@@ -22,6 +22,8 @@
 #import "TPKeyboardAvoidingScrollView.h"
 #import "PhoneMainView.h"
 #import <AVFoundation/AVFoundation.h>
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface AssistantView : UIViewController <UITextFieldDelegate, UICompositeViewDelegate> {
 
@@ -37,6 +39,10 @@
 }
 
 @property(nonatomic) UICompositeViewDescription *outgoingView;
+
+@property (weak, nonatomic) IBOutlet UITextField *Username;
+@property (weak, nonatomic) IBOutlet UITextField *Password;
+
 @property (weak, nonatomic) IBOutlet UILabel *subtileLabel_useLinphoneAccount;
 
 @property(nonatomic, strong) IBOutlet TPKeyboardAvoidingScrollView *contentView;
@@ -45,6 +51,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *infoLoginButton;
 
 @property(nonatomic, strong) IBOutlet UIView *welcomeView;
+
+
+@property (weak, nonatomic) IBOutlet UIRoundBorderedButton *Login;
+
 @property(nonatomic, strong) IBOutlet UIView *createAccountView;
 @property(nonatomic, strong) IBOutlet UIView *createAccountActivateEmailView;
 @property(nonatomic, strong) IBOutlet UIView *linphoneLoginView;
@@ -85,6 +95,8 @@
 
 - (IBAction)onBackClick:(id)sender;
 - (IBAction)onDialerClick:(id)sender;
+
+
 
 - (IBAction)onGotoCreateAccountClick:(id)sender;
 - (IBAction)onGotoLinphoneLoginClick:(id)sender;

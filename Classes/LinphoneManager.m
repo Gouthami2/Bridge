@@ -51,6 +51,8 @@
 #import "ChatConversationView.h"
 #import <UserNotifications/UserNotifications.h>
 
+
+
 #define LINPHONE_LOGS_MAX_ENTRY 5000
 
 static LinphoneCore *theLinphoneCore = nil;
@@ -86,6 +88,7 @@ extern void libmsopenh264_init(MSFactory *factory);
 extern void libmssilk_init(MSFactory *factory);
 extern void libmswebrtc_init(MSFactory *factory);
 extern void libmscodec2_init(MSFactory *factory);
+
 
 #define FRONT_CAM_NAME                                                                                                 \
 	"AV Capture: com.apple.avfoundation.avcapturedevice.built-in_video:1" /*"AV Capture: Front Camera"*/
@@ -334,10 +337,10 @@ struct codec_name_pref_table codec_pref_table[] = {{"speex", 8000, "speex_8k_pre
 - (void)migrationAllPre {
 	// migrate xmlrpc URL if needed
 	if ([self lpConfigBoolForKey:@"migration_xmlrpc"] == NO) {
-		[self lpConfigSetString:@"https://subscribe.linphone.org:444/wizard.php"
+		[self lpConfigSetString:@"https://qa.onescreen.kotter.net:5080/newlogin"
 						 forKey:@"xmlrpc_url"
 					  inSection:@"assistant"];
-		[self lpConfigSetString:@"sip:rls@sip.linphone.org" forKey:@"rls_uri" inSection:@"sip"];
+		[self lpConfigSetString:@"sip:105@qa-kotter-test.qa.kotter.net" forKey:@"rls_uri" inSection:@"sip"];
 		[self lpConfigSetBool:YES forKey:@"migration_xmlrpc"];
 	}
 	[self lpConfigSetBool:NO forKey:@"store_friends" inSection:@"misc"]; //so far, storing friends in files is not needed. may change in the future.
@@ -422,8 +425,11 @@ static int check_should_migrate_images(void *data, int argc, char **argv, char *
 								 .UTF8String) != 0) {
 				LOGI(@"Migrating proxy config to send quality report");
 				linphone_proxy_config_set_quality_reporting_collector(
-					proxy, "sip:voip-metrics@sip.linphone.org;transport=tls");
-				linphone_proxy_config_set_quality_reporting_interval(proxy, 180);
+					proxy, "sip:105@qa-kotter-test.qa.kotter.net:5080;transport=udp");
+                    //sip:voip-metrics@sip.linphone.org;transport=tls
+                    //sip:105@qa-kotter-test.qa.kotter.net:5080;transport=udp
+                    
+				linphone_proxy_config_set_quality_reporting_interval(proxy, 5080);
 				linphone_proxy_config_enable_quality_reporting(proxy, TRUE);
 			}
 			proxies = proxies->next;
@@ -432,7 +438,11 @@ static int check_should_migrate_images(void *data, int argc, char **argv, char *
 	}
 	/* File transfer migration */
 	if ([self lpConfigBoolForKey:@"file_transfer_migration_done"] == FALSE) {
-		const char *newURL = "https://www.linphone.org:444/lft.php";
+		const char *newURL = "https://qa.onescreen.kotter.net/newlogin";
+        
+        //https://qa.onescreen.kotter.net/newlogin
+        //https://www.linphone.org:444/lft.php
+        
 		LOGI(@"Migrating sharing server url from %s to %s", linphone_core_get_file_transfer_server(LC), newURL);
 		linphone_core_set_file_transfer_server(LC, newURL);
 		[self lpConfigSetBool:TRUE forKey:@"file_transfer_migration_done"];
@@ -1939,7 +1949,7 @@ void popup_link_account_cb(LinphoneAccountCreator *creator, LinphoneAccountCreat
 			strcmp(linphone_proxy_config_get_domain(cfg),
 				   [LinphoneManager.instance lpConfigStringForKey:@"domain_name"
 														inSection:@"app"
-													  withDefault:@"sip.linphone.org"]
+													  withDefault:@"sip.qa-kotter-test.qa.kotter.net"]
 					   .UTF8String) == 0) {
 			UIAlertController *errView = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Link your account", nil)
 																			 message:[NSString stringWithFormat:NSLocalizedString(@"Link your Linphone.org account %s to your phone number.", nil),
@@ -1977,7 +1987,7 @@ void popup_link_account_cb(LinphoneAccountCreator *creator, LinphoneAccountCreat
 	if (nextTime.timeIntervalSince1970 > 0 && [now earlierDate:nextTime] == nextTime) {
 		LinphoneProxyConfig *cfg = linphone_core_get_default_proxy_config(LC);
 		if (cfg) {
-			const char *username = linphone_address_get_username(linphone_proxy_config_get_identity_address(cfg));
+			const char *Username = linphone_address_get_username(linphone_proxy_config_get_identity_address(cfg));
 			LinphoneAccountCreator *account_creator = linphone_account_creator_new(
 				LC,
 				[LinphoneManager.instance lpConfigStringForKey:@"xmlrpc_url" inSection:@"assistant" withDefault:@""]
@@ -1985,7 +1995,7 @@ void popup_link_account_cb(LinphoneAccountCreator *creator, LinphoneAccountCreat
 			linphone_account_creator_set_user_data(account_creator, (__bridge void *)(self));
 			linphone_account_creator_cbs_set_is_account_linked(linphone_account_creator_get_callbacks(account_creator),
 															   popup_link_account_cb);
-			linphone_account_creator_set_username(account_creator, username);
+			linphone_account_creator_set_username(account_creator, Username);
 			linphone_account_creator_is_account_linked(account_creator);
 		}
 	}
@@ -3137,5 +3147,6 @@ static int comp_call_state_paused(const LinphoneCall *call, const void *param) {
     }
     _avatar = ret;
 }
+
 
 @end

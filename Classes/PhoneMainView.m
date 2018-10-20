@@ -164,12 +164,12 @@ static RootViewManager *rootViewManagerInstance = nil;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-
+  
 	volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(-100, -100, 16, 16)];
 	volumeView.showsRouteButton = false;
 	volumeView.userInteractionEnabled = false;
 
-	[self.view addSubview:mainViewController.view];
+    [self.view addSubview:mainViewController.view];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -529,6 +529,7 @@ static RootViewManager *rootViewManagerInstance = nil;
                         changeCurrentView:DialerView.compositeViewDescription];
                   } else {
                     AssistantView *view = VIEW(AssistantView);
+                    [view.compositeViewDescription setStatusBarEnabled:NO];
                     [PhoneMainView.instance
                         changeCurrentView:view.compositeViewDescription];
                     [view reset];
@@ -964,6 +965,15 @@ void main_view_chat_room_state_changed(LinphoneChatRoom *cr, LinphoneChatRoomSta
 		default:
 			break;
 	}
+}
+- (BOOL)application:(UIApplication *)application
+shouldSaveApplicationState:(NSCoder *)coder; {
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+shouldRestoreApplicationState:(NSCoder *)coder; {
+    return YES;
 }
 
 @end

@@ -21,7 +21,7 @@
 #import "linphone/linphonecore_utils.h"
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
-
+#import <QuartzCore/QuartzCore.h>
 #import "AssistantView.h"
 #import "CountryListView.h"
 #import "LinphoneManager.h"
@@ -53,6 +53,8 @@ typedef enum _ViewElement {
 } ViewElement;
 
 @implementation AssistantView
+
+
 
 #pragma mark - Lifecycle Functions
 
@@ -93,6 +95,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 #pragma mark - ViewController Functions
 
 - (void)viewWillAppear:(BOOL)animated {
+   
+    
 	[super viewWillAppear:animated];
 
 	[NSNotificationCenter.defaultCenter addObserver:self
@@ -117,7 +121,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 		[self changeView:_welcomeView back:FALSE animation:FALSE];
 	}
 	mustRestoreView = NO;
-	_outgoingView = DialerView.compositeViewDescription;
+    _outgoingView = DialerView.compositeViewDescription;
     _qrCodeButton.hidden = !ENABLE_QRCODE;
 	[self resetLiblinphone:FALSE];
 }
@@ -127,6 +131,18 @@ static UICompositeViewDescription *compositeDescription = nil;
 	[NSNotificationCenter.defaultCenter removeObserver:self];
 	
 }
+// G modigied
+
+- (BOOL)application:(UIApplication *)application
+shouldSaveApplicationState:(NSCoder *)coder; {
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+shouldRestoreApplicationState:(NSCoder *)coder; {
+    return YES;
+}
+
 
 - (void)fitContent {
 	// always resize content view so that it fits whole available width
@@ -611,7 +627,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 #if DEBUG
 		UIAssistantTextField *atf =
 			(UIAssistantTextField *)[self findView:ViewElement_Domain inView:view ofType:UIAssistantTextField.class];
-		atf.text = @"test.linphone.org";
+		atf.text = @"qa-kotter-test.qa.kotter.net";
 #endif
 	}
 	phone_number_length = 0;
@@ -837,7 +853,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 			[LinphoneManager.instance
 				lpConfigSetInt:[NSDate new].timeIntervalSince1970 +
-							   [LinphoneManager.instance lpConfigIntForKey:@"link_account_popup_time" withDefault:84200]
+							   [LinphoneManager.instance lpConfigIntForKey:@"link_account_popup_time" withDefault:5080] //84200
 						forKey:@"must_link_account_time"];
 			[PhoneMainView.instance popToView:_outgoingView];
 			break;
@@ -845,7 +861,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 		case LinphoneRegistrationNone:
 		case LinphoneRegistrationCleared: {
 			_waitView.hidden = true;
-			break;
+            break;
 		}
 		case LinphoneRegistrationFailed: {
 			_waitView.hidden = true;
@@ -1461,7 +1477,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 	}
 
 	if (uri) {
-		_accountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Your SIP address will be sip:%s@sip.linphone.org", nil), uri];
+		_accountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Your SIP address will be sip:105@qa-kotter-test.qa.kotter.net", nil), uri];
 	} else if (!username.superview.hidden) {
 		_accountLabel.text = NSLocalizedString(@"Please enter your username", nil);
 	} else {
@@ -1573,12 +1589,14 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 	}
 }
 
+
+
 - (IBAction)onDialerClick:(id)sender {
-	[PhoneMainView.instance popToView:DialerView.compositeViewDescription];
+  
 }
 
 - (IBAction)onLinkTap:(id)sender {
-	NSString *url = @"http://linphone.org/free-sip-service.html&action=recover";
+	NSString *url = @"https://qa.onescreen.kotter.net/newlogin";
 	if (![UIApplication.sharedApplication openURL:[NSURL URLWithString:url]]) {
 		LOGE(@"Failed to open %@, invalid URL", url);
 	}
@@ -1613,5 +1631,80 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
         }
     }
 }
+
+
+//modified code
+ 
+- (IBAction)LoginPressed:(UIRoundBorderedButton *)sender {
+  
+    if(_Username.text.length > 0  && _Password.text.length > 0)
+    {
+        [self.Username becomeFirstResponder];
+        [self.Password becomeFirstResponder];
+        __block NSMutableDictionary *resultsDictionary;
+        NSDictionary *userDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:_Username.text, @"username",_Password.text,@"password", nil];
+        
+        NSError* error;
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:userDictionary options:NSJSONWritingPrettyPrinted error: &error];
+     
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:@"https://qa.onescreen.kotter.net/newlogin"]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:jsonData];
+        NSLog(@"login jsonData is %@",jsonData);
+        
+        NSOperationQueue *queue = [NSOperationQueue new];
+        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+            if ([data length]>0 && error == nil) { // success rest call
+                resultsDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+                NSLog(@"the result tocken is %@",resultsDictionary);
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   // [PhoneMainView.instance popToView:DialerView.compositeViewDescription];
+                    _Username.text = @"";
+                    _Password.text = @"";
+                });
+            }
+            else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertController *errView = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
+                                                                                 message:NSLocalizedString(@"ho no!, you entered wrong Username or Password ,Please try again ",
+                                                                                                           nil)
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil)
+                                                                        style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [errView addAction:defaultAction];
+                [self presentViewController:errView animated:YES completion:nil];
+                return;
+                });
+            }
+            
+        }];
+        
+        
+    }
+    else {
+        UIAlertController *errView = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
+                                                                         message:NSLocalizedString(@"ho no!, you entered wrong Username or Password ,Please try again ",
+                                                                                                   nil)
+                                                                  preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil)
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [errView addAction:defaultAction];
+        [self presentViewController:errView animated:YES completion:nil];
+        return;
+        
+    }
+    
+
+}
+
 
 @end

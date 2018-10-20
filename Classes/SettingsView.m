@@ -973,7 +973,7 @@ void update_hash_cbs(LinphoneAccountCreator *creator, LinphoneAccountCreatorStat
 		if ([filename hasSuffix:@".txt"]) {
 			mimeType = @"text/plain";
 		} else if ([filename hasSuffix:@".gz"]) {
-			mimeType = @"application/gzip";
+			mimeType = @"application/json";
 		} else {
 			LOGE(@"Unknown extension type: %@, not attaching logs", filename);
 		}

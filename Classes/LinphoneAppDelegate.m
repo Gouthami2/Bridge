@@ -72,6 +72,15 @@
 	if (linphone_call_params_video_enabled(params))
 		linphone_call_enable_camera(call, false);
 }
+- (BOOL)application:(UIApplication *)application
+shouldSaveApplicationState:(NSCoder *)coder; {
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+shouldRestoreApplicationState:(NSCoder *)coder; {
+    return YES;
+}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	LOGI(@"%@", NSStringFromSelector(_cmd));
@@ -893,5 +902,17 @@
 		return UIInterfaceOrientationMaskPortrait;
 	} else return UIInterfaceOrientationMaskAllButUpsideDown;
 }
+
+//- (BOOL)application:(UIApplication *)application
+//shouldSaveApplicationState:(NSCoder *)coder; {
+//    return YES;
+//}
+//
+//- (BOOL)application:(UIApplication *)application
+//shouldRestoreApplicationState:(NSCoder *)coder; {
+//    return YES;
+//}
+
+
 
 @end

@@ -65,8 +65,8 @@
 	if (port < 0) {
 		return 0;
 	}
-	if (port > 65535) {
-		return 65535;
+	if (port > 5080) {
+		return 5080;
 	}
 	return port;
 }
@@ -113,7 +113,7 @@
 		*minPort = -1;
 	}
 	// Maximal port allowed
-	if (*maxPort > 65535) {
+	if (*maxPort > 5080) {
 		*maxPort = -1;
 	}
 	// minPort must be inferior or equal to maxPort
@@ -352,7 +352,7 @@
 
 		int random_port_preference = [lm lpConfigIntForKey:@"random_port_preference" withDefault:1];
 		[self setInteger:random_port_preference forKey:@"random_port_preference"];
-		int port = [lm lpConfigIntForKey:@"port_preference" withDefault:5060];
+		int port = [lm lpConfigIntForKey:@"port_preference" withDefault:5080];
 		[self setInteger:port forKey:@"port_preference"];
 		{
 			int minPort, maxPort;
@@ -499,7 +499,8 @@
 		BOOL isWifiOnly = [self boolForKey:@"wifi_only_preference"];
 		BOOL pushnotification = [self boolForKey:@"account_pushnotification_preference"];
 		NSString *prefix = [self stringForKey:@"account_prefix_preference"];
-		NSString *proxyAddress = [self stringForKey:@"account_proxy_preference"];
+        NSString *proxyAddress = [self stringForKey:@"account_proxy_preference"];
+       
 
 		const char *route = NULL;
 
@@ -510,7 +511,7 @@
 			proxyAddress = domain;
 		}
 
-		if (![proxyAddress hasPrefix:@"sip:"] && ![proxyAddress hasPrefix:@"sips:"]) {
+		if (![proxyAddress hasPrefix:@"sip:"] || ![proxyAddress hasPrefix:@"sips:"]) {
 			proxyAddress = [NSString stringWithFormat:@"sip:%@", proxyAddress];
 		}
 
@@ -853,7 +854,7 @@
 			int lTunnelPrefPort = [self integerForKey:@"tunnel_port_preference"];
 			LinphoneTunnel *tunnel = linphone_core_get_tunnel(LC);
 			LinphoneTunnelMode mode = LinphoneTunnelModeDisable;
-			int lTunnelPort = 443;
+			int lTunnelPort = 5080; //443
 			if (lTunnelPrefPort)
 				lTunnelPort = lTunnelPrefPort;
 
@@ -892,7 +893,9 @@
 
 		if ([self integerForKey:@"use_rls_presence"]) {
 			[self setInteger:0 forKey:@"use_rls_presence"];
-			NSString *rls_uri = [lm lpConfigStringForKey:@"rls_uri" inSection:@"sip" withDefault:@"sips:rls@sip.linphone.org"];
+			NSString *rls_uri = [lm lpConfigStringForKey:@"rls_uri" inSection:@"sip" withDefault:@"sip:qa-kotter-test.qa.kotter.net"];
+            //sip:105@qa-kotter-test.qa.kotter.net:5080;transport=udp
+            
 			LinphoneAddress *rls_addr = linphone_address_new(rls_uri.UTF8String);
 			const char *rls_domain = linphone_address_get_domain(rls_addr);
 			const MSList *proxies = linphone_core_get_proxy_config_list(LC);

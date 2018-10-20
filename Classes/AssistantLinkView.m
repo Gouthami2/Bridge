@@ -59,7 +59,7 @@
 	if (cfg &&
 		strcmp([LinphoneManager.instance lpConfigStringForKey:@"domain_name"
 													inSection:@"app"
-												  withDefault:@"sip.linphone.org"]
+												  withDefault:@"sip.kotter.net"]
 				   .UTF8String,
 			   linphone_proxy_config_get_domain(cfg)) == 0) {
 		linphone_account_creator_set_username(
@@ -263,7 +263,7 @@ void assistant_activate_phone_number_link(LinphoneAccountCreator *creator, Linph
 
 - (IBAction)onPhoneNumberDisclosureClick:(id)sender {
 	UIAlertController *errView = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"What will my phone number be used for?", nil)
-																	 message:NSLocalizedString(@"Your friends will find your more easily if you link your account to your "
+																	 message:NSLocalizedString(@"Your friends will find you more easily if you link your account to your "
 																							   @"phone number. \n\nYou will see in your address book who is using "
 																							   @"Linphone and your friends will know that they can reach you on Linphone "
 																							   @"as well. \n\nYou can use your phone number with only one Linphone "

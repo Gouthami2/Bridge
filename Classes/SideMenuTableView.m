@@ -44,12 +44,7 @@
 
 	_sideMenuEntries = [[NSMutableArray alloc] init];
 
-	[_sideMenuEntries
-		addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"Assistant", nil)
-											  tapBlock:^() {
-												[PhoneMainView.instance
-													changeCurrentView:AssistantView.compositeViewDescription];
-											  }]];
+	
 	BOOL mustLink = ([LinphoneManager.instance lpConfigIntForKey:@"must_link_account_time"] > 0);
 	if (mustLink) {
 		[_sideMenuEntries
@@ -75,12 +70,28 @@
 														changeCurrentView:ShopView.compositeViewDescription];
 												  }]];
 	}
+    
+    [_sideMenuEntries
+     addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"Dailer", nil)
+                                           tapBlock:^() {
+                                              [PhoneMainView.instance popToView:DialerView.compositeViewDescription];
+                                               
+                                           }]];
+    
 	[_sideMenuEntries addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"About", nil)
 															tapBlock:^() {
 															  [PhoneMainView.instance
 																  changeCurrentView:AboutView.compositeViewDescription];
 
 															}]];
+    
+    [_sideMenuEntries
+     addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"LogOut", nil)
+                                           tapBlock:^() {
+                                               [PhoneMainView.instance
+                                                changeCurrentView:AssistantView.compositeViewDescription];
+                                              
+                                           }]];
 }
 
 #pragma mark - Table View Controller
