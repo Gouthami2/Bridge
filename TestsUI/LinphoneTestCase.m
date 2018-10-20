@@ -99,9 +99,9 @@
 		LinphoneProxyConfig *cfg = (LinphoneProxyConfig *)proxies->data;
 		const char *domain = linphone_proxy_config_get_domain(cfg);
 		const LinphoneAddress *addr = linphone_proxy_config_get_identity_address(cfg);
-		const char *username = linphone_address_get_username(addr);
+		const char *Username = linphone_address_get_username(addr);
 
-		if (addr && (username && strcmp(username, [[self me] UTF8String]) == 0) &&
+		if (addr && (Username && strcmp(Username, [[self me] UTF8String]) == 0) &&
 			(domain && strcmp(domain, [[self accountDomain] UTF8String]) == 0) &&
 			linphone_proxy_config_get_state(cfg) == LinphoneRegistrationOk) {
 			isOK = true;
@@ -147,8 +147,9 @@
 		linphone_auth_info_unref(testAuth);
 		linphone_address_unref(testAddr);
 
-		linphone_core_set_file_transfer_server(lc, "https://www.linphone.org:444/lft.php");
-
+        linphone_core_set_file_transfer_server(lc, "https://www.kotter.net:5080");
+        //sip:105@qa-kotter-test.qa.kotter.net:5080;transport=udp
+        //https://www.linphone.org:444/lft.php
 		// reload address book to prepend proxy config domain to contacts' phone number
 		[[[LinphoneManager instance] fastAddressBook] fetchContactsInBackGroundThread];
 
