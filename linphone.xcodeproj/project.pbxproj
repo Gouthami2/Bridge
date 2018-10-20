@@ -740,6 +740,17 @@
 		8CF25D961F9F336100BEA0C1 /* check_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D941F9F336100BEA0C1 /* check_unselected.png */; };
 		8CF25D9D1F9F76BD00BEA0C1 /* chat_group_informations.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D9B1F9F76BC00BEA0C1 /* chat_group_informations.png */; };
 		8CF25D9E1F9F76BD00BEA0C1 /* chat_group_informations@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D9C1F9F76BD00BEA0C1 /* chat_group_informations@2x.png */; };
+		B083F5962174DFA900502D7A /* Customer-Login.gif in Resources */ = {isa = PBXBuildFile; fileRef = B083F5952174DFA900502D7A /* Customer-Login.gif */; };
+		B083F598217632CD00502D7A /* background image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B083F597217632CC00502D7A /* background image.jpg */; };
+		B083F59A217633D200502D7A /* loginbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B083F599217633D100502D7A /* loginbutton.png */; };
+		B083F59D21763AD000502D7A /* password icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B083F59C21763AD000502D7A /* password icon.png */; };
+		B083F59F21763C1000502D7A /* username icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B083F59E21763C0F00502D7A /* username icon.png */; };
+		B09573C4217037B400F8D388 /* bridgeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B09573C3217037B400F8D388 /* bridgeicon.png */; };
+		B09573DB2170EF3E00F8D388 /* linphone-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B09573DA2170EF3E00F8D388 /* linphone-Info.plist */; };
+		B09573EF2173E47B00F8D388 /* bridge.png in Resources */ = {isa = PBXBuildFile; fileRef = B09573E82173E47B00F8D388 /* bridge.png */; };
+		B09573F32173E48300F8D388 /* username.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B09573F22173E48300F8D388 /* username.jpg */; };
+		B09573F52173E48800F8D388 /* Password.png in Resources */ = {isa = PBXBuildFile; fileRef = B09573F42173E48800F8D388 /* Password.png */; };
+		B09573F72173E6F000F8D388 /* Welcome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B09573F62173E6EF00F8D388 /* Welcome.jpg */; };
 		C90FAA7915AF54E6002091CB /* HistoryDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FAA7715AF54E6002091CB /* HistoryDetailsView.m */; };
 		CF15F21E20E4F9A3008B1DE6 /* UIImageViewDeletable.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F21C20E4F9A3008B1DE6 /* UIImageViewDeletable.m */; };
 		CF15F21F20E4F9A3008B1DE6 /* UIImageViewDeletable.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15F21D20E4F9A3008B1DE6 /* UIImageViewDeletable.xib */; };
@@ -914,20 +925,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = FAB8A0141CAC546A00C6DFC1;
 			remoteInfo = KIFFrameworkConsumerTests;
-		};
-		8C0E4A0121522B7F0058DBDA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 630589F21B4E816900EFAE36 /* KIF.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8CD87D4C1EF5105800ACA260;
-			remoteInfo = LinphoneManager;
-		};
-		8C0E4A0321522B7F0058DBDA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 630589F21B4E816900EFAE36 /* KIF.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8CD87D541EF5105900ACA260;
-			remoteInfo = LinphoneManagerTests;
 		};
 		F08F119119C09C6B007D70C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1856,6 +1853,17 @@
 		8CF25D941F9F336100BEA0C1 /* check_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_unselected.png; sourceTree = "<group>"; };
 		8CF25D9B1F9F76BC00BEA0C1 /* chat_group_informations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_group_informations.png; sourceTree = "<group>"; };
 		8CF25D9C1F9F76BD00BEA0C1 /* chat_group_informations@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_group_informations@2x.png"; sourceTree = "<group>"; };
+		B083F5952174DFA900502D7A /* Customer-Login.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Customer-Login.gif"; sourceTree = "<group>"; };
+		B083F597217632CC00502D7A /* background image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background image.jpg"; sourceTree = "<group>"; };
+		B083F599217633D100502D7A /* loginbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbutton.png; sourceTree = "<group>"; };
+		B083F59C21763AD000502D7A /* password icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "password icon.png"; sourceTree = "<group>"; };
+		B083F59E21763C0F00502D7A /* username icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "username icon.png"; sourceTree = "<group>"; };
+		B09573C3217037B400F8D388 /* bridgeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bridgeicon.png; path = ../../../../Desktop/bridgeicon.png; sourceTree = "<group>"; };
+		B09573DA2170EF3E00F8D388 /* linphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "linphone-Info.plist"; sourceTree = "<group>"; };
+		B09573E82173E47B00F8D388 /* bridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bridge.png; sourceTree = "<group>"; };
+		B09573F22173E48300F8D388 /* username.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = username.jpg; sourceTree = "<group>"; };
+		B09573F42173E48800F8D388 /* Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Password.png; sourceTree = "<group>"; };
+		B09573F62173E6EF00F8D388 /* Welcome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Welcome.jpg; sourceTree = "<group>"; };
 		C90FAA7615AF54E6002091CB /* HistoryDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailsView.h; sourceTree = "<group>"; };
 		C90FAA7715AF54E6002091CB /* HistoryDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailsView.m; sourceTree = "<group>"; };
 		C9B3A6FD15B485DB006F52EE /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Utils/Utils.h; sourceTree = "<group>"; };
@@ -2441,6 +2449,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				B09573DA2170EF3E00F8D388 /* linphone-Info.plist */,
 				8C23BCB71D82AAC3005F19BB /* linphone.entitlements */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				61AE364C20C00B370089D9D3 /* linphoneExtension */,
@@ -2623,8 +2632,6 @@
 				63058A071B4E816A00EFAE36 /* KIF.framework */,
 				633FC7C81CD7466400774B8B /* KIFFrameworkConsumer.app */,
 				633FC7CA1CD7466400774B8B /* KIFFrameworkConsumerTests.xctest */,
-				8C0E4A0221522B7F0058DBDA /* LinphoneManager.framework */,
-				8C0E4A0421522B7F0058DBDA /* LinphoneManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2694,6 +2701,16 @@
 		633FEBE11D3CD5570014B822 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B083F59C21763AD000502D7A /* password icon.png */,
+				B083F599217633D100502D7A /* loginbutton.png */,
+				B083F59E21763C0F00502D7A /* username icon.png */,
+				B083F597217632CC00502D7A /* background image.jpg */,
+				B083F5952174DFA900502D7A /* Customer-Login.gif */,
+				B09573F62173E6EF00F8D388 /* Welcome.jpg */,
+				B09573F42173E48800F8D388 /* Password.png */,
+				B09573F22173E48300F8D388 /* username.jpg */,
+				B09573E82173E47B00F8D388 /* bridge.png */,
+				B09573C3217037B400F8D388 /* bridgeicon.png */,
 				CFBD7A2320E504AD007C5286 /* delete_img.png */,
 				24BFAA9B209B062F004F47A7 /* callkit_logo.png */,
 				24BFAA99209B062E004F47A7 /* contacts_sip_default.png */,
@@ -3528,7 +3545,7 @@
 				LastUpgradeCheck = 0900;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = Z2V957B3D6;
+						DevelopmentTeam = ER55SDUY7X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -3550,7 +3567,7 @@
 					};
 					5E3128FF20D7A37E00CF3AAE = {
 						CreatedOnToolsVersion = 9.4;
-						DevelopmentTeam = Z2V957B3D6;
+						DevelopmentTeam = ER55SDUY7X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -3560,12 +3577,12 @@
 					};
 					5E58962220DCE5700030868C = {
 						CreatedOnToolsVersion = 9.4;
-						DevelopmentTeam = Z2V957B3D6;
+						DevelopmentTeam = ER55SDUY7X;
 						ProvisioningStyle = Automatic;
 					};
 					5EEE8F9920C80C23006E4176 = {
 						CreatedOnToolsVersion = 9.4;
-						DevelopmentTeam = Z2V957B3D6;
+						DevelopmentTeam = ER55SDUY7X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -3575,7 +3592,7 @@
 					};
 					61AE364A20C00B370089D9D3 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = Z2V957B3D6;
+						DevelopmentTeam = ER55SDUY7X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -3584,15 +3601,15 @@
 						};
 					};
 					F08F118319C09C6A007D70C2 = {
-						DevelopmentTeam = Z2V957B3D6;
+						DevelopmentTeam = ER55SDUY7X;
 						TestTargetID = F0BB8BD41936208100974404;
 					};
 					F0BB8BD41936208100974404 = {
-						DevelopmentTeam = Z2V957B3D6;
+						DevelopmentTeam = ER55SDUY7X;
 					};
 					F0F951FF1A6AEB1000254160 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = Z2V957B3D6;
+						DevelopmentTeam = ER55SDUY7X;
 						TestTargetID = 1D6058900D05DD3D006BFB54;
 					};
 				};
@@ -3685,20 +3702,6 @@
 			remoteRef = 633FC7C91CD7466400774B8B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8C0E4A0221522B7F0058DBDA /* LinphoneManager.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = LinphoneManager.framework;
-			remoteRef = 8C0E4A0121522B7F0058DBDA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8C0E4A0421522B7F0058DBDA /* LinphoneManagerTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = LinphoneManagerTests.xctest;
-			remoteRef = 8C0E4A0321522B7F0058DBDA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -3787,17 +3790,20 @@
 				633FEEC91D3CD55A0014B822 /* numpad_5~ipad.png in Resources */,
 				633FEDFA1D3CD5590014B822 /* camera_selected.png in Resources */,
 				633FEF451D3CD55A0014B822 /* speaker_default@2x.png in Resources */,
+				B083F59A217633D200502D7A /* loginbutton.png in Resources */,
 				633FEDD41D3CD5590014B822 /* call_quality_indicator_4.png in Resources */,
 				633FEF241D3CD55A0014B822 /* route_bluetooth_disabled.png in Resources */,
 				633FEECD1D3CD55A0014B822 /* numpad_6_over.png in Resources */,
 				D38187D115FE346B00C3EDCA /* HistoryListView.xib in Resources */,
 				D38187BD15FE342800C3EDCA /* ContactsListView.xib in Resources */,
+				B09573F52173E48800F8D388 /* Password.png in Resources */,
 				633FEF0E1D3CD55A0014B822 /* pause_big_default.png in Resources */,
 				633FEF191D3CD55A0014B822 /* pause_small_over_selected@2x.png in Resources */,
 				633FEDA71D3CD5590014B822 /* back_disabled@2x.png in Resources */,
 				633FEDBD1D3CD5590014B822 /* call_audio_start_disabled@2x.png in Resources */,
 				633FEE981D3CD55A0014B822 /* micro_selected.png in Resources */,
 				633FEEB51D3CD55A0014B822 /* numpad_3_over.png in Resources */,
+				B083F59D21763AD000502D7A /* password icon.png in Resources */,
 				633FEE041D3CD5590014B822 /* cancel_edit_disabled.png in Resources */,
 				633FEDE61D3CD5590014B822 /* call_status_missed.png in Resources */,
 				8CDC61971F84D9270087CF7F /* check_selected@2x.png in Resources */,
@@ -3818,6 +3824,7 @@
 				633FEE271D3CD5590014B822 /* checkbox_checked@2x.png in Resources */,
 				633FEDCC1D3CD5590014B822 /* call_quality_indicator_0.png in Resources */,
 				633FEDEB1D3CD5590014B822 /* call_status_outgoing@2x.png in Resources */,
+				B09573F32173E48300F8D388 /* username.jpg in Resources */,
 				633FEDEE1D3CD5590014B822 /* call_transfer_default.png in Resources */,
 				63DFE04B1C40161700DA5E87 /* notes_of_the_optimistic.caf in Resources */,
 				639E9C931C0DB7BE00019A75 /* FirstLoginView.xib in Resources */,
@@ -3887,6 +3894,7 @@
 				633FEE841D3CD5590014B822 /* led_error.png in Resources */,
 				633FEDEA1D3CD5590014B822 /* call_status_outgoing.png in Resources */,
 				633FEF511D3CD55A0014B822 /* valid_disabled@2x.png in Resources */,
+				B09573C4217037B400F8D388 /* bridgeicon.png in Resources */,
 				633FEEBB1D3CD55A0014B822 /* numpad_4_default.png in Resources */,
 				633FEF2B1D3CD55A0014B822 /* route_earpiece_disabled@2x.png in Resources */,
 				639E9CA31C0DB7EA00019A75 /* UIChatBubbleTextCell.xib in Resources */,
@@ -3979,6 +3987,7 @@
 				63E27A521C50EDB000D332AE /* hold.mkv in Resources */,
 				633FEEDC1D3CD55A0014B822 /* numpad_8_default@2x.png in Resources */,
 				633FEDAE1D3CD5590014B822 /* call_add_default.png in Resources */,
+				B083F59F21763C1000502D7A /* username icon.png in Resources */,
 				633FEE1D1D3CD5590014B822 /* chat_start_body_default~ipad@2x.png in Resources */,
 				633FEEEB1D3CD55A0014B822 /* numpad_hash_default.png in Resources */,
 				633FEF221D3CD55A0014B822 /* route_bluetooth_default.png in Resources */,
@@ -3990,6 +3999,7 @@
 				633FEF271D3CD55A0014B822 /* route_bluetooth_selected@2x.png in Resources */,
 				633FEE111D3CD5590014B822 /* chat_list_indicator~ipad@2x.png in Resources */,
 				633FEEFC1D3CD55A0014B822 /* options_add_call_default.png in Resources */,
+				B09573DB2170EF3E00F8D388 /* linphone-Info.plist in Resources */,
 				24BFAAA5209B0630004F47A7 /* contacts_sip_default.png in Resources */,
 				633FEF441D3CD55A0014B822 /* speaker_default.png in Resources */,
 				639CEB031A1DF4EB004DE38F /* UICompositeView.xib in Resources */,
@@ -4012,6 +4022,7 @@
 				633FEF251D3CD55A0014B822 /* route_bluetooth_disabled@2x.png in Resources */,
 				633FEDD81D3CD5590014B822 /* call_start_body_default~ipad.png in Resources */,
 				633FEED81D3CD55A0014B822 /* numpad_7_over~ipad@2x.png in Resources */,
+				B083F598217632CD00502D7A /* background image.jpg in Resources */,
 				633FEDD71D3CD5590014B822 /* call_start_body_default@2x.png in Resources */,
 				633FEE571D3CD5590014B822 /* dialer_back_disabled@2x.png in Resources */,
 				63CDC45E1C3BDE370085F529 /* msg.caf in Resources */,
@@ -4095,6 +4106,7 @@
 				633FEEA51D3CD55A0014B822 /* numpad_1_over.png in Resources */,
 				633FEF2E1D3CD55A0014B822 /* route_speaker_default.png in Resources */,
 				633FEDA91D3CD5590014B822 /* backspace_default@2x.png in Resources */,
+				B09573EF2173E47B00F8D388 /* bridge.png in Resources */,
 				633FEDF61D3CD5590014B822 /* camera_default.png in Resources */,
 				F0642EF119DAC891009DB336 /* MainStoryboard.storyboard in Resources */,
 				633FEECC1D3CD55A0014B822 /* numpad_6_default@2x.png in Resources */,
@@ -4160,6 +4172,7 @@
 				63AADBE81B6A0FF200AA16FD /* Localizable.strings in Resources */,
 				633FEEF21D3CD55A0014B822 /* numpad_hash~ipad@2x.png in Resources */,
 				633FEE3F1D3CD5590014B822 /* contacts_all_disabled@2x.png in Resources */,
+				B083F5962174DFA900502D7A /* Customer-Login.gif in Resources */,
 				633FEF3B1D3CD55A0014B822 /* security_ko@2x.png in Resources */,
 				633FEE4A1D3CD5590014B822 /* delete_disabled.png in Resources */,
 				633FEF151D3CD55A0014B822 /* pause_small_default@2x.png in Resources */,
@@ -4174,6 +4187,7 @@
 				633FEF3E1D3CD55A0014B822 /* security_pending.png in Resources */,
 				D381881915FE3FCA00C3EDCA /* CallView.xib in Resources */,
 				633FEE7E1D3CD5590014B822 /* history_missed_selected.png in Resources */,
+				B09573F72173E6F000F8D388 /* Welcome.jpg in Resources */,
 				633FEE261D3CD5590014B822 /* checkbox_checked.png in Resources */,
 				633FEF531D3CD55A0014B822 /* voicemail@2x.png in Resources */,
 				633FEF2C1D3CD55A0014B822 /* route_earpiece_selected.png in Resources */,
@@ -5164,7 +5178,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/liblinphone-sdk/x86_64-apple-darwin.ios/lib",
@@ -5197,7 +5211,7 @@
 					"-DENABLE_QRCODE=FALSE",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone;
 				PRODUCT_NAME = linphone;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5270,7 +5284,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/liblinphone-sdk/x86_64-apple-darwin.ios/lib",
@@ -5302,7 +5316,7 @@
 					"-DENABLE_QRCODE=FALSE",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone;
 				PRODUCT_NAME = linphone;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5375,7 +5389,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/liblinphone-sdk/x86_64-apple-darwin.ios/lib",
@@ -5407,7 +5421,7 @@
 					"-DENABLE_QRCODE=FALSE",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone;
 				PRODUCT_NAME = linphone;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5480,7 +5494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/liblinphone-sdk/x86_64-apple-darwin.ios/lib",
@@ -5512,7 +5526,7 @@
 					"-DENABLE_QRCODE=FALSE",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone;
 				PRODUCT_NAME = linphone;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5549,7 +5563,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/Frameworks",
@@ -5568,7 +5582,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.widget.latestChatrooms;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5600,7 +5614,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5614,7 +5628,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.widget.latestChatrooms;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5647,7 +5661,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5661,7 +5675,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.widget.latestChatrooms;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5694,7 +5708,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5708,7 +5722,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.widget.latestChatrooms;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5740,7 +5754,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -5755,7 +5769,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.richNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.richNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5786,7 +5800,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -5796,7 +5810,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.richNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.richNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5828,7 +5842,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -5838,7 +5852,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.richNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.richNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5870,7 +5884,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -5880,7 +5894,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.richNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.richNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5913,7 +5927,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/Frameworks",
@@ -5932,7 +5946,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.widget.latestCalls;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.callsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5964,7 +5978,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5978,7 +5992,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.widget.latestCalls;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.callsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -6011,7 +6025,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6025,7 +6039,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.widget.latestCalls;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.callsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -6058,7 +6072,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6072,7 +6086,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.widget.latestCalls;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.callsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -6102,7 +6116,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -6117,7 +6131,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.linphoneExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -6145,7 +6159,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -6155,7 +6169,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.linphoneExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -6183,7 +6197,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -6193,7 +6207,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.linphoneExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -6222,7 +6236,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Z2V957B3D6;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -6232,7 +6246,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.linphone.phone.linphoneExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -6304,6 +6318,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6354,6 +6369,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6398,6 +6414,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6442,6 +6459,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6487,6 +6505,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6518,7 +6537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.belledonne-communications.tester.liblinphoneTester";
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6543,6 +6562,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6567,7 +6587,7 @@
 				INFOPLIST_FILE = "LiblinphoneTester/LinphoneTester-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.belledonne-communications.tester.liblinphoneTester";
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6593,6 +6613,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6617,7 +6638,7 @@
 				INFOPLIST_FILE = "LiblinphoneTester/LinphoneTester-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.belledonne-communications.tester.liblinphoneTester";
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6643,6 +6664,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6667,7 +6689,7 @@
 				INFOPLIST_FILE = "LiblinphoneTester/LinphoneTester-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.belledonne-communications.tester.liblinphoneTester";
+				PRODUCT_BUNDLE_IDENTIFIER = org.kotter.linphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6690,6 +6712,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6743,6 +6766,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6790,6 +6814,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6837,6 +6862,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = ER55SDUY7X;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (

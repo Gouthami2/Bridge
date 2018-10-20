@@ -6,8 +6,8 @@
 	<string>development</string>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.belledonne-communications.linphone.widget</string>
-		<string>group.belledonne-communications.linphone</string>
+		<string>group.Kotter.linphoneApplication</string>
+		<string>group.kottergroup</string>
 	</array>
 </dict>
 </plist>
