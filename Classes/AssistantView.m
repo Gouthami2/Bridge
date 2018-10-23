@@ -29,6 +29,7 @@
 #import "UIAssistantTextField.h"
 #import "UITextField+DoneButton.h"
 #import "LinphoneAppDelegate.h"
+#import "menuView.h"
 
 typedef enum _ViewElement {
 	ViewElement_Username = 100,
@@ -1344,12 +1345,19 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 }
 
 - (IBAction)onLoginClick:(id)sender {
-	ONCLICKBUTTON(sender, 100, {
-		_waitView.hidden = NO;
-		NSString *domain = [self findTextField:ViewElement_Domain].text;
-		NSString *username = [self findTextField:ViewElement_Username].text;
+    ONCLICKBUTTON(sender, 100, {
+        _waitView.hidden = NO;
+    })
+     }
+     -(void) setDomainAndTransport {
+        NSString *usrname = @"105";
+          NSString *Domain = @"qa-kotter-test.qa.kotter.net";
+          NSString *Password = @"12345";
+        
+		NSString *domain = [self findTextField:ViewElement_Domain].text = Domain;
+		NSString *username = [self findTextField:ViewElement_Username].text = usrname;
 		NSString *displayName = [self findTextField:ViewElement_DisplayName].text;
-		NSString *pwd = [self findTextField:ViewElement_Password].text;
+		NSString *pwd = [self findTextField:ViewElement_Password].text = Password;
 		LinphoneProxyConfig *config = linphone_core_create_proxy_config(LC);
 		LinphoneAddress *addr = linphone_address_new(NULL);
 		LinphoneAddress *tmpAddr = linphone_address_new([NSString stringWithFormat:@"sip:%@",domain].UTF8String);
@@ -1361,11 +1369,11 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 		}
 		linphone_proxy_config_set_identity_address(config, addr);
 		// set transport
-		UISegmentedControl *transports = (UISegmentedControl *)[self findView:ViewElement_Transport
-																	   inView:self.contentView
-																	   ofType:UISegmentedControl.class];
-		if (transports) {
-			NSString *type = [transports titleForSegmentAtIndex:[transports selectedSegmentIndex]];
+//        UISegmentedControl *transports = (UISegmentedControl *)[self findView:ViewElement_Transport
+//                                                                       inView:self.contentView
+//                                                                       ofType:UISegmentedControl.class];
+		//if (transports) {
+        NSString *type = @"UDP";
 			linphone_proxy_config_set_route(
 				config,
 				[NSString stringWithFormat:@"%s;transport=%s", domain.UTF8String, type.lowercaseString.UTF8String]
@@ -1374,7 +1382,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 				config,
 				[NSString stringWithFormat:@"%s;transport=%s", domain.UTF8String, type.lowercaseString.UTF8String]
 					.UTF8String);
-		}
+		//}
 
 		linphone_proxy_config_enable_publish(config, FALSE);
 		linphone_proxy_config_enable_register(config, TRUE);
@@ -1398,14 +1406,15 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 				// reload address book to prepend proxy config domain to contacts' phone number
 				// todo: STOP doing that!
 				[[LinphoneManager.instance fastAddressBook] fetchContactsInBackGroundThread];
-                [PhoneMainView.instance changeCurrentView:DialerView.compositeViewDescription];
+               //  [PhoneMainView.instance changeCurrentView:DialerView.compositeViewDescription];
+                 [self changeView:_menuView back:TRUE animation:TRUE];
 			} else {
 			  [self displayAssistantConfigurationError];
 			}
 		} else {
 		  [self displayAssistantConfigurationError];
 		}
-	});
+	//});
 }
 
 - (IBAction)onRemoteProvisioningLoginClick:(id)sender {
@@ -1661,6 +1670,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                 NSLog(@"the result tocken is %@",resultsDictionary);
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    [self setDomainAndTransport];
                    // [PhoneMainView.instance popToView:DialerView.compositeViewDescription];
                     _Username.text = @"";
                     _Password.text = @"";
@@ -1704,6 +1714,18 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
     }
     
 
+}
+- (IBAction)DialerMenu:(id)sender {
+    [PhoneMainView.instance popToView:DialerView.compositeViewDescription];
+}
+- (IBAction)contacts:(id)sender {
+    [PhoneMainView.instance popToView:ContactsListView.compositeViewDescription];
+}
+- (IBAction)ChatPlus:(id)sender {
+    [PhoneMainView.instance popToView:ChatsListView.compositeViewDescription];
+}
+- (IBAction)CALLhISTORY:(id)sender {
+    [PhoneMainView.instance popToView:HistoryListView.compositeViewDescription];
 }
 
 

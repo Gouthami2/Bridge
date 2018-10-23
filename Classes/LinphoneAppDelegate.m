@@ -31,6 +31,7 @@
 #include "LinphoneManager.h"
 #include "linphone/linphonecore.h"
 
+
 @implementation LinphoneAppDelegate
 
 @synthesize configURL;

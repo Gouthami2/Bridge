@@ -12,9 +12,11 @@
 #import "Utils.h"
 
 #import "PhoneMainView.h"
+#import "AssistantView.h"
 #import "StatusBarView.h"
 #import "ShopView.h"
 #import "LinphoneManager.h"
+#import "menuView.h"
 
 @implementation SideMenuEntry
 
@@ -54,6 +56,11 @@
 														changeCurrentView:AssistantLinkView.compositeViewDescription];
 												  }]];
 	}
+    [_sideMenuEntries addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"Home", nil)
+                                                            tapBlock:^() {
+                                                                [PhoneMainView.instance  changeCurrentView:menuView.compositeViewDescription];
+                                                                
+                                                            }]];
 
 	[_sideMenuEntries
 		addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"Settings", nil)

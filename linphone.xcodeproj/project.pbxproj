@@ -740,6 +740,19 @@
 		8CF25D961F9F336100BEA0C1 /* check_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D941F9F336100BEA0C1 /* check_unselected.png */; };
 		8CF25D9D1F9F76BD00BEA0C1 /* chat_group_informations.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D9B1F9F76BC00BEA0C1 /* chat_group_informations.png */; };
 		8CF25D9E1F9F76BD00BEA0C1 /* chat_group_informations@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D9C1F9F76BD00BEA0C1 /* chat_group_informations@2x.png */; };
+		B0143E1A217E5C6C0061CBD0 /* menuView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0143E19217E5C6C0061CBD0 /* menuView.m */; };
+		B0143E1F217E6A700061CBD0 /* menuview.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0143E1E217E6A700061CBD0 /* menuview.xib */; };
+		B01D16DC217E2F7000BE4925 /* bridgeicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16D5217E2F7000BE4925 /* bridgeicon1.png */; };
+		B01D16DE217E2F7500BE4925 /* VideoConference.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16DD217E2F7500BE4925 /* VideoConference.png */; };
+		B01D16E0217E2F7A00BE4925 /* ChatPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16DF217E2F7A00BE4925 /* ChatPlus.png */; };
+		B01D16E2217E2F7F00BE4925 /* DailerMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16E1217E2F7F00BE4925 /* DailerMenu.png */; };
+		B01D16E4217E2F8300BE4925 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16E3217E2F8300BE4925 /* Menu.png */; };
+		B01D16E6217E2F8B00BE4925 /* colour.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16E5217E2F8B00BE4925 /* colour.png */; };
+		B01D16EA217E2F9500BE4925 /* callHistory.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16E9217E2F9500BE4925 /* callHistory.png */; };
+		B01D16EC217E2F9D00BE4925 /* Contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16EB217E2F9C00BE4925 /* Contacts.png */; };
+		B01D16EE217E2FA200BE4925 /* TextMessaging.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16ED217E2FA200BE4925 /* TextMessaging.png */; };
+		B01D16F0217E31E500BE4925 /* conference call.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16EF217E31E400BE4925 /* conference call.png */; };
+		B01D16F2217E35FD00BE4925 /* homeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16F1217E35FC00BE4925 /* homeButton.png */; };
 		B083F5962174DFA900502D7A /* Customer-Login.gif in Resources */ = {isa = PBXBuildFile; fileRef = B083F5952174DFA900502D7A /* Customer-Login.gif */; };
 		B083F598217632CD00502D7A /* background image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B083F597217632CC00502D7A /* background image.jpg */; };
 		B083F59A217633D200502D7A /* loginbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B083F599217633D100502D7A /* loginbutton.png */; };
@@ -1853,6 +1866,20 @@
 		8CF25D941F9F336100BEA0C1 /* check_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_unselected.png; sourceTree = "<group>"; };
 		8CF25D9B1F9F76BC00BEA0C1 /* chat_group_informations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_group_informations.png; sourceTree = "<group>"; };
 		8CF25D9C1F9F76BD00BEA0C1 /* chat_group_informations@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_group_informations@2x.png"; sourceTree = "<group>"; };
+		B0143E19217E5C6C0061CBD0 /* menuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = menuView.m; sourceTree = "<group>"; };
+		B0143E1B217E61A20061CBD0 /* menuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = menuView.h; sourceTree = "<group>"; };
+		B0143E1E217E6A700061CBD0 /* menuview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = menuview.xib; sourceTree = "<group>"; };
+		B01D16D5217E2F7000BE4925 /* bridgeicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bridgeicon1.png; sourceTree = "<group>"; };
+		B01D16DD217E2F7500BE4925 /* VideoConference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VideoConference.png; sourceTree = "<group>"; };
+		B01D16DF217E2F7A00BE4925 /* ChatPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatPlus.png; sourceTree = "<group>"; };
+		B01D16E1217E2F7F00BE4925 /* DailerMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DailerMenu.png; sourceTree = "<group>"; };
+		B01D16E3217E2F8300BE4925 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Menu.png; path = ../../../../Desktop/Menu.png; sourceTree = "<group>"; };
+		B01D16E5217E2F8B00BE4925 /* colour.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colour.png; sourceTree = "<group>"; };
+		B01D16E9217E2F9500BE4925 /* callHistory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callHistory.png; sourceTree = "<group>"; };
+		B01D16EB217E2F9C00BE4925 /* Contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contacts.png; sourceTree = "<group>"; };
+		B01D16ED217E2FA200BE4925 /* TextMessaging.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextMessaging.png; sourceTree = "<group>"; };
+		B01D16EF217E31E400BE4925 /* conference call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "conference call.png"; sourceTree = "<group>"; };
+		B01D16F1217E35FC00BE4925 /* homeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeButton.png; sourceTree = "<group>"; };
 		B083F5952174DFA900502D7A /* Customer-Login.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Customer-Login.gif"; sourceTree = "<group>"; };
 		B083F597217632CC00502D7A /* background image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background image.jpg"; sourceTree = "<group>"; };
 		B083F599217633D100502D7A /* loginbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbutton.png; sourceTree = "<group>"; };
@@ -2205,6 +2232,9 @@
 				D350F20C15A43BB100149E54 /* AssistantView.m */,
 				D38187E015FE348A00C3EDCA /* AssistantView.xib */,
 				D3D5126A160B3A8E00946DF8 /* AssistantViewScreens.xib */,
+				B0143E1B217E61A20061CBD0 /* menuView.h */,
+				B0143E19217E5C6C0061CBD0 /* menuView.m */,
+				B0143E1E217E6A700061CBD0 /* menuview.xib */,
 				63F1DF491BCE983100EDED90 /* CallConferenceTableView.h */,
 				63F1DF4A1BCE983200EDED90 /* CallConferenceTableView.m */,
 				D3F26BEE15986B71005F9CAB /* CallIncomingView.h */,
@@ -2701,6 +2731,17 @@
 		633FEBE11D3CD5570014B822 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B01D16F1217E35FC00BE4925 /* homeButton.png */,
+				B01D16EB217E2F9C00BE4925 /* Contacts.png */,
+				B01D16EF217E31E400BE4925 /* conference call.png */,
+				B01D16ED217E2FA200BE4925 /* TextMessaging.png */,
+				B01D16E9217E2F9500BE4925 /* callHistory.png */,
+				B01D16E5217E2F8B00BE4925 /* colour.png */,
+				B01D16E3217E2F8300BE4925 /* Menu.png */,
+				B01D16E1217E2F7F00BE4925 /* DailerMenu.png */,
+				B01D16DF217E2F7A00BE4925 /* ChatPlus.png */,
+				B01D16DD217E2F7500BE4925 /* VideoConference.png */,
+				B01D16D5217E2F7000BE4925 /* bridgeicon1.png */,
 				B083F59C21763AD000502D7A /* password icon.png */,
 				B083F599217633D100502D7A /* loginbutton.png */,
 				B083F59E21763C0F00502D7A /* username icon.png */,
@@ -3965,6 +4006,7 @@
 				633FEE831D3CD5590014B822 /* led_disconnected@2x.png in Resources */,
 				244523BE1E8D3A6C0037A187 /* chat_unsecure.png in Resources */,
 				633FEE031D3CD5590014B822 /* cancel_edit_default@2x.png in Resources */,
+				B01D16EE217E2FA200BE4925 /* TextMessaging.png in Resources */,
 				633FEDE01D3CD5590014B822 /* call_start_body_over~ipad.png in Resources */,
 				8CBD7BA920B6B82A00E5DCC0 /* UIChatConversationImdnTableViewCell.xib in Resources */,
 				24BFAAA7209B0630004F47A7 /* callkit_logo.png in Resources */,
@@ -3978,7 +4020,9 @@
 				D38187D915FE347700C3EDCA /* CallIncomingView.xib in Resources */,
 				63CDC45F1C3BDE370085F529 /* ringback.wav in Resources */,
 				8CD99A1C20908C27008A7CDA /* callkit_logo@2x.png in Resources */,
+				B0143E1F217E6A700061CBD0 /* menuview.xib in Resources */,
 				633FEE251D3CD5590014B822 /* chat_start_body_over~ipad@2x.png in Resources */,
+				B01D16EC217E2F9D00BE4925 /* Contacts.png in Resources */,
 				633FEDF91D3CD5590014B822 /* camera_disabled@2x.png in Resources */,
 				633FEE161D3CD5590014B822 /* chat_send_disabled.png in Resources */,
 				633FEE1A1D3CD5590014B822 /* chat_start_body_default.png in Resources */,
@@ -3989,6 +4033,7 @@
 				633FEDAE1D3CD5590014B822 /* call_add_default.png in Resources */,
 				B083F59F21763C1000502D7A /* username icon.png in Resources */,
 				633FEE1D1D3CD5590014B822 /* chat_start_body_default~ipad@2x.png in Resources */,
+				B01D16F2217E35FD00BE4925 /* homeButton.png in Resources */,
 				633FEEEB1D3CD55A0014B822 /* numpad_hash_default.png in Resources */,
 				633FEF221D3CD55A0014B822 /* route_bluetooth_default.png in Resources */,
 				633FEE701D3CD5590014B822 /* footer_history_disabled.png in Resources */,
@@ -4079,6 +4124,7 @@
 				633FEE391D3CD5590014B822 /* contact_add_default@2x.png in Resources */,
 				633FEE741D3CD5590014B822 /* history_all_disabled.png in Resources */,
 				633FEE081D3CD5590014B822 /* chat_add_disabled.png in Resources */,
+				B01D16E6217E2F8B00BE4925 /* colour.png in Resources */,
 				633FEF1D1D3CD55A0014B822 /* presence_offline@2x.png in Resources */,
 				24A3459E1D95797700881A5C /* UIShopTableCell.xib in Resources */,
 				633FEE231D3CD5590014B822 /* chat_start_body_over@2x.png in Resources */,
@@ -4121,6 +4167,7 @@
 				633FEE151D3CD5590014B822 /* chat_send_default@2x.png in Resources */,
 				633FEDC31D3CD5590014B822 /* call_hangup_default@2x.png in Resources */,
 				633FEF061D3CD55A0014B822 /* options_start_conference_default.png in Resources */,
+				B01D16E2217E2F7F00BE4925 /* DailerMenu.png in Resources */,
 				63AADC021B6A0FF200AA16FD /* assistant_remote.rc in Resources */,
 				633FEF1E1D3CD55A0014B822 /* presence_online.png in Resources */,
 				8CE24F571F8268850077AC0A /* conference_delete.png in Resources */,
@@ -4129,6 +4176,7 @@
 				633FEE3A1D3CD5590014B822 /* contact_add_disabled.png in Resources */,
 				633FEEA11D3CD55A0014B822 /* numpad_0~ipad.png in Resources */,
 				8CE24F4B1F8234A30077AC0A /* next_default.png in Resources */,
+				B01D16F0217E31E500BE4925 /* conference call.png in Resources */,
 				633FEE751D3CD5590014B822 /* history_all_disabled@2x.png in Resources */,
 				633FEEF71D3CD55A0014B822 /* numpad_star_over@2x.png in Resources */,
 				633FEEAB1D3CD55A0014B822 /* numpad_2_default.png in Resources */,
@@ -4138,6 +4186,7 @@
 				633FEF081D3CD55A0014B822 /* options_start_conference_disabled.png in Resources */,
 				63F1DF511BCE986A00EDED90 /* UICallConferenceCell.xib in Resources */,
 				633FEE301D3CD5590014B822 /* color_H.png in Resources */,
+				B01D16E0217E2F7A00BE4925 /* ChatPlus.png in Resources */,
 				633FEE7D1D3CD5590014B822 /* history_missed_disabled@2x.png in Resources */,
 				633FEE941D3CD55A0014B822 /* micro_default.png in Resources */,
 				633FEE611D3CD5590014B822 /* edit_list_disabled@2x.png in Resources */,
@@ -4160,6 +4209,7 @@
 				633FEF101D3CD55A0014B822 /* pause_big_disabled.png in Resources */,
 				633FEE221D3CD5590014B822 /* chat_start_body_over.png in Resources */,
 				633FEE601D3CD5590014B822 /* edit_list_disabled.png in Resources */,
+				B01D16EA217E2F9500BE4925 /* callHistory.png in Resources */,
 				D38187C115FE345B00C3EDCA /* DialerView.xib in Resources */,
 				D37EE10D16035793003608A6 /* ImageView.xib in Resources */,
 				633FEE9F1D3CD55A0014B822 /* numpad_0_over~ipad.png in Resources */,
@@ -4188,6 +4238,7 @@
 				D381881915FE3FCA00C3EDCA /* CallView.xib in Resources */,
 				633FEE7E1D3CD5590014B822 /* history_missed_selected.png in Resources */,
 				B09573F72173E6F000F8D388 /* Welcome.jpg in Resources */,
+				B01D16DE217E2F7500BE4925 /* VideoConference.png in Resources */,
 				633FEE261D3CD5590014B822 /* checkbox_checked.png in Resources */,
 				633FEF531D3CD55A0014B822 /* voicemail@2x.png in Resources */,
 				633FEF2C1D3CD55A0014B822 /* route_earpiece_selected.png in Resources */,
@@ -4198,6 +4249,7 @@
 				633FEECB1D3CD55A0014B822 /* numpad_6_default.png in Resources */,
 				633FEDC71D3CD5590014B822 /* call_incoming@2x.png in Resources */,
 				633FEDB81D3CD5590014B822 /* call_alt_start_disabled.png in Resources */,
+				B01D16DC217E2F7000BE4925 /* bridgeicon1.png in Resources */,
 				633FEF3C1D3CD55A0014B822 /* security_ok.png in Resources */,
 				633FEEAF1D3CD55A0014B822 /* numpad_2_over~ipad.png in Resources */,
 				633FEEB81D3CD55A0014B822 /* numpad_3_over~ipad@2x.png in Resources */,
@@ -4225,6 +4277,7 @@
 				633FEF0C1D3CD55A0014B822 /* options_transfer_call_disabled.png in Resources */,
 				633FEE911D3CD55A0014B822 /* list_details_over@2x.png in Resources */,
 				633FEE121D3CD5590014B822 /* chat_message_not_delivered.png in Resources */,
+				B01D16E4217E2F8300BE4925 /* Menu.png in Resources */,
 				633FEDCE1D3CD5590014B822 /* call_quality_indicator_1.png in Resources */,
 				8CB2B8F91F86229E0015CEE2 /* chat_secure.png in Resources */,
 				633FEF4E1D3CD55A0014B822 /* valid_default.png in Resources */,
@@ -4486,6 +4539,7 @@
 				D3807FC115C28940005BE9BC /* DCRoundSwitchKnobLayer.m in Sources */,
 				6306440E1BECB08500134C72 /* FirstLoginView.m in Sources */,
 				D3807FC315C28940005BE9BC /* DCRoundSwitchOutlineLayer.m in Sources */,
+				B0143E1A217E5C6C0061CBD0 /* menuView.m in Sources */,
 				D3807FC515C28940005BE9BC /* DCRoundSwitchToggleLayer.m in Sources */,
 				633E41821D74259000320475 /* AssistantLinkView.m in Sources */,
 				D3807FE815C2894A005BE9BC /* IASKAppSettingsViewController.m in Sources */,

@@ -39,6 +39,7 @@
 }
 
 @property(nonatomic) UICompositeViewDescription *outgoingView;
+@property (strong, nonatomic) IBOutlet UIView *menuView;
 
 @property (weak, nonatomic) IBOutlet UITextField *Username;
 @property (weak, nonatomic) IBOutlet UITextField *Password;

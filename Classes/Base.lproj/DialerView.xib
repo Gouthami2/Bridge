@@ -51,18 +51,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="540" height="66"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <textField opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a number or an address" adjustsFontSizeToFit="NO" minimumFontSize="5" id="4" userLabel="addressField" customClass="UIAddressTextField">
-                                    <rect key="frame" x="31" y="0.0" width="426" height="66"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <accessibility key="accessibilityConfiguration" label="Enter an address"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" returnKeyType="join"/>
-                                    <connections>
-                                        <action selector="onAddressChange:" destination="-1" eventType="editingChanged" id="FdS-Kl-3dS"/>
-                                        <outlet property="delegate" destination="-1" id="190"/>
-                                    </connections>
-                                </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8dc-hj-rvt" userLabel="backspaceButton" customClass="UIIconButton">
                                     <rect key="frame" x="475" y="0.0" width="60" height="66"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -75,6 +63,18 @@
                                         <action selector="onBackspaceClick:" destination="-1" eventType="touchUpInside" id="sWE-Ch-kAr"/>
                                     </connections>
                                 </button>
+                                <textField opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a number or an address" adjustsFontSizeToFit="NO" minimumFontSize="5" id="4" userLabel="addressField" customClass="UIAddressTextField">
+                                    <rect key="frame" x="31" y="0.0" width="426" height="66"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <accessibility key="accessibilityConfiguration" label="Enter an address"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" returnKeyType="join"/>
+                                    <connections>
+                                        <action selector="onAddressChange:" destination="-1" eventType="editingChanged" id="FdS-Kl-3dS"/>
+                                        <outlet property="delegate" destination="-1" id="190"/>
+                                    </connections>
+                                </textField>
                             </subviews>
                         </view>
                         <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dialer_background.png" id="AH0-S5-0Ku" userLabel="logoImage">
