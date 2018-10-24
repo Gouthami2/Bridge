@@ -154,7 +154,7 @@
 		[self setObject:@"" forKey:@"account_mandatory_username_preference"];
 		[self setObject:@"" forKey:@"account_mandatory_domain_preference"];
 		[self setCString:"" forKey:@"account_display_name_preference"];
-		[self setObject:@"" forKey:@"account_proxy_preference"];
+        [self setObject:@"qa-kotter-test.qa.kotter.net:5080" forKey:@"account_proxy_preference"];
 		[self setObject:@"udp" forKey:@"account_transport_preference"];
 		[self setBool:NO forKey:@"account_outbound_proxy_preference"];
 		[self setBool:NO forKey:@"account_avpf_preference"];

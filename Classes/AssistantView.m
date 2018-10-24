@@ -1715,6 +1715,9 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
     
 
 }
+- (IBAction)settings:(id)sender {
+    [PhoneMainView.instance popToView:SettingsView.compositeViewDescription];
+}
 - (IBAction)DialerMenu:(id)sender {
     [PhoneMainView.instance popToView:DialerView.compositeViewDescription];
 }
@@ -1724,8 +1727,8 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 - (IBAction)ChatPlus:(id)sender {
     [PhoneMainView.instance popToView:ChatsListView.compositeViewDescription];
 }
-- (IBAction)CALLhISTORY:(id)sender {
-    [PhoneMainView.instance popToView:HistoryListView.compositeViewDescription];
+- (IBAction)callHistory:(id)sender {
+    [PhoneMainView.instance popToView:HistoryDetailsView.compositeViewDescription];
 }
 
 

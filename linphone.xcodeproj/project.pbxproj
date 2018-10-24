@@ -740,7 +740,6 @@
 		8CF25D961F9F336100BEA0C1 /* check_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D941F9F336100BEA0C1 /* check_unselected.png */; };
 		8CF25D9D1F9F76BD00BEA0C1 /* chat_group_informations.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D9B1F9F76BC00BEA0C1 /* chat_group_informations.png */; };
 		8CF25D9E1F9F76BD00BEA0C1 /* chat_group_informations@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D9C1F9F76BD00BEA0C1 /* chat_group_informations@2x.png */; };
-		B0143E1A217E5C6C0061CBD0 /* menuView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0143E19217E5C6C0061CBD0 /* menuView.m */; };
 		B0143E1F217E6A700061CBD0 /* menuview.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0143E1E217E6A700061CBD0 /* menuview.xib */; };
 		B01D16DC217E2F7000BE4925 /* bridgeicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16D5217E2F7000BE4925 /* bridgeicon1.png */; };
 		B01D16DE217E2F7500BE4925 /* VideoConference.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16DD217E2F7500BE4925 /* VideoConference.png */; };
@@ -764,6 +763,8 @@
 		B09573F32173E48300F8D388 /* username.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B09573F22173E48300F8D388 /* username.jpg */; };
 		B09573F52173E48800F8D388 /* Password.png in Resources */ = {isa = PBXBuildFile; fileRef = B09573F42173E48800F8D388 /* Password.png */; };
 		B09573F72173E6F000F8D388 /* Welcome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B09573F62173E6EF00F8D388 /* Welcome.jpg */; };
+		B0B7AB6B2180CC010026F4F4 /* settingsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B0B7AB642180CC010026F4F4 /* settingsicon.png */; };
+		B0B7AB6E2180E3610026F4F4 /* menuView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0143E19217E5C6C0061CBD0 /* menuView.m */; };
 		C90FAA7915AF54E6002091CB /* HistoryDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FAA7715AF54E6002091CB /* HistoryDetailsView.m */; };
 		CF15F21E20E4F9A3008B1DE6 /* UIImageViewDeletable.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F21C20E4F9A3008B1DE6 /* UIImageViewDeletable.m */; };
 		CF15F21F20E4F9A3008B1DE6 /* UIImageViewDeletable.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15F21D20E4F9A3008B1DE6 /* UIImageViewDeletable.xib */; };
@@ -1891,6 +1892,7 @@
 		B09573F22173E48300F8D388 /* username.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = username.jpg; sourceTree = "<group>"; };
 		B09573F42173E48800F8D388 /* Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Password.png; sourceTree = "<group>"; };
 		B09573F62173E6EF00F8D388 /* Welcome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Welcome.jpg; sourceTree = "<group>"; };
+		B0B7AB642180CC010026F4F4 /* settingsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsicon.png; sourceTree = "<group>"; };
 		C90FAA7615AF54E6002091CB /* HistoryDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailsView.h; sourceTree = "<group>"; };
 		C90FAA7715AF54E6002091CB /* HistoryDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailsView.m; sourceTree = "<group>"; };
 		C9B3A6FD15B485DB006F52EE /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Utils/Utils.h; sourceTree = "<group>"; };
@@ -2731,6 +2733,7 @@
 		633FEBE11D3CD5570014B822 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B0B7AB642180CC010026F4F4 /* settingsicon.png */,
 				B01D16F1217E35FC00BE4925 /* homeButton.png */,
 				B01D16EB217E2F9C00BE4925 /* Contacts.png */,
 				B01D16EF217E31E400BE4925 /* conference call.png */,
@@ -3807,6 +3810,7 @@
 				634610121B6140A500548952 /* CallOutgoingView.xib in Resources */,
 				8CE24F581F8268850077AC0A /* conference_delete@2x.png in Resources */,
 				633FEDC21D3CD5590014B822 /* call_hangup_default.png in Resources */,
+				B0B7AB6B2180CC010026F4F4 /* settingsicon.png in Resources */,
 				633FEEB41D3CD55A0014B822 /* numpad_3_default@2x.png in Resources */,
 				633FEEE51D3CD55A0014B822 /* numpad_9_over.png in Resources */,
 				633FEECA1D3CD55A0014B822 /* numpad_5~ipad@2x.png in Resources */,
@@ -4539,7 +4543,7 @@
 				D3807FC115C28940005BE9BC /* DCRoundSwitchKnobLayer.m in Sources */,
 				6306440E1BECB08500134C72 /* FirstLoginView.m in Sources */,
 				D3807FC315C28940005BE9BC /* DCRoundSwitchOutlineLayer.m in Sources */,
-				B0143E1A217E5C6C0061CBD0 /* menuView.m in Sources */,
+				B0B7AB6E2180E3610026F4F4 /* menuView.m in Sources */,
 				D3807FC515C28940005BE9BC /* DCRoundSwitchToggleLayer.m in Sources */,
 				633E41821D74259000320475 /* AssistantLinkView.m in Sources */,
 				D3807FE815C2894A005BE9BC /* IASKAppSettingsViewController.m in Sources */,

@@ -1458,50 +1458,34 @@ Once it is done, come back here and click on the button.</string>
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ee-3G-uBd">
-                    <rect key="frame" x="20" y="235" width="161" height="150"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEd-Tt-wVY">
+                    <rect key="frame" x="20" y="557" width="161" height="159"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button" image="Contacts.png"/>
-                    <connections>
-                        <action selector="contacts:" destination="-1" eventType="touchUpInside" id="zQj-2k-2uo"/>
-                    </connections>
+                    <state key="normal" title="Button" image="VideoConference.png"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ot8-NC-hUo">
+                    <rect key="frame" x="230" y="393" width="164" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="TextMessaging.png"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqs-6e-CFS">
-                    <rect key="frame" x="242" y="235" width="152" height="150"/>
+                    <rect key="frame" x="20" y="393" width="161" height="121"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="ChatPlus.png"/>
                     <connections>
                         <action selector="ChatPlus:" destination="-1" eventType="touchUpInside" id="HH4-qO-Mgd"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ot8-NC-hUo">
-                    <rect key="frame" x="20" y="394" width="161" height="146"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button" image="TextMessaging.png"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEd-Tt-wVY">
-                    <rect key="frame" x="247" y="387" width="147" height="160"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button" image="VideoConference.png"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyQ-Oh-VG5">
-                    <rect key="frame" x="15" y="569" width="175" height="119"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button" image="callHistory.png"/>
-                    <connections>
-                        <action selector="CALLhISTORY:" destination="-1" eventType="touchUpInside" id="KyQ-9b-V1A"/>
-                    </connections>
-                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="colour.png" translatesAutoresizingMaskIntoConstraints="NO" id="mWA-Lp-zIp">
-                    <rect key="frame" x="0.0" y="20" width="414" height="81"/>
+                    <rect key="frame" x="0.0" y="10" width="414" height="78"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bridgeicon1.png" translatesAutoresizingMaskIntoConstraints="NO" id="z3W-sf-X3K">
-                    <rect key="frame" x="129" y="120" width="156" height="73"/>
+                    <rect key="frame" x="130" y="118" width="154" height="99"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr7-OL-yba">
-                    <rect key="frame" x="37" y="20" width="99" height="81"/>
+                    <rect key="frame" x="10" y="15" width="127" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="DailerMenu.png"/>
                     <connections>
@@ -1509,14 +1493,30 @@ Once it is done, come back here and click on the button.</string>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYV-TZ-l1P">
-                    <rect key="frame" x="283" y="32" width="111" height="63"/>
+                    <rect key="frame" x="321" y="15" width="93" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button" image="Menu.png"/>
+                    <state key="normal" title="Button" image="settingsicon.png"/>
+                    <connections>
+                        <action selector="settings:" destination="-1" eventType="touchUpInside" id="xqk-ar-Wk7"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b1-TK-Mh9">
-                    <rect key="frame" x="234" y="569" width="160" height="127"/>
+                    <rect key="frame" x="230" y="560" width="164" height="152"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="conference call.png"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjS-u2-d8M">
+                    <rect key="frame" x="20" y="224" width="151" height="143"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="Contacts.png"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyQ-Oh-VG5">
+                    <rect key="frame" x="218" y="224" width="176" height="132"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="callHistory.png"/>
+                    <connections>
+                        <action selector="callHistory:" destination="-1" eventType="touchUpInside" id="qAI-tZ-uNm"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1527,7 +1527,6 @@ Once it is done, come back here and click on the button.</string>
         <image name="ChatPlus.png" width="292" height="234"/>
         <image name="Contacts.png" width="252" height="232"/>
         <image name="DailerMenu.png" width="138" height="104"/>
-        <image name="Menu.png" width="164" height="90"/>
         <image name="TextMessaging.png" width="292" height="232"/>
         <image name="VideoConference.png" width="294" height="250"/>
         <image name="bridgeicon1.png" width="716" height="418"/>
@@ -1535,5 +1534,6 @@ Once it is done, come back here and click on the button.</string>
         <image name="color_F.png" width="2" height="2"/>
         <image name="colour.png" width="272" height="78"/>
         <image name="conference call.png" width="364" height="316"/>
+        <image name="settingsicon.png" width="225" height="225"/>
     </resources>
 </document>

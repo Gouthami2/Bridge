@@ -97,6 +97,7 @@
                                            tapBlock:^() {
                                                [PhoneMainView.instance
                                                 changeCurrentView:AssistantView.compositeViewDescription];
+                                               [PhoneMainView.instance hideStatusBar:YES];
                                               
                                            }]];
 }
