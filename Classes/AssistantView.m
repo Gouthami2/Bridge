@@ -29,7 +29,7 @@
 #import "UIAssistantTextField.h"
 #import "UITextField+DoneButton.h"
 #import "LinphoneAppDelegate.h"
-#import "menuView.h"
+#import "HomeViewController.h"
 
 typedef enum _ViewElement {
 	ViewElement_Username = 100,

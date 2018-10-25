@@ -48,6 +48,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="63" height="66"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button" image="homeButton.png"/>
+                                    <connections>
+                                        <action selector="homeView:" destination="-1" eventType="touchUpInside" id="8vk-n3-aWg"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </view>

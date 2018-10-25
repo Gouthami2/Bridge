@@ -16,7 +16,7 @@
 #import "StatusBarView.h"
 #import "ShopView.h"
 #import "LinphoneManager.h"
-#import "menuView.h"
+#import "HomeViewController.h"
 
 @implementation SideMenuEntry
 
@@ -58,7 +58,7 @@
 	}
     [_sideMenuEntries addObject:[[SideMenuEntry alloc] initWithTitle:NSLocalizedString(@"Home", nil)
                                                             tapBlock:^() {
-                                                                [PhoneMainView.instance  changeCurrentView:menuView.compositeViewDescription];
+            [PhoneMainView.instance  changeCurrentView:HomeViewController.compositeViewDescription];
                                                                 
                                                             }]];
 

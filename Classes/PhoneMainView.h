@@ -22,7 +22,7 @@
 /* These imports are here so that we can import PhoneMainView.h without bothering to import all the rest of the view headers */
 #import "StatusBarView.h"
 #import "TabBarView.h"
-
+#import "HomeViewController.h"
 #import "AboutView.h"
 #import "AssistantLinkView.h"
 #import "AssistantView.h"

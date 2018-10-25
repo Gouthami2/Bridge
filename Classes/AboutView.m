@@ -20,6 +20,7 @@
 #import "PhoneMainView.h"
 #import "LinphoneManager.h"
 #import "LinphoneIOSVersion.h"
+#import "HomeViewController.h"
 
 @implementation AboutView
 
@@ -89,5 +90,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 - (IBAction)onDialerBackClick:(id)sender {
 	[PhoneMainView.instance popToView:DialerView.compositeViewDescription];
+}
+- (IBAction)homeView:(id)sender {
+    [PhoneMainView.instance popToView:HomeViewController.compositeViewDescription];
 }
 @end
