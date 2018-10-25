@@ -1406,8 +1406,8 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 				// reload address book to prepend proxy config domain to contacts' phone number
 				// todo: STOP doing that!
 				[[LinphoneManager.instance fastAddressBook] fetchContactsInBackGroundThread];
-               //  [PhoneMainView.instance changeCurrentView:DialerView.compositeViewDescription];
-                 [self changeView:_menuView back:TRUE animation:TRUE];
+                 [PhoneMainView.instance changeCurrentView:HomeViewController.compositeViewDescription];
+                // [self changeView:_menuView back:TRUE animation:TRUE];
 			} else {
 			  [self displayAssistantConfigurationError];
 			}
@@ -1715,21 +1715,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
     
 
 }
-- (IBAction)settings:(id)sender {
-    [PhoneMainView.instance popToView:SettingsView.compositeViewDescription];
-}
-- (IBAction)DialerMenu:(id)sender {
-    [PhoneMainView.instance popToView:DialerView.compositeViewDescription];
-}
-- (IBAction)contacts:(id)sender {
-    [PhoneMainView.instance popToView:ContactsListView.compositeViewDescription];
-}
-- (IBAction)ChatPlus:(id)sender {
-    [PhoneMainView.instance popToView:ChatsListView.compositeViewDescription];
-}
-- (IBAction)callHistory:(id)sender {
-    [PhoneMainView.instance popToView:HistoryDetailsView.compositeViewDescription];
-}
+
 
 
 @end
