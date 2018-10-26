@@ -12,18 +12,18 @@
 @interface HomeViewController : UIViewController <UICompositeViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *colour;
-@property (strong, nonatomic) IBOutlet UIImageView *bridgeIcon;
+@property (strong, nonatomic) IBOutlet UIImageView *bridgeicon1;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
-- (IBAction)contacts:(id)sender;
 - (IBAction)callHistory:(id)sender;
-- (IBAction)chatPlus:(id)sender;
-- (IBAction)textMessaging:(id)sender;
-- (IBAction)videoConference:(id)sender;
-- (IBAction)conferenceCalls:(id)sender;
+-(IBAction)Contacts:(id)sender;
+-(IBAction)settingsicon:(id)sender;
 - (IBAction)DailerMenu:(id)sender;
-- (IBAction)settingsView:(id)sender;
-
+- (IBAction)ChatPlus:(id)sender;
+- (IBAction)VideoConference:(id)sender;
+- (IBAction)TextMessaging:(id)sender;
+- (IBAction)conferenceCall:(id)sender;
 @end
 
 

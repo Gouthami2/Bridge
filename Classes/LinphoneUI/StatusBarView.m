@@ -384,8 +384,9 @@
 }
 
 - (IBAction)onSideMenuClick:(id)sender {
-	UICompositeView *cvc = PhoneMainView.instance.mainViewController;
-	[cvc hideSideMenu:(cvc.sideMenuView.frame.origin.x == 0)];
+//    UICompositeView *cvc = PhoneMainView.instance.mainViewController;
+//    [cvc hideSideMenu:(cvc.sideMenuView.frame.origin.x == 0)];
+    [PhoneMainView.instance popToView:HomeViewController.compositeViewDescription];
 }
 
 - (IBAction)onRegistrationStateClick:(id)sender {

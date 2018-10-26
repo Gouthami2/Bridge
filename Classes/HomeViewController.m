@@ -10,7 +10,6 @@
 #import "UICompositeView.h"
 
 @implementation HomeViewController
-
 #pragma mark - UICompositeViewDelegate Functions
 
 static UICompositeViewDescription *compositeDescription = nil;
@@ -18,7 +17,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 + (UICompositeViewDescription *)compositeViewDescription {
     if (compositeDescription == nil) {
         compositeDescription = [[UICompositeViewDescription alloc] init:self.class
-                                                              statusBar:StatusBarView.class
+                                                              //statusBar:StatusBarView.class
+                                                              statusBar:nil
                                 //tabBar:TabBarView.class
                                                                  tabBar:nil
                                                                sideMenu:SideMenuView.class
@@ -38,24 +38,41 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.scrollView.contentSize = CGSizeMake(UIScreen.mainScreen.bounds.size.width, 600);
+}
+
 - (IBAction)DailerMenu:(id)sender {
+    [PhoneMainView.instance popToView:DialerView.compositeViewDescription];
 }
-- (IBAction)settingsView:(id)sender {
+- (IBAction)settingsicon:(id)sender {
+     [PhoneMainView.instance popToView:SettingsView.compositeViewDescription];
 }
-- (IBAction)contacts:(id)sender {
-}
+
 - (IBAction)callHistory:(id)sender {
+     [PhoneMainView.instance popToView:HistoryListView.compositeViewDescription];
 }
-- (IBAction)chatPlus:(id)sender {
+- (IBAction)Contacts:(id)sender {
+     [PhoneMainView.instance popToView:ContactsListView.compositeViewDescription];
 }
-- (IBAction)textMessaging:(id)sender {
+- (IBAction)ChatPlus:(id)sender {
 }
-- (IBAction)videoConference:(id)sender {
+- (IBAction)VideoConference:(id)sender {
 }
-- (IBAction)conferenceCalls:(id)sender {
+- (IBAction)TextMessaging:(id)sender {
 }
+- (IBAction)conferenceCall:(id)sender {
+    
+}
+
 
 
 
