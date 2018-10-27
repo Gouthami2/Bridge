@@ -40,43 +40,42 @@ static UICompositeViewDescription *compositeDescription = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _contacts.layer.borderWidth = 0.2;
-    _contacts.layer.borderColor = [[UIColor grayColor]CGColor];
-    _contacts.layer.cornerRadius = 10;
+    _contactsView.layer.borderWidth = 0.5;
+    _contactsView.layer.borderColor = [[UIColor grayColor]CGColor];
+    _contactsView.layer.cornerRadius = 10;
     
-    _videoConference.layer.borderWidth = 0.2;
-    _videoConference.layer.borderColor = [[UIColor grayColor]CGColor];
-    _videoConference.layer.cornerRadius = 10;
+    _callHistoryView.layer.borderWidth = 0.5;
+    _callHistoryView.layer.borderColor = [[UIColor grayColor]CGColor];
+    _callHistoryView.layer.cornerRadius = 10;
     
-    _chatPlus.layer.borderWidth = 0.2;
-   _chatPlus.layer.borderColor = [[UIColor grayColor]CGColor];
-    _chatPlus.layer.cornerRadius = 10;
+    _chatPlusView.layer.borderWidth = 0.5;
+   _chatPlusView.layer.borderColor = [[UIColor grayColor]CGColor];
+    _chatPlusView.layer.cornerRadius = 10;
     
-    _textMessaging.layer.borderWidth = 0.2;
-   _textMessaging.layer.borderColor = [[UIColor grayColor]CGColor];
-    _textMessaging.layer.cornerRadius = 10;
+    _textMessagingview.layer.borderWidth = 0.5;
+   _textMessagingview.layer.borderColor = [[UIColor grayColor]CGColor];
+    _textMessagingview.layer.cornerRadius = 10;
     
-       _conferenceCall.layer.borderWidth = 0.2;
-       _conferenceCall.layer.borderColor = [[UIColor grayColor]CGColor];
-       _conferenceCall.layer.cornerRadius = 10;
+       _conferenceCallView.layer.borderWidth = 0.5;
+       _conferenceCallView.layer.borderColor = [[UIColor grayColor]CGColor];
+       _conferenceCallView.layer.cornerRadius = 10;
     
-    _callHistory.layer.borderWidth = 0.2;
-    _callHistory.layer.borderColor = [[UIColor grayColor]CGColor];
-    _callHistory.layer.cornerRadius = 10;
+    _videoConferenceView.layer.borderWidth = 0.5;
+     _videoConferenceView.layer.borderColor = [[UIColor grayColor]CGColor];
+     _videoConferenceView.layer.cornerRadius = 10;
     
-    _About.layer.borderWidth = 0.2;
-     _About.layer.borderColor = [[UIColor grayColor]CGColor];
-     _About.layer.cornerRadius = 10;
+    _AboutView.layer.borderWidth = 0.5;
+     _AboutView.layer.borderColor = [[UIColor grayColor]CGColor];
+     _AboutView.layer.cornerRadius = 10;
     
     
-    _logout.layer.borderWidth = 0.2;
-    _logout.layer.borderColor = [[UIColor grayColor]CGColor];
-    _logout.layer.cornerRadius = 10;
+    _logoutView.layer.borderWidth = 0.5;
+    _logoutView.layer.borderColor = [[UIColor grayColor]CGColor];
+    _logoutView.layer.cornerRadius = 10;
     
     
     
 }
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -84,7 +83,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.scrollView.contentSize = CGSizeMake(UIScreen.mainScreen.bounds.size.width, 600);
+    self.scrollView.contentSize = CGSizeMake(UIScreen.mainScreen.bounds.size.width, 800);
 }
 
 - (IBAction)DailerMenu:(id)sender {

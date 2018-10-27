@@ -527,7 +527,7 @@ static RootViewManager *rootViewManagerInstance = nil;
                        true) ||
                       lm.isTesting) {
                     [self
-                        changeCurrentView:DialerView.compositeViewDescription];
+                        changeCurrentView:HomeViewController.compositeViewDescription];
                   } else {
                     AssistantView *view = VIEW(AssistantView);
                     [view.compositeViewDescription setStatusBarEnabled:NO];
