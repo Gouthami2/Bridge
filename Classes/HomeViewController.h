@@ -14,16 +14,19 @@
 @property (strong, nonatomic) IBOutlet UIImageView *colour;
 @property (strong, nonatomic) IBOutlet UIImageView *bridgeicon1;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIButton *contacts;
+@property (strong, nonatomic) IBOutlet UIButton *videoConference;
+
+@property (strong, nonatomic) IBOutlet UIButton *callHistory;
+@property (strong, nonatomic) IBOutlet UIButton *chatPlus;
+
+@property (strong, nonatomic) IBOutlet UIButton *textMessaging;
+
+@property (strong, nonatomic) IBOutlet UIButton *conferenceCall;
+@property (strong, nonatomic) IBOutlet UIButton *About;
+@property (strong, nonatomic) IBOutlet UIButton *logout;
 
 
-- (IBAction)callHistory:(id)sender;
--(IBAction)Contacts:(id)sender;
--(IBAction)settingsicon:(id)sender;
-- (IBAction)DailerMenu:(id)sender;
-- (IBAction)ChatPlus:(id)sender;
-- (IBAction)VideoConference:(id)sender;
-- (IBAction)TextMessaging:(id)sender;
-- (IBAction)conferenceCall:(id)sender;
 @end
 
 

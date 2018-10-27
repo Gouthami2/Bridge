@@ -79,9 +79,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
-	<true/>
-    <key>ITSAppUsesNonExemptEncryption</key>
-    <false/>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothPeripheralUsageDescription</key>
@@ -98,6 +96,10 @@
 	<string>Share photos with your friends and customize avatars</string>
 	<key>NSVoIPUsageDescription</key>
 	<string>Make audio/video calls</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>fontawsome-webfont.ttf</string>
+	</array>
 	<key>UIApplicationExitsOnSuspend</key>
 	<false/>
 	<key>UIApplicationShortcutItems</key>

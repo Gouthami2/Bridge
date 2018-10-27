@@ -765,6 +765,7 @@
 		B09573F52173E48800F8D388 /* Password.png in Resources */ = {isa = PBXBuildFile; fileRef = B09573F42173E48800F8D388 /* Password.png */; };
 		B09573F72173E6F000F8D388 /* Welcome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B09573F62173E6EF00F8D388 /* Welcome.jpg */; };
 		B0B7AB6B2180CC010026F4F4 /* settingsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B0B7AB642180CC010026F4F4 /* settingsicon.png */; };
+		B0B9C66C2183A0F200399F08 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0B9C66B2183A0F200399F08 /* fa-solid-900.ttf */; };
 		C90FAA7915AF54E6002091CB /* HistoryDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FAA7715AF54E6002091CB /* HistoryDetailsView.m */; };
 		CF15F21E20E4F9A3008B1DE6 /* UIImageViewDeletable.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F21C20E4F9A3008B1DE6 /* UIImageViewDeletable.m */; };
 		CF15F21F20E4F9A3008B1DE6 /* UIImageViewDeletable.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15F21D20E4F9A3008B1DE6 /* UIImageViewDeletable.xib */; };
@@ -1893,6 +1894,8 @@
 		B09573F42173E48800F8D388 /* Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Password.png; sourceTree = "<group>"; };
 		B09573F62173E6EF00F8D388 /* Welcome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Welcome.jpg; sourceTree = "<group>"; };
 		B0B7AB642180CC010026F4F4 /* settingsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsicon.png; sourceTree = "<group>"; };
+		B0B9C66A2183A0A000399F08 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fa-solid-900.ttf"; path = "/Users/gouthamireddy/linphone/linphone-iphone/fa-solid-900.ttf"; sourceTree = "<absolute>"; };
+		B0B9C66B2183A0F200399F08 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		C90FAA7615AF54E6002091CB /* HistoryDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailsView.h; sourceTree = "<group>"; };
 		C90FAA7715AF54E6002091CB /* HistoryDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailsView.m; sourceTree = "<group>"; };
 		C9B3A6FD15B485DB006F52EE /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Utils/Utils.h; sourceTree = "<group>"; };
@@ -2481,8 +2484,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				B0B9C66B2183A0F200399F08 /* fa-solid-900.ttf */,
 				B09573DA2170EF3E00F8D388 /* linphone-Info.plist */,
 				8C23BCB71D82AAC3005F19BB /* linphone.entitlements */,
+				B0B9C66A2183A0A000399F08 /* fa-solid-900.ttf */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				61AE364C20C00B370089D9D3 /* linphoneExtension */,
 				5EEE8F9C20C80C23006E4176 /* latestCallsWidget */,
@@ -3753,6 +3758,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B9C66C2183A0F200399F08 /* fa-solid-900.ttf in Resources */,
 				633FEF3F1D3CD55A0014B822 /* security_pending@2x.png in Resources */,
 				24BFAAA4209B0630004F47A7 /* linphone_logo.png in Resources */,
 				633FEDC41D3CD5590014B822 /* call_hangup_disabled.png in Resources */,
