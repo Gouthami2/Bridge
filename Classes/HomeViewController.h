@@ -28,7 +28,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *conferenceCallLable;
 @property (strong, nonatomic) IBOutlet UIButton *videoConference;
 @property (strong, nonatomic) IBOutlet UILabel *videoConferenceLabel;
-@property (strong, nonatomic) IBOutlet UIButton *About;
+@property (strong, nonatomic) IBOutlet UIButton *aboutClicked;
+
 @property (strong, nonatomic) IBOutlet UILabel *AboutLabel;
 @property (strong, nonatomic) IBOutlet UIButton *logout;
 @property (strong, nonatomic) IBOutlet UILabel *logoutLabel;

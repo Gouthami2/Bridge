@@ -40,6 +40,9 @@ static UICompositeViewDescription *compositeDescription = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+   
+    
+    
     _contactsView.layer.borderWidth = 0.5;
     _contactsView.layer.borderColor = [[UIColor grayColor]CGColor];
     _contactsView.layer.cornerRadius = 10;
@@ -110,7 +113,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 - (IBAction)conferenceCall:(id)sender {
    
 }
-- (IBAction)About:(id)sender {
+- (IBAction)aboutClicked:(id)sender {
+
     [PhoneMainView.instance
      changeCurrentView:AboutView.compositeViewDescription];
 
