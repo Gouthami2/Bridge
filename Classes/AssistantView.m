@@ -1661,6 +1661,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
         [request setHTTPMethod:@"POST"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setHTTPBody:jsonData];
+        //[request setValue:@"Authorization" forHTTPHeaderField:@"Bearer " + tocken]
         NSLog(@"login jsonData is %@",jsonData);
         
         NSOperationQueue *queue = [NSOperationQueue new];

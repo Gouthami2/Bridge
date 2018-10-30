@@ -12,6 +12,13 @@
 @interface HomeViewController : UIViewController <UICompositeViewDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (strong, nonatomic) IBOutlet UIButton *contactsIcon;
+@property (strong, nonatomic) IBOutlet UIButton *callHistoryIcon;
+@property (strong, nonatomic) IBOutlet UIButton *chatplusIcon;
+@property (strong, nonatomic) IBOutlet UIButton *textMessagingIcon;
+@property (strong, nonatomic) IBOutlet UIButton *videoConferenceIcon;
+@property (strong, nonatomic) IBOutlet UIButton *conferenceCallIcon;
+
 @property (strong, nonatomic) IBOutlet UIImageView *colour;
 @property (strong, nonatomic) IBOutlet UIImageView *bridgeicon;
 @property (strong, nonatomic) IBOutlet UIButton *DailerMenu;

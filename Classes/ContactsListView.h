@@ -72,6 +72,8 @@ typedef enum _ContactSelectionMode { ContactSelectionModeNone, ContactSelectionM
 
 @interface ContactsListView : UIViewController <UICompositeViewDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate>
 
+
+
 @property(strong, nonatomic) IBOutlet ContactsListTableView *tableController;
 @property(strong, nonatomic) IBOutlet UIView *topBar;
 @property(nonatomic, strong) IBOutlet UIButton *allButton;

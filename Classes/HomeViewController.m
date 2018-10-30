@@ -41,6 +41,23 @@ static UICompositeViewDescription *compositeDescription = nil;
     [super viewDidLoad];
     
    
+    _contactsIcon.layer.cornerRadius = 37;
+    _contactsIcon.layer.masksToBounds = YES;
+    
+    _callHistoryIcon.layer.cornerRadius = 37;
+    _callHistoryIcon.layer.masksToBounds = YES;
+    
+    _chatplusIcon.layer.cornerRadius = 37;
+    _chatplusIcon.layer.masksToBounds = YES;
+    
+    _textMessagingIcon.layer.cornerRadius = 37;
+    _textMessagingIcon.layer.masksToBounds = YES;
+    
+    _videoConferenceIcon.layer.cornerRadius = 37;
+    _videoConferenceIcon.layer.masksToBounds = YES;
+    
+    _conferenceCallIcon.layer.cornerRadius = 37;
+    _conferenceCallIcon.layer.masksToBounds = YES;
     
     
     _contactsView.layer.borderWidth = 0.5;
