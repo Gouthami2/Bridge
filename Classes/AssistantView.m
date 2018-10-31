@@ -1349,7 +1349,53 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
         _waitView.hidden = NO;
     })
      }
-     -(void) setDomainAndTransport {
+
+- (NSMutableDictionary *) getDataFrom:(NSString *)token{
+    NSMutableDictionary *response ;
+    NSString *authHeader = [NSString stringWithFormat:@"%@%@", @"Bearer ", token];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"https://qa.onescreen.kotter.net/user/infoforlinphone"]];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
+    NSLog(@" authHeader is %@", authHeader);
+    
+    NSOperationQueue *queue = [NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+        if ([data length]>0 && error == nil) { // success rest call
+            response = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+            NSLog(@"the response is %@",response);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 NSLog(@"the response2 is %@",response);
+            });
+        }
+    }];
+    
+     return response;
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+//
+//    [request setHTTPMethod:@"GET"];
+//    [request setURL:[NSURL URLWithString:@"https://qa.onescreen.kotter.net/user/infoforlinphone"]];
+//    [request setValue:@"Authorization" forHTTPHeaderField:header];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+//    NSLog(@"linphonerest request header  %@", header);
+//    NSError *error = nil;
+//    NSHTTPURLResponse *responseCode = nil;
+//
+//    NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
+//
+//    if([responseCode statusCode] != 200){
+//        NSLog(@"Error getting , HTTP status code %li", (long)[responseCode statusCode]);
+//        return nil;
+//    }
+//
+//    return [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
+}
+     -(void) setDomainAndTransport:(NSString *)token {
+        [self getDataFrom:token];
+        
         NSString *usrname = @"105";
           NSString *Domain = @"qa-kotter-test.qa.kotter.net";
           NSString *Password = @"12345";
@@ -1671,7 +1717,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                 NSLog(@"the result tocken is %@",resultsDictionary);
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self setDomainAndTransport];
+                    [self setDomainAndTransport:[resultsDictionary objectForKey:@"token"]];
                    // [PhoneMainView.instance popToView:DialerView.compositeViewDescription];
                     _Username.text = @"";
                     _Password.text = @"";
