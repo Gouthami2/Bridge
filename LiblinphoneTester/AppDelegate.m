@@ -7,17 +7,41 @@
 //
 
 #import "AppDelegate.h"
-
+@import Firebase;
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+    [FIRApp configure];
+    [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
+    [GIDSignIn sharedInstance].delegate = self;
+    
+    // Override point for customization after application launch.
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
 		UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
 		UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
 		splitViewController.delegate = (id)navigationController.topViewController;
+        
+        FirebaseApp.configure()
 	}
 	return YES;
+}
+
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    if (error == nil) {
+        GIDAuthentication *authentication = user.authentication;
+        FIRAuthCredential *credential =
+        [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+                                         accessToken:authentication.accessToken];
+        [[FIRAuth auth] signInWithCredential:credential completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error %@", error.localizedDescription);
+            }
+        }];
+    } else {
+        NSLog(@"Error %@", error.localizedDescription);
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

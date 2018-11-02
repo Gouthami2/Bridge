@@ -67,6 +67,20 @@ static NSString *sNameOrEmailFilter;
 	return sNameOrEmailFilter;
 }
 
+//
+//-(UITableViewCell *)tableview:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+//    if(!cell) {
+//        cell = [[UITableViewCell alloc] init];
+//    }
+////    NSDictionary *review = [response objectAtIndex:indexPath.row];
+////    NSString *name = [review objectForKey:@"user_uuid"];
+////    cell.textLabel.text = name;
+////    return cell;
+//}
+
+
 @end
 
 @implementation ContactsListView
@@ -104,7 +118,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 #pragma mark - ViewController Functions
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
+    [super viewDidLoad];
 	tableController.tableView.accessibilityIdentifier = @"Contacts table";
 	[self changeView:ContactsAll];
 	/*if ([tableController totalNumberOfItems] == 0) {

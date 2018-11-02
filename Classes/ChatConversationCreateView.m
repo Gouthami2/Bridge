@@ -127,6 +127,7 @@ typedef enum { ContactsAll, ContactsLinphone, ContactsMAX } ContactsCategory;
 		_tableController.allFilter = TRUE;
 		[_tableController loadData];
 	} else if (view == ContactsLinphone && !_linphoneButton.selected) {
+    
 		frame.origin.x = _linphoneButton.frame.origin.x;
 		_linphoneButton.selected = TRUE;
 		_allButton.selected = FALSE;

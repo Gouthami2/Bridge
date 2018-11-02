@@ -165,7 +165,7 @@ static RootViewManager *rootViewManagerInstance = nil;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-  
+
 	volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(-100, -100, 16, 16)];
 	volumeView.showsRouteButton = false;
 	volumeView.userInteractionEnabled = false;
@@ -505,6 +505,7 @@ static RootViewManager *rootViewManagerInstance = nil;
 	}
 }
 - (void)startUp {
+
 	@try {
 		LinphoneManager *lm = LinphoneManager.instance;
                 LOGI(@"%s", linphone_global_state_to_string(

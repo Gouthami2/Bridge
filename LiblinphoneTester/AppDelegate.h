@@ -12,4 +12,8 @@
 
 @property(strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) FIRDatabaseReference *ref;
+
+self.ref = [[FIRDatabase database] reference];
+
 @end
