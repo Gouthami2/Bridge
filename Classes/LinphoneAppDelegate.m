@@ -16,7 +16,8 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
+#import <Firebase/Firebase.h>
+#import <FirebaseAuth/FirebaseAuth.h>
 #import "LinphoneAppDelegate.h"
 #import "ContactDetailsView.h"
 #import "ContactsListView.h"
@@ -248,6 +249,7 @@ shouldRestoreApplicationState:(NSCoder *)coder; {
 #pragma deploymate pop
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [FIRApp configure];
     UIApplication *app = [UIApplication sharedApplication];
 	UIApplicationState state = app.applicationState;
 

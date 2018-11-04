@@ -16,7 +16,10 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
+#import <Firebase/Firebase.h>
+#import <FirebaseAuth/FirebaseAuth.h>
+#import <FirebaseCore/FirebaseCore.h>
+#import <FirebaseDatabase/FirebaseDatabase.h>
 #import <UIKit/UIKit.h>
 
 #import "UICompositeView.h"
@@ -82,6 +85,8 @@ typedef enum _ContactSelectionMode { ContactSelectionModeNone, ContactSelectionM
 @property(strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property(weak, nonatomic) IBOutlet UIIconButton *deleteButton;
 @property(weak, nonatomic) IBOutlet UIImageView *selectedButtonImage;
+
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 
 - (IBAction)onAllClick:(id)event;
 - (IBAction)onLinphoneClick:(id)event;

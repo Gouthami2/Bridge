@@ -16,7 +16,10 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
+#import <Firebase/Firebase.h>
+#import <FirebaseAuth/FirebaseAuth.h>
+#import <FirebaseCore/FirebaseCore.h>
+#import <FirebaseDatabase/FirebaseDatabase.h>
 #import "PhoneMainView.h"
 
 @implementation ContactSelection
@@ -130,6 +133,27 @@ static UICompositeViewDescription *compositeDescription = nil;
 	
 	[tap setDelegate:self];
 	[self.view addGestureRecognizer:tap];
+    
+    self.ref = [[FIRDatabase database] reference];
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSLog(@" firebse userID %@", userID);
+    
+    [[[[self.ref child:@"qa"] child:@"domains"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSDictionary *dict = snapshot.value;
+        NSLog(@"%@",dict);
+        
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
+    
+//    [[[_ref child:@"tkg-bridge"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+//        // Get user value
+//         NSDictionary *usersDict = snapshot.value;
+//        NSLog(@" firebse user info %@", usersDict);
+//        // ...
+//    } withCancelBlock:^(NSError * _Nonnull error) {
+//        NSLog(@"%@", error.localizedDescription);
+//    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

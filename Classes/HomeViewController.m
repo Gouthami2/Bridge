@@ -4,7 +4,8 @@
 //
 //  Created by Gouthami Reddy on 10/25/18.
 //
-
+#import <Firebase/Firebase.h>
+#import <FirebaseAuth/FirebaseAuth.h>
 #import "HomeViewController.h"
 #import "PhoneMainView.h"
 #import "UICompositeView.h"
@@ -139,6 +140,13 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 - (IBAction)logout:(id)sender {
+    
+    NSError *signOutError;
+    BOOL status = [[FIRAuth auth] signOut:&signOutError];
+    if (!status) {
+        NSLog(@"Error signing out: %@", signOutError);
+        return;
+    }
     [PhoneMainView.instance
      changeCurrentView:AssistantView.compositeViewDescription];
     [PhoneMainView.instance hideStatusBar:YES];

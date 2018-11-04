@@ -17,7 +17,8 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
+#import <Firebase/Firebase.h>
+#import <FirebaseAuth/FirebaseAuth.h>
 #import "linphone/linphonecore_utils.h"
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -1353,103 +1354,120 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
     })
      }
 
-     -(void) setDomainAndTransport:(NSString *)token {
-         
-          __block NSMutableDictionary *resp ;
-         NSString *authHeader = [NSString stringWithFormat:@"%@%@", @"Bearer ", token];
-         
-         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-         [request setURL:[NSURL URLWithString:@"https://qa.onescreen.kotter.net/user/infoforlinphone"]];
-         [request setHTTPMethod:@"GET"];
-         [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
-         NSLog(@" authHeader is %@", authHeader);
-         
-         NSOperationQueue *queue = [NSOperationQueue new];
-         [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-             if ([data length]>0 && error == nil) { // success rest call
-                 resp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
-                 NSLog(@"the response is %@",response);
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     
+-(void) setDomainAndTransport:(NSString *)token {
     
-                    
-                     NSLog(@"the user infoforlinphone rest response is %@",resp);
+    __block NSMutableDictionary *resp ;
+    NSString *authHeader = [NSString stringWithFormat:@"%@%@", @"Bearer ", token];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"https://qa.onescreen.kotter.net/user/infoforlinphone"]];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
+    NSLog(@" authHeader is %@", authHeader);
+    
+    NSOperationQueue *queue = [NSOperationQueue new];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+        if ([data length]>0 && error == nil) { // success rest call
+            resp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+            NSLog(@"the response is %@",response);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                
+                
+                NSLog(@"the user infoforlinphone rest response is %@",resp);
+                
+                NSDictionary *sucessData = [resp valueForKey:@"success"];
+                NSDictionary *data = [sucessData valueForKey:@"data"];
+                
+                NSDictionary *firebase_info = [data objectForKey:@"firebase_info"];
+                NSString *firebaseEmail = [firebase_info objectForKey:@"email"];
+                NSString *firebasePwd = [firebase_info objectForKey:@"pass"];
+                
+                [[FIRAuth auth] signInWithEmail: firebaseEmail
+                                       password: firebasePwd
+                                     completion:^(FIRAuthDataResult * _Nullable authResult,
+                                                  NSError * _Nullable error) {
+                                         
+                                         if(error == nil){
+                                             NSLog(@"authResult is %@", authResult);
+                                         }
+                                     }];
+                
+                NSString *usrname = [data objectForKey:@"username"];
+                NSString *Domain = [data objectForKey:@"domain_name"];
+                NSString *Password = @"12345";
+                
+                NSString *domain = [self findTextField:ViewElement_Domain].text = Domain;
+                NSString *username = [self findTextField:ViewElement_Username].text = usrname;
+                NSString *displayName = [self findTextField:ViewElement_DisplayName].text;
+                NSString *pwd = [self findTextField:ViewElement_Password].text = Password;
+                LinphoneProxyConfig *config = linphone_core_create_proxy_config(LC);
+                LinphoneAddress *addr = linphone_address_new(NULL);
+                LinphoneAddress *tmpAddr = linphone_address_new([NSString stringWithFormat:@"sip:%@",domain].UTF8String);
+                linphone_address_set_username(addr, username.UTF8String);
+                linphone_address_set_port(addr, linphone_address_get_port(tmpAddr));
+                linphone_address_set_domain(addr, linphone_address_get_domain(tmpAddr));
+                if (displayName && ![displayName isEqualToString:@""]) {
+                    linphone_address_set_display_name(addr, displayName.UTF8String);
+                }
+                linphone_proxy_config_set_identity_address(config, addr);
+                
+                // set transport
+                //        UISegmentedControl *transports = (UISegmentedControl *)[self findView:ViewElement_Transport
+                //                                                                       inView:self.contentView
+                //                                                                       ofType:UISegmentedControl.class];
+                //if (transports) {
+                
+                NSString *type = @"UDP";
+                linphone_proxy_config_set_route(
+                                                config,
+                                                [NSString stringWithFormat:@"%s;transport=%s", domain.UTF8String, type.lowercaseString.UTF8String]
+                                                .UTF8String);
+                linphone_proxy_config_set_server_addr(
+                                                      config,
+                                                      [NSString stringWithFormat:@"%s;transport=%s", domain.UTF8String, type.lowercaseString.UTF8String]
+                                                      .UTF8String);
+                //}
+                
+                linphone_proxy_config_enable_publish(config, FALSE);
+                linphone_proxy_config_enable_register(config, TRUE);
+                
+                LinphoneAuthInfo *info =
+                linphone_auth_info_new(linphone_address_get_username(addr), // username
+                                       NULL,								// user id
+                                       pwd.UTF8String,						// passwd
+                                       NULL,								// ha1
+                                       linphone_address_get_domain(addr),   // realm - assumed to be domain
+                                       linphone_address_get_domain(addr)	// domain
+                                       );
+                linphone_core_add_auth_info(LC, info);
+                linphone_address_unref(addr);
+                linphone_address_unref(tmpAddr);
+                
+                if (config) {
+                    [[LinphoneManager instance] configurePushTokenForProxyConfig:config];
+                    if (linphone_core_add_proxy_config(LC, config) != -1) {
+                        linphone_core_set_default_proxy_config(LC, config);
+                        // reload address book to prepend proxy config domain to contacts' phone number
+                        // todo: STOP doing that!
+                        [[LinphoneManager.instance fastAddressBook] fetchContactsInBackGroundThread];
+                        [PhoneMainView.instance changeCurrentView:HomeViewController.compositeViewDescription];
+                        // [self changeView:_menuView back:TRUE animation:TRUE];
+                    } else {
+                        [self displayAssistantConfigurationError];
+                    }
+                } else {
+                    [self displayAssistantConfigurationError];
+                }
+                //});
+                
+            });
+        }
+        else {
+            NSLog(@"%@rror for linphone rest call @", error);
+        }
         
-         NSDictionary *sucessData = [resp valueForKey:@"success"];
-        NSDictionary *data = [sucessData valueForKey:@"data"];
-        
-        NSString *usrname = [data objectForKey:@"username"];
-        NSString *Domain = [data objectForKey:@"domain_name"];
-        NSString *Password = @"12345";
-        
-		NSString *domain = [self findTextField:ViewElement_Domain].text = Domain;
-		NSString *username = [self findTextField:ViewElement_Username].text = usrname;
-		NSString *displayName = [self findTextField:ViewElement_DisplayName].text;
-		NSString *pwd = [self findTextField:ViewElement_Password].text = Password;
-		LinphoneProxyConfig *config = linphone_core_create_proxy_config(LC);
-		LinphoneAddress *addr = linphone_address_new(NULL);
-		LinphoneAddress *tmpAddr = linphone_address_new([NSString stringWithFormat:@"sip:%@",domain].UTF8String);
-		linphone_address_set_username(addr, username.UTF8String);
-		linphone_address_set_port(addr, linphone_address_get_port(tmpAddr));
-		linphone_address_set_domain(addr, linphone_address_get_domain(tmpAddr));
-		if (displayName && ![displayName isEqualToString:@""]) {
-			linphone_address_set_display_name(addr, displayName.UTF8String);
-		}
-		linphone_proxy_config_set_identity_address(config, addr);
-                     
-		// set transport
-//        UISegmentedControl *transports = (UISegmentedControl *)[self findView:ViewElement_Transport
-//                                                                       inView:self.contentView
-//                                                                       ofType:UISegmentedControl.class];
-		//if (transports) {
-                     
-        NSString *type = @"UDP";
-			linphone_proxy_config_set_route(
-				config,
-				[NSString stringWithFormat:@"%s;transport=%s", domain.UTF8String, type.lowercaseString.UTF8String]
-					.UTF8String);
-			linphone_proxy_config_set_server_addr(
-				config,
-				[NSString stringWithFormat:@"%s;transport=%s", domain.UTF8String, type.lowercaseString.UTF8String]
-					.UTF8String);
-		//}
-
-		linphone_proxy_config_enable_publish(config, FALSE);
-		linphone_proxy_config_enable_register(config, TRUE);
-
-		LinphoneAuthInfo *info =
-			linphone_auth_info_new(linphone_address_get_username(addr), // username
-								   NULL,								// user id
-								   pwd.UTF8String,						// passwd
-								   NULL,								// ha1
-								   linphone_address_get_domain(addr),   // realm - assumed to be domain
-								   linphone_address_get_domain(addr)	// domain
-								   );
-		linphone_core_add_auth_info(LC, info);
-		linphone_address_unref(addr);
-		linphone_address_unref(tmpAddr);
-
-		if (config) {
-			[[LinphoneManager instance] configurePushTokenForProxyConfig:config];
-			if (linphone_core_add_proxy_config(LC, config) != -1) {
-				linphone_core_set_default_proxy_config(LC, config);
-				// reload address book to prepend proxy config domain to contacts' phone number
-				// todo: STOP doing that!
-				[[LinphoneManager.instance fastAddressBook] fetchContactsInBackGroundThread];
-                 [PhoneMainView.instance changeCurrentView:HomeViewController.compositeViewDescription];
-                // [self changeView:_menuView back:TRUE animation:TRUE];
-			} else {
-			  [self displayAssistantConfigurationError];
-			}
-		} else {
-		  [self displayAssistantConfigurationError];
-		}
-	//});
-                     
-                 });
-             }
-             
-         }];
+    }];
 }
 
 - (IBAction)onRemoteProvisioningLoginClick:(id)sender {

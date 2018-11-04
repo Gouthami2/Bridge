@@ -139,6 +139,7 @@ static int ms_strcmpfuz(const char *fuzzy_word, const char *sentence) {
 		[LinphoneManager.instance setContactsUpdated:FALSE];
 		@synchronized(addressBookMap) {
 			NSDictionary *allContacts = [[NSMutableDictionary alloc] initWithDictionary:LinphoneManager.instance.fastAddressBook.addressBookMap];
+            NSLog(@" linphone contacts %@", allContacts);
 			sortedAddresses = [[LinphoneManager.instance.fastAddressBook.addressBookMap allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
 				Contact* first =  [allContacts objectForKey:a];
 				Contact* second =  [allContacts objectForKey:b];
@@ -152,6 +153,7 @@ static int ms_strcmpfuz(const char *fuzzy_word, const char *sentence) {
 			LOGI(@"====>>>> Load contact list - Start 2 !!");
 			//Set all contacts from ContactCell to nil
 			for (NSInteger j = 0; j < [self.tableView numberOfSections]; ++j){
+                
 				for (NSInteger i = 0; i < [self.tableView numberOfRowsInSection:j]; ++i)
 				{
 					[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]] setContact:nil];
@@ -221,6 +223,8 @@ static int ms_strcmpfuz(const char *fuzzy_word, const char *sentence) {
 	}
 	LOGI(@"====>>>> Load contact list - End");
 	[super loadData];
+
+    
 	_ongoing = FALSE;
 }
 
@@ -348,12 +352,15 @@ static int ms_strcmpfuz(const char *fuzzy_word, const char *sentence) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
 	NSString *kCellId = NSStringFromClass(UIContactCell.class);
 	UIContactCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
+    
 	if (cell == nil) {
 		cell = [[UIContactCell alloc] initWithIdentifier:kCellId];
 	}
 	NSMutableArray *subAr = [addressBookMap objectForKey:[addressBookMap keyAtIndex:[indexPath section]]];
+
 	Contact *contact = subAr[indexPath.row];
 
 	// Cached avatar
