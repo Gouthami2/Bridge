@@ -742,7 +742,6 @@
 		8CF25D961F9F336100BEA0C1 /* check_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D941F9F336100BEA0C1 /* check_unselected.png */; };
 		8CF25D9D1F9F76BD00BEA0C1 /* chat_group_informations.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D9B1F9F76BC00BEA0C1 /* chat_group_informations.png */; };
 		8CF25D9E1F9F76BD00BEA0C1 /* chat_group_informations@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D9C1F9F76BD00BEA0C1 /* chat_group_informations@2x.png */; };
-		B01D16DC217E2F7000BE4925 /* bridgeicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16D5217E2F7000BE4925 /* bridgeicon1.png */; };
 		B01D16DE217E2F7500BE4925 /* VideoConference.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16DD217E2F7500BE4925 /* VideoConference.png */; };
 		B01D16E0217E2F7A00BE4925 /* ChatPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16DF217E2F7A00BE4925 /* ChatPlus.png */; };
 		B01D16E2217E2F7F00BE4925 /* DailerMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16E1217E2F7F00BE4925 /* DailerMenu.png */; };
@@ -1877,7 +1876,6 @@
 		8CF25D9B1F9F76BC00BEA0C1 /* chat_group_informations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_group_informations.png; sourceTree = "<group>"; };
 		8CF25D9C1F9F76BD00BEA0C1 /* chat_group_informations@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_group_informations@2x.png"; sourceTree = "<group>"; };
 		A1652A9174A503F3643E321B /* Pods-linphone.distributionadhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-linphone.distributionadhoc.xcconfig"; path = "Pods/Target Support Files/Pods-linphone/Pods-linphone.distributionadhoc.xcconfig"; sourceTree = "<group>"; };
-		B01D16D5217E2F7000BE4925 /* bridgeicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bridgeicon1.png; sourceTree = "<group>"; };
 		B01D16DD217E2F7500BE4925 /* VideoConference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VideoConference.png; sourceTree = "<group>"; };
 		B01D16DF217E2F7A00BE4925 /* ChatPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatPlus.png; sourceTree = "<group>"; };
 		B01D16E1217E2F7F00BE4925 /* DailerMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DailerMenu.png; sourceTree = "<group>"; };
@@ -2786,7 +2784,6 @@
 				B01D16E1217E2F7F00BE4925 /* DailerMenu.png */,
 				B01D16DF217E2F7A00BE4925 /* ChatPlus.png */,
 				B01D16DD217E2F7500BE4925 /* VideoConference.png */,
-				B01D16D5217E2F7000BE4925 /* bridgeicon1.png */,
 				B0C273AD218F2D0300675640 /* bridgeicon1.png */,
 				B083F59C21763AD000502D7A /* password icon.png */,
 				B083F599217633D100502D7A /* loginbutton.png */,
@@ -4303,7 +4300,6 @@
 				633FEECB1D3CD55A0014B822 /* numpad_6_default.png in Resources */,
 				633FEDC71D3CD5590014B822 /* call_incoming@2x.png in Resources */,
 				633FEDB81D3CD5590014B822 /* call_alt_start_disabled.png in Resources */,
-				B01D16DC217E2F7000BE4925 /* bridgeicon1.png in Resources */,
 				633FEF3C1D3CD55A0014B822 /* security_ok.png in Resources */,
 				633FEEAF1D3CD55A0014B822 /* numpad_2_over~ipad.png in Resources */,
 				633FEEB81D3CD55A0014B822 /* numpad_3_over~ipad@2x.png in Resources */,

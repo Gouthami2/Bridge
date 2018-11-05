@@ -16,6 +16,10 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
+#import <Firebase/Firebase.h>
+#import <FirebaseAuth/FirebaseAuth.h>
+#import <FirebaseCore/FirebaseCore.h>
+#import <FirebaseDatabase/FirebaseDatabase.h>
 
 #import <Foundation/Foundation.h>
 #import <AddressBook/AddressBook.h>
@@ -26,7 +30,11 @@
 @interface FastAddressBook : NSObject
 
 @property(readonly, nonatomic) NSMutableDictionary *addressBookMap;
+
+@property(nonatomic, retain) NSMutableDictionary  *dictFireBase;
 @property BOOL needToUpdate;
+
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 
 - (void) fetchContactsInBackGroundThread;
 - (BOOL)deleteContact:(Contact *)contact;

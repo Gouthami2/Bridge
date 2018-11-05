@@ -16,6 +16,12 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
+
+#import <Firebase/Firebase.h>
+#import <FirebaseAuth/FirebaseAuth.h>
+#import <FirebaseCore/FirebaseCore.h>
+#import <FirebaseDatabase/FirebaseDatabase.h>
+
 #ifdef __IPHONE_9_0
 #import <Contacts/Contacts.h>
 #endif
@@ -24,8 +30,12 @@
 #import "ContactsListView.h"
 #import "Utils.h"
 
+
 @implementation FastAddressBook {
 	CNContactStore* store;
+    
+    
+
 }
 
 + (UIImage *)imageForContact:(Contact *)contact {
@@ -170,6 +180,7 @@
 				  NSLog(@"error fetching contacts %@",
 						contactError);
 				} else {
+                    NSLog(@"adddders book %@", contact);
 					
 					dispatch_async(dispatch_get_main_queue(), ^{
 						Contact *newContact = [[Contact alloc] initWithCNContact:contact];
@@ -181,7 +192,39 @@
 		}
 
 	}];
-	// load Linphone friends
+    
+    //======TEST======//
+    self.ref = [[FIRDatabase database] reference];
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSLog(@" firebse userID %@", userID);
+
+    [[[[self.ref child:@"qa"] child:@"domains"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        _dictFireBase = snapshot.value;
+        NSLog(@"===firebase data ===%@",_dictFireBase);
+        
+        NSMutableDictionary *domainContacts = [_dictFireBase objectForKey:@"domaincontacts"];
+        
+        for (NSString *key in domainContacts)
+        {
+            NSDictionary *bridgeContacts = domainContacts[key];
+            NSLog(@"===firebase contacts info===%@",bridgeContacts);
+            
+            // assign all these bridgeContacts to Contact object and call self.registerAddrsFor to add contacts in _addressBookMap.
+            
+            //            NSString *firstName = [bridgeContacts valueForKey:@"contact_name_given"];
+            //            NSString *lastName = [bridgeContacts valueForKey:@"contact_name_family"];
+            //            NSString *displayName = [bridgeContacts valueForKey:@"contact_name_full"];
+            //            NSString *phoneNumber = [bridgeContacts valueForKey:@"contact_name_given"];
+            
+            
+            //            [self registerAddrsFor:contact];
+            
+        }
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
+    
+    // load Linphone friends
 	const MSList *lists = linphone_core_get_friends_lists(LC);
 	while (lists) {
 		LinphoneFriendList *fl = lists->data;

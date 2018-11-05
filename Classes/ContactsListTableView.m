@@ -431,7 +431,13 @@ static int ms_strcmpfuz(const char *fuzzy_word, const char *sentence) {
 		[NSNotificationCenter.defaultCenter	addObserver:self selector:@selector(onAddressBookUpdate:)
                            name:kLinphoneAddressBookUpdate
                          object:nil];
-	   	[self loadData];
+        
+        
+        // Remove the row from data model
+        
+        //[tableView removeObjectAtIndex:indexPath.row];
+
+        [self loadData];
 	}
 }
 

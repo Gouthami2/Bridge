@@ -140,7 +140,7 @@ static UICompositeViewDescription *compositeDescription = nil;
     
     [[[[self.ref child:@"qa"] child:@"domains"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSDictionary *dict = snapshot.value;
-        NSLog(@"%@",dict);
+        NSLog(@"===Gowtahmi===%@",dict);
         
     } withCancelBlock:^(NSError * _Nonnull error) {
         NSLog(@"%@", error.localizedDescription);
