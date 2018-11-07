@@ -29,6 +29,7 @@
 #import "LinphoneManager.h"
 #import "ContactsListView.h"
 #import "Utils.h"
+#import "Contact.h"
 
 
 @implementation FastAddressBook {
@@ -193,37 +194,6 @@
 
 	}];
     
-    //======TEST======//
-    self.ref = [[FIRDatabase database] reference];
-    NSString *userID = [FIRAuth auth].currentUser.uid;
-    NSLog(@" firebse userID %@", userID);
-
-    [[[[self.ref child:@"qa"] child:@"domains"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        _dictFireBase = snapshot.value;
-        NSLog(@"===firebase data ===%@",_dictFireBase);
-        
-        NSMutableDictionary *domainContacts = [_dictFireBase objectForKey:@"domaincontacts"];
-        
-        for (NSString *key in domainContacts)
-        {
-            NSDictionary *bridgeContacts = domainContacts[key];
-            NSLog(@"===firebase contacts info===%@",bridgeContacts);
-            
-            // assign all these bridgeContacts to Contact object and call self.registerAddrsFor to add contacts in _addressBookMap.
-            
-            //            NSString *firstName = [bridgeContacts valueForKey:@"contact_name_given"];
-            //            NSString *lastName = [bridgeContacts valueForKey:@"contact_name_family"];
-            //            NSString *displayName = [bridgeContacts valueForKey:@"contact_name_full"];
-            //            NSString *phoneNumber = [bridgeContacts valueForKey:@"contact_name_given"];
-            
-            
-            //            [self registerAddrsFor:contact];
-            
-        }
-    } withCancelBlock:^(NSError * _Nonnull error) {
-        NSLog(@"%@", error.localizedDescription);
-    }];
-    
     // load Linphone friends
 	const MSList *lists = linphone_core_get_friends_lists(LC);
 	while (lists) {
@@ -246,6 +216,61 @@
 	 postNotificationName:kLinphoneAddressBookUpdate
 	 object:self];
 }
+
+- (void) fetchFirebaseContactsInBackGroundThreadWithEmail:(NSString *)firebaseEmail password: (NSString *) firebasePwd  {
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        // authenticating firebase with email and password.
+        [[FIRAuth auth] signInWithEmail: firebaseEmail
+                               password: firebasePwd
+                             completion:^(FIRAuthDataResult * _Nullable authResult,
+                                          NSError * _Nullable error) {
+                                 
+                                 if(error != nil){
+                                     NSLog(@"fire authenticaion error is %@", error);
+                                     return;
+                                 }
+                                 
+                                 self.ref = [[FIRDatabase database] reference];
+                                 NSString *userID = [FIRAuth auth].currentUser.uid;
+                                 NSLog(@" firebse userID %@", userID);
+                                 
+                                 [[[[self.ref child:@"qa"] child:@"domains"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                                     //        _dictFireBase = snapshot.value;
+                                     NSMutableDictionary *userContacts = [snapshot.value objectForKey:@"usercontacts"];
+                                     NSMutableDictionary *domainContacts = [snapshot.value objectForKey:@"domaincontacts"];
+                                     
+                                     for (NSString *key in userContacts)
+                                     {
+                                         NSDictionary *bridgeContacts = domainContacts[key];
+                                         NSArray *phones = [bridgeContacts valueForKey:@"phones"];
+                                         NSMutableArray *concatPhones = [[NSMutableArray alloc] initWithCapacity: 10];
+                                         // check null here for phones
+                                         [phones enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id phone, NSUInteger idx, BOOL *stop) {
+                                             id ph = [phone valueForKey:@"phone_number"];
+                                             if (ph != NULL) {
+                                                 [concatPhones addObject: ph];
+                                             }
+                                         }];
+                                         
+                                         CNContact *contact = [CNContact new];
+                                         [contact setValue:[bridgeContacts valueForKey:@"contact_name_given"] forKey:CNContactGivenNameKey];
+                                         [contact setValue:[bridgeContacts valueForKey:@"contact_name_family"] forKey:CNContactFamilyNameKey];
+                                         
+                                         Contact *newContact = [[Contact alloc] initWithCNContact:contact];
+                                         [newContact setPhones:concatPhones];
+                                         [newContact setSipAddresses: [NSMutableArray arrayWithArray: @[@"*"]]];
+                                         [self registerAddrsFor:newContact];
+                                         
+                                     }
+                                 } withCancelBlock:^(NSError * _Nonnull error) {
+                                     NSLog(@"%@", error.localizedDescription);
+                                 }];
+                                 
+                             }];
+        
+    });
+}
+
 
 -(void) updateAddressBook:(NSNotification*) notif {
 	LOGD(@"address book has changed");

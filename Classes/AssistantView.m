@@ -1363,35 +1363,20 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
     [request setURL:[NSURL URLWithString:@"https://qa.onescreen.kotter.net/user/infoforlinphone"]];
     [request setHTTPMethod:@"GET"];
     [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
-    NSLog(@" authHeader is %@", authHeader);
+    // NSLog(@" authHeader is %@", authHeader);
     
     NSOperationQueue *queue = [NSOperationQueue new];
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         if ([data length]>0 && error == nil) { // success rest call
             resp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
-            NSLog(@"the response is %@",response);
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                
-                
-                NSLog(@"the user infoforlinphone rest response is %@",resp);
+               // NSLog(@"the user infoforlinphone rest response is %@",resp);
                 
                 NSDictionary *sucessData = [resp valueForKey:@"success"];
                 NSDictionary *data = [sucessData valueForKey:@"data"];
                 
                 NSDictionary *firebase_info = [data objectForKey:@"firebase_info"];
-                NSString *firebaseEmail = [firebase_info objectForKey:@"email"];
-                NSString *firebasePwd = [firebase_info objectForKey:@"pass"];
-                
-                [[FIRAuth auth] signInWithEmail: firebaseEmail
-                                       password: firebasePwd
-                                     completion:^(FIRAuthDataResult * _Nullable authResult,
-                                                  NSError * _Nullable error) {
-                                         
-                                         if(error == nil){
-                                             NSLog(@"authResult is %@", authResult);
-                                         }
-                                     }];
                 
                 NSString *usrname = [data objectForKey:@"username"];
                 NSString *Domain = [data objectForKey:@"domain_name"];
@@ -1445,12 +1430,16 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                 linphone_address_unref(tmpAddr);
                 
                 if (config) {
+                    NSString *firebaseEmail = [firebase_info objectForKey:@"email"];
+                    NSString *firebasePwd = [firebase_info objectForKey:@"pass"];
+
                     [[LinphoneManager instance] configurePushTokenForProxyConfig:config];
                     if (linphone_core_add_proxy_config(LC, config) != -1) {
                         linphone_core_set_default_proxy_config(LC, config);
                         // reload address book to prepend proxy config domain to contacts' phone number
                         // todo: STOP doing that!
                         [[LinphoneManager.instance fastAddressBook] fetchContactsInBackGroundThread];
+                        [[LinphoneManager.instance fastAddressBook] fetchFirebaseContactsInBackGroundThreadWithEmail:firebaseEmail password:firebasePwd];
                         [PhoneMainView.instance changeCurrentView:HomeViewController.compositeViewDescription];
                         // [self changeView:_menuView back:TRUE animation:TRUE];
                     } else {

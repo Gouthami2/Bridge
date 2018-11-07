@@ -139,7 +139,6 @@ static int ms_strcmpfuz(const char *fuzzy_word, const char *sentence) {
 		[LinphoneManager.instance setContactsUpdated:FALSE];
 		@synchronized(addressBookMap) {
 			NSDictionary *allContacts = [[NSMutableDictionary alloc] initWithDictionary:LinphoneManager.instance.fastAddressBook.addressBookMap];
-            NSLog(@" linphone contacts %@", allContacts);
 			sortedAddresses = [[LinphoneManager.instance.fastAddressBook.addressBookMap allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
 				Contact* first =  [allContacts objectForKey:a];
 				Contact* second =  [allContacts objectForKey:b];

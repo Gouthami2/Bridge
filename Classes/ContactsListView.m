@@ -146,14 +146,15 @@ static UICompositeViewDescription *compositeDescription = nil;
         NSLog(@"%@", error.localizedDescription);
     }];
     
-//    [[[_ref child:@"tkg-bridge"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-//        // Get user value
-//         NSDictionary *usersDict = snapshot.value;
-//        NSLog(@" firebse user info %@", usersDict);
-//        // ...
-//    } withCancelBlock:^(NSError * _Nonnull error) {
-//        NSLog(@"%@", error.localizedDescription);
-//    }];
+    
+    [[[_ref child:@"tkg-bridge"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        // Get user value
+         NSDictionary *usersDict = snapshot.value;
+        NSLog(@" firebse user info %@", usersDict);
+        // ...
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

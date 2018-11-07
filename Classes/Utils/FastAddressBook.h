@@ -31,12 +31,15 @@
 
 @property(readonly, nonatomic) NSMutableDictionary *addressBookMap;
 
+
+
 @property(nonatomic, retain) NSMutableDictionary  *dictFireBase;
 @property BOOL needToUpdate;
 
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 
 - (void) fetchContactsInBackGroundThread;
+- (void) fetchFirebaseContactsInBackGroundThreadWithEmail:(NSString *)firebaseEmail password: (NSString *) firebasePwd;
 - (BOOL)deleteContact:(Contact *)contact;
 - (BOOL)deleteCNContact:(CNContact *)CNContact;
 - (BOOL)deleteAllContacts;
