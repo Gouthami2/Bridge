@@ -39,7 +39,7 @@
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 
 - (void) fetchContactsInBackGroundThread;
-- (void) fetchFirebaseContactsInBackGroundThreadWithEmail:(NSString *)firebaseEmail password: (NSString *) firebasePwd;
+- (void) fetchFirebaseContactsInBackGroundThread:(NSDictionary *)data;
 - (BOOL)deleteContact:(Contact *)contact;
 - (BOOL)deleteCNContact:(CNContact *)CNContact;
 - (BOOL)deleteAllContacts;

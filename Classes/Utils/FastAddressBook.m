@@ -30,6 +30,7 @@
 #import "ContactsListView.h"
 #import "Utils.h"
 #import "Contact.h"
+#import "PhoneMainView.h"
 
 
 @implementation FastAddressBook {
@@ -217,9 +218,18 @@
 	 object:self];
 }
 
-- (void) fetchFirebaseContactsInBackGroundThreadWithEmail:(NSString *)firebaseEmail password: (NSString *) firebasePwd  {
+- (void) fetchFirebaseContactsInBackGroundThread:(NSDictionary *)data  {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        // authenticating firebase with email and password.
+        NSDictionary *exportType = [data objectForKey:@"exportType"];
+        NSDictionary *firebase_info = [data objectForKey:@"firebase_info"];
+        NSDictionary *userUuid = [data objectForKey:@"user_uuid"];
+        
+        
+        NSString *partnerCode = [exportType objectForKey:@"partner_code"];
+        NSString *firebaseEmail = [firebase_info objectForKey:@"email"];
+        NSString *firebasePwd = [firebase_info objectForKey:@"pass"];
+        
+        
         [[FIRAuth auth] signInWithEmail: firebaseEmail
                                password: firebasePwd
                              completion:^(FIRAuthDataResult * _Nullable authResult,
@@ -235,41 +245,137 @@
                                  NSLog(@" firebse userID %@", userID);
                                  
                                  [[[[self.ref child:@"qa"] child:@"domains"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-                                     //        _dictFireBase = snapshot.value;
-                                     NSMutableDictionary *userContacts = [snapshot.value objectForKey:@"usercontacts"];
-                                     NSMutableDictionary *domainContacts = [snapshot.value objectForKey:@"domaincontacts"];
+                                     NSMutableDictionary *firebaseData = snapshot.value;
+                                     NSMutableDictionary *userContacts = [firebaseData objectForKey:@"usercontacts"];
+                                     NSMutableDictionary *domainContacts = [firebaseData objectForKey:@"domaincontacts"];
+                                     NSMutableDictionary *qqContacts = [firebaseData objectForKey:@"qqcontacts"];
+                                     NSMutableDictionary *amsContacts = [firebaseData objectForKey:@"amscontacts"];
+                                     NSMutableDictionary *users = [firebaseData objectForKey:@"users"];
+                                     NSMutableDictionary *contactAndFavorites = users[userUuid];
+                                     NSMutableDictionary *contacts= [contactAndFavorites objectForKey:@"contacts"];
                                      
-                                     for (NSString *key in userContacts)
-                                     {
-                                         NSDictionary *bridgeContacts = domainContacts[key];
-                                         NSArray *phones = [bridgeContacts valueForKey:@"phones"];
-                                         NSMutableArray *concatPhones = [[NSMutableArray alloc] initWithCapacity: 10];
-                                         // check null here for phones
-                                         [phones enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id phone, NSUInteger idx, BOOL *stop) {
-                                             id ph = [phone valueForKey:@"phone_number"];
-                                             if (ph != NULL) {
-                                                 [concatPhones addObject: ph];
-                                             }
-                                         }];
+                                     // users will have either qq or ams contacts.
+                                     if([partnerCode  isEqual: @"qqcatalyst"]) {
+                                         for (NSString *key in qqContacts)
+                                         {
+                                             NSDictionary *bridgeContacts = domainContacts[key];
+                                             NSArray *phones = [bridgeContacts valueForKey:@"phones"];
+                                             NSMutableArray *concatPhones = [[NSMutableArray alloc] initWithCapacity: 10];
+                                             // check null here for phones
+                                             [phones enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id phone, NSUInteger idx, BOOL *stop) {
+                                                 id ph = [phone valueForKey:@"phone_number"];
+                                                 if (ph != NULL) {
+                                                     [concatPhones addObject: ph];
+                                                 }
+                                             }];
+                                             
+                                             CNContact *contact = [CNContact new];
+                                             [contact setValue:[bridgeContacts valueForKey:@"contact_name_given"] forKey:CNContactGivenNameKey];
+                                             [contact setValue:[bridgeContacts valueForKey:@"contact_name_family"] forKey:CNContactFamilyNameKey];
+                                             
+                                             Contact *newContact = [[Contact alloc] initWithCNContact:contact];
+                                             [newContact setPhones:concatPhones];
+                                             [newContact setSipAddresses: [NSMutableArray arrayWithArray: @[@"*"]]];
+                                             [self registerAddrsFor:newContact];
+                                             
+                                         }
                                          
-                                         CNContact *contact = [CNContact new];
-                                         [contact setValue:[bridgeContacts valueForKey:@"contact_name_given"] forKey:CNContactGivenNameKey];
-                                         [contact setValue:[bridgeContacts valueForKey:@"contact_name_family"] forKey:CNContactFamilyNameKey];
+                                     } else if([partnerCode  isEqual: @"ams360"]) {
+                                         for (NSString *key in amsContacts)
+                                         {
+                                             NSDictionary *bridgeContacts = domainContacts[key];
+                                             NSArray *phones = [bridgeContacts valueForKey:@"phones"];
+                                             NSMutableArray *concatPhones = [[NSMutableArray alloc] initWithCapacity: 10];
+                                             // check null here for phones
+                                             [phones enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id phone, NSUInteger idx, BOOL *stop) {
+                                                 id ph = [phone valueForKey:@"phone_number"];
+                                                 if (ph != NULL) {
+                                                     [concatPhones addObject: ph];
+                                                 }
+                                             }];
+                                             
+                                             CNContact *contact = [CNContact new];
+                                             [contact setValue:[bridgeContacts valueForKey:@"contact_name_given"] forKey:CNContactGivenNameKey];
+                                             [contact setValue:[bridgeContacts valueForKey:@"contact_name_family"] forKey:CNContactFamilyNameKey];
+                                             
+                                             Contact *newContact = [[Contact alloc] initWithCNContact:contact];
+                                             [newContact setPhones:concatPhones];
+                                             [newContact setSipAddresses: [NSMutableArray arrayWithArray: @[@"*"]]];
+                                             [self registerAddrsFor:newContact];
+                                             
+                                         }
+                                     }
+                                     
+                                     // to get users -> user_uuid --> contacts from root.
+                                     if(contacts != nil) {
+                                         for (NSString *key in contacts)
+                                         {
+                                             NSDictionary *bridgeContacts = domainContacts[key];
+                                             NSArray *phones = [bridgeContacts valueForKey:@"phones"];
+                                             NSMutableArray *concatPhones = [[NSMutableArray alloc] initWithCapacity: 10];
+                                             // check null here for phones
+                                             [phones enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id phone, NSUInteger idx, BOOL *stop) {
+                                                 id ph = [phone valueForKey:@"phone_number"];
+                                                 if (ph != NULL) {
+                                                     [concatPhones addObject: ph];
+                                                 }
+                                             }];
+                                             
+                                             CNContact *contact = [CNContact new];
+                                             [contact setValue:[bridgeContacts valueForKey:@"contact_name_given"] forKey:CNContactGivenNameKey];
+                                             [contact setValue:[bridgeContacts valueForKey:@"contact_name_family"] forKey:CNContactFamilyNameKey];
+                                             
+                                             Contact *newContact = [[Contact alloc] initWithCNContact:contact];
+                                             [newContact setPhones:concatPhones];
+                                             [newContact setSipAddresses: [NSMutableArray arrayWithArray: @[@"*"]]];
+                                             [self registerAddrsFor:newContact];
+                                             
+                                         }
+                                     }
+                                     
+                                     
+                                     // to get userContacts from root.
+                                     if( userContacts != nil){
                                          
-                                         Contact *newContact = [[Contact alloc] initWithCNContact:contact];
-                                         [newContact setPhones:concatPhones];
-                                         [newContact setSipAddresses: [NSMutableArray arrayWithArray: @[@"*"]]];
-                                         [self registerAddrsFor:newContact];
+                                         for (NSString *key in userContacts)
+                                         {
+                                             NSDictionary *bridgeContacts = domainContacts[key];
+                                             NSArray *phones = [bridgeContacts valueForKey:@"phones"];
+                                             NSMutableArray *concatPhones = [[NSMutableArray alloc] initWithCapacity: 10];
+                                             // check null here for phones
+                                             [phones enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id phone, NSUInteger idx, BOOL *stop) {
+                                                 id ph = [phone valueForKey:@"phone_number"];
+                                                 if (ph != NULL) {
+                                                     [concatPhones addObject: ph];
+                                                 }
+                                             }];
+                                             
+                                             CNContact *contact = [CNContact new];
+                                             [contact setValue:[bridgeContacts valueForKey:@"contact_name_given"] forKey:CNContactGivenNameKey];
+                                             [contact setValue:[bridgeContacts valueForKey:@"contact_name_family"] forKey:CNContactFamilyNameKey];
+                                             
+                                             Contact *newContact = [[Contact alloc] initWithCNContact:contact];
+                                             [newContact setPhones:concatPhones];
+                                             [newContact setSipAddresses: [NSMutableArray arrayWithArray: @[@"*"]]];
+                                             [self registerAddrsFor:newContact];
+                                             
+                                         }
                                          
                                      }
+                                     
+                                     
+                                     
+                                    [PhoneMainView.instance changeCurrentView:HomeViewController.compositeViewDescription];
+                                     
                                  } withCancelBlock:^(NSError * _Nonnull error) {
                                      NSLog(@"%@", error.localizedDescription);
                                  }];
-                                 
                              }];
         
     });
+
 }
+         
 
 
 -(void) updateAddressBook:(NSNotification*) notif {

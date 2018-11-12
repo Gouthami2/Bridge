@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		037673B207AAF266D9D7BBCB /* Pods_linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B0E83B28EDC178634E94E2 /* Pods_linphone.framework */; };
+		037673B207AAF266D9D7BBCB /* Pods_linphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B0E83B28EDC178634E94E2 /* Pods_linphone.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		152F22361B15E889008C0621 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 152F22351B15E889008C0621 /* libxml2.dylib */; };
 		15F728741B16FF9A00A1C901 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 152F22351B15E889008C0621 /* libxml2.dylib */; };
 		1D3623260D0F684500981E51 /* LinphoneAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* LinphoneAppDelegate.m */; };

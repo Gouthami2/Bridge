@@ -31,6 +31,9 @@
 #import "UITextField+DoneButton.h"
 #import "LinphoneAppDelegate.h"
 #import "HomeViewController.h"
+#import "SettingsView.h"
+#import "IASKAppSettingsViewController.h"
+#import "LinphoneCoreSettingsStore.h"
 
 typedef enum _ViewElement {
 	ViewElement_Username = 100,
@@ -418,7 +421,7 @@ shouldRestoreApplicationState:(NSCoder *)coder; {
 			
 		[errView addAction:defaultAction];
 		[self presentViewController:errView animated:YES completion:nil];
-		_waitView.hidden = YES;
+		 _waitView.hidden = YES;
 		return;
 	}
 
@@ -1348,6 +1351,8 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
     });
 }
 
+
+
 - (IBAction)onLoginClick:(id)sender {
     ONCLICKBUTTON(sender, 100, {
         _waitView.hidden = NO;
@@ -1376,15 +1381,16 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                 NSDictionary *sucessData = [resp valueForKey:@"success"];
                 NSDictionary *data = [sucessData valueForKey:@"data"];
                 
-                NSDictionary *firebase_info = [data objectForKey:@"firebase_info"];
+               // NSDictionary *firebase_info = [data objectForKey:@"firebase_info"];
                 
-                NSString *usrname = [data objectForKey:@"username"];
+                NSString *UserExtention = [data objectForKey:@"user_ext"];
                 NSString *Domain = [data objectForKey:@"domain_name"];
-                NSString *Password = @"12345";
+                NSString *Password = [data objectForKey:@"password"];
+                NSString *displayname = [data objectForKey:@"username"];
                 
                 NSString *domain = [self findTextField:ViewElement_Domain].text = Domain;
-                NSString *username = [self findTextField:ViewElement_Username].text = usrname;
-                NSString *displayName = [self findTextField:ViewElement_DisplayName].text;
+                NSString *username = [self findTextField:ViewElement_Username].text = UserExtention;
+                NSString *displayName = [self findTextField:ViewElement_DisplayName].text = displayname;
                 NSString *pwd = [self findTextField:ViewElement_Password].text = Password;
                 LinphoneProxyConfig *config = linphone_core_create_proxy_config(LC);
                 LinphoneAddress *addr = linphone_address_new(NULL);
@@ -1392,6 +1398,9 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                 linphone_address_set_username(addr, username.UTF8String);
                 linphone_address_set_port(addr, linphone_address_get_port(tmpAddr));
                 linphone_address_set_domain(addr, linphone_address_get_domain(tmpAddr));
+                
+            
+                
                 if (displayName && ![displayName isEqualToString:@""]) {
                     linphone_address_set_display_name(addr, displayName.UTF8String);
                 }
@@ -1430,8 +1439,8 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                 linphone_address_unref(tmpAddr);
                 
                 if (config) {
-                    NSString *firebaseEmail = [firebase_info objectForKey:@"email"];
-                    NSString *firebasePwd = [firebase_info objectForKey:@"pass"];
+//                    NSString *firebaseEmail = [firebase_info objectForKey:@"email"];
+//                    NSString *firebasePwd = [firebase_info objectForKey:@"pass"];
 
                     [[LinphoneManager instance] configurePushTokenForProxyConfig:config];
                     if (linphone_core_add_proxy_config(LC, config) != -1) {
@@ -1439,9 +1448,14 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                         // reload address book to prepend proxy config domain to contacts' phone number
                         // todo: STOP doing that!
                         [[LinphoneManager.instance fastAddressBook] fetchContactsInBackGroundThread];
-                        [[LinphoneManager.instance fastAddressBook] fetchFirebaseContactsInBackGroundThreadWithEmail:firebaseEmail password:firebasePwd];
-                        [PhoneMainView.instance changeCurrentView:HomeViewController.compositeViewDescription];
+                        [[LinphoneManager.instance fastAddressBook] fetchFirebaseContactsInBackGroundThread: data];
+                       // [PhoneMainView.instance changeCurrentView:HomeViewController.compositeViewDescription];
+                        
                         // [self changeView:_menuView back:TRUE animation:TRUE];
+                        
+                        // refresh settingsStore.
+//                        settingsStore = [[LinphoneCoreSettingsStore alloc] init];
+//                        [settingsStore synchronize];
                     } else {
                         [self displayAssistantConfigurationError];
                     }
@@ -1528,7 +1542,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 	}
 
 	if (uri) {
-		_accountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Your SIP address will be sip:105@qa-kotter-test.qa.kotter.net", nil), uri];
+		_accountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Your SIP address will be sip:%@@%@qa-kotter-test.qa.kotter.net", nil), uri];
 	} else if (!username.superview.hidden) {
 		_accountLabel.text = NSLocalizedString(@"Please enter your username", nil);
 	} else {
@@ -1687,6 +1701,9 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 //modified code
  
 - (IBAction)LoginPressed:(UIRoundBorderedButton *)sender {
+    
+[self changeView:_waitView back:NO animation:TRUE];
+    _waitView.hidden = NO;
   
     if(_Username.text.length > 0  && _Password.text.length > 0)
     {

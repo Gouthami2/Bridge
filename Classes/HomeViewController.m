@@ -43,22 +43,22 @@ static UICompositeViewDescription *compositeDescription = nil;
     [super viewDidLoad];
     
    
-    _contactsIcon.layer.cornerRadius = 37;
+    _contactsIcon.layer.cornerRadius = 40;
     _contactsIcon.layer.masksToBounds = YES;
     
-    _callHistoryIcon.layer.cornerRadius = 37;
+    _callHistoryIcon.layer.cornerRadius = 40;
     _callHistoryIcon.layer.masksToBounds = YES;
     
-    _chatplusIcon.layer.cornerRadius = 37;
+    _chatplusIcon.layer.cornerRadius = 40;
     _chatplusIcon.layer.masksToBounds = YES;
     
-    _textMessagingIcon.layer.cornerRadius = 37;
+    _textMessagingIcon.layer.cornerRadius = 40;
     _textMessagingIcon.layer.masksToBounds = YES;
     
-    _videoConferenceIcon.layer.cornerRadius = 37;
+    _videoConferenceIcon.layer.cornerRadius = 40;
     _videoConferenceIcon.layer.masksToBounds = YES;
     
-    _conferenceCallIcon.layer.cornerRadius = 37;
+    _conferenceCallIcon.layer.cornerRadius = 40;
     _conferenceCallIcon.layer.masksToBounds = YES;
     
     
@@ -120,6 +120,7 @@ static UICompositeViewDescription *compositeDescription = nil;
      [PhoneMainView.instance popToView:HistoryListView.compositeViewDescription];
 }
 - (IBAction)contacts:(id)sender {
+    
      [PhoneMainView.instance popToView:ContactsListView.compositeViewDescription];
 }
 - (IBAction)chatPlus:(id)sender {

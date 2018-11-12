@@ -60,7 +60,7 @@
 			<key>KeyboardType</key>
 			<string>Alphabet</string>
 			<key>Title</key>
-			<string>Username</string>
+			<string>UserExtention</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 		</dict>

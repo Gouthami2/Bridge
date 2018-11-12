@@ -919,7 +919,7 @@ static RootViewManager *rootViewManagerInstance = nil;
 }
 
 - (void)goToChatRoom:(LinphoneChatRoom *)cr {
-	_waitView.hidden = YES;
+	 _waitView.hidden = YES;
 	_waitView = NULL;
 	ChatConversationView *view = VIEW(ChatConversationView);
 	if (view.chatRoom && view.chatRoomCbs)

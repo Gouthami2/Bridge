@@ -71,7 +71,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	_waitView.hidden = YES;
+	 _waitView.hidden = YES;
 	[self update];
 
 	[NSNotificationCenter.defaultCenter addObserver:self

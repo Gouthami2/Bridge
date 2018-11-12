@@ -23,6 +23,7 @@
 #import "PhoneMainView.h"
 #import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import "LinphoneCoreSettingsStore.h"
 
 
 @interface AssistantView : UIViewController <UITextFieldDelegate, UICompositeViewDelegate> {
@@ -36,6 +37,7 @@
 	size_t number_of_configs_before;
 	BOOL mustRestoreView;
 	long phone_number_length;
+    LinphoneCoreSettingsStore *settingsStore;
 }
 
 @property(nonatomic) UICompositeViewDescription *outgoingView;

@@ -54,7 +54,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	_waitView.hidden = YES;
+	 _waitView.hidden = YES;
 	_backButton.hidden = IPAD;
 	if(_tableController.contactsGroup.count == 0) {
 		if (!_isForEditing)
