@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -147,7 +147,7 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view hidden="YES" tag="8" contentMode="scaleToFill" misplaced="YES" id="JK8-Td-I1i" userLabel="waitView">
+                        <view hidden="YES" tag="8" contentMode="scaleToFill" id="JK8-Td-I1i" userLabel="waitView">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -164,7 +164,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="-436.5" y="192.5"/>
+            <point key="canvasLocation" x="-1015" y="179"/>
         </view>
         <view contentMode="scaleToFill" id="gnD-7x-PSh" userLabel="iphone6MetricsView">
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
@@ -283,7 +283,7 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view hidden="YES" tag="8" contentMode="scaleToFill" misplaced="YES" id="EdP-53-rq9" userLabel="waitView">
+                        <view hidden="YES" tag="8" contentMode="scaleToFill" id="EdP-53-rq9" userLabel="waitView">
                             <rect key="frame" x="0.0" y="0.0" width="667" height="333"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -301,7 +301,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="25.5" y="275.5"/>
+            <point key="canvasLocation" x="40.799999999999997" y="247.82608695652175"/>
         </view>
         <tableViewController id="20" userLabel="tableController" customClass="ContactDetailsTableView">
             <extendedEdge key="edgesForExtendedLayout"/>

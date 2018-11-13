@@ -92,7 +92,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bridgeicon1.png" id="ZaI-29-AOK" userLabel="linphoneImage">
-                            <rect key="frame" x="342" y="51" width="25" height="25"/>
+                            <rect key="frame" x="342" y="8" width="25" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -101,7 +101,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="541.60000000000002" y="38.680659670164921"/>
+            <point key="canvasLocation" x="540" y="90"/>
         </view>
     </objects>
     <resources>
