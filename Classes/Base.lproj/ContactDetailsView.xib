@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="fa-solid-900.ttf">
+            <string>FontAwesome5FreeSolid</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactDetailsView">
             <connections>
@@ -155,6 +160,18 @@
                                     <rect key="frame" x="179" y="267" width="20" height="20"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eSV-wR-4Rv">
+                                    <rect key="frame" x="302" y="110" width="42" height="42"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="17"/>
+                                    <state key="normal" title="">
+                                        <color key="titleColor" red="0.94275027509999998" green="0.42830623849999999" blue="0.11032551810000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onFavoritesClicked:" destination="-1" eventType="touchUpInside" id="FcJ-iu-2sB"/>
+                                        <action selector="onFavoritesclicked:" destination="-1" eventType="touchUpInside" id="wHE-Wy-O4m"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <gestureRecognizers/>
@@ -164,7 +181,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="-1015" y="179"/>
+            <point key="canvasLocation" x="-1311" y="185"/>
         </view>
         <view contentMode="scaleToFill" id="gnD-7x-PSh" userLabel="iphone6MetricsView">
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>

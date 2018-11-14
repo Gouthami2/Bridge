@@ -48,6 +48,7 @@
 - (IBAction)onEditClick:(id)event;
 - (IBAction)onDeleteClick:(id)sender;
 - (IBAction)onAvatarClick:(id)sender;
+- (IBAction)onFavoritesclicked:(UIButton *)sender;
 
 - (void)newContact;
 - (void)newContact:(NSString *)address;

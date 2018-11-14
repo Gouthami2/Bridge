@@ -511,6 +511,9 @@ static UICompositeViewDescription *compositeDescription = nil;
 	}
 }
 
+- (IBAction)onFavoritesclicked:(UIButton *)sender {
+}
+
 - (void)dismissKeyboards {
 	NSArray *cells = [self.tableController.tableView visibleCells];
 	for (UIContactDetailsCell *cell in cells) {
@@ -565,6 +568,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 	[_contact setAvatar:image];
 
 	[_avatarImage setImage:[FastAddressBook imageForContact:_contact] bordered:NO withRoundedRadius:YES];
+}
+- (IBAction)onFavoritesClicked:(id)sender {
 }
 
 
