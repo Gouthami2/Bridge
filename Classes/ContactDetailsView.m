@@ -315,7 +315,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 		compositeDescription = [[UICompositeViewDescription alloc] init:self.class
 															  statusBar:StatusBarView.class
 																 tabBar:TabBarView.class
-															   sideMenu:SideMenuView.class
+															   //sideMenu:SideMenuView.class
+                                                               sideMenu:nil
 															 fullscreen:false
 														 isLeftFragment:NO
 														   fragmentWith:ContactsListView.class];

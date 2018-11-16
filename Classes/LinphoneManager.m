@@ -340,7 +340,7 @@ struct codec_name_pref_table codec_pref_table[] = {{"speex", 8000, "speex_8k_pre
 		[self lpConfigSetString:@"https://qa.onescreen.kotter.net:5080/newlogin"
 						 forKey:@"xmlrpc_url"
 					  inSection:@"assistant"];
-		[self lpConfigSetString:@"sip:%@@%@qa-kotter-test.qa.kotter.net" forKey:@"rls_uri" inSection:@"sip"];
+		[self lpConfigSetString:@"sip:147@qa-kotter-test.qa.kotter.net" forKey:@"rls_uri" inSection:@"sip"];
 		[self lpConfigSetBool:YES forKey:@"migration_xmlrpc"];
 	}
 	[self lpConfigSetBool:NO forKey:@"store_friends" inSection:@"misc"]; //so far, storing friends in files is not needed. may change in the future.
@@ -425,9 +425,9 @@ static int check_should_migrate_images(void *data, int argc, char **argv, char *
 								 .UTF8String) != 0) {
 				LOGI(@"Migrating proxy config to send quality report");
 				linphone_proxy_config_set_quality_reporting_collector(
-					proxy, "sip:%@@%@qa-kotter-test.qa.kotter.net:5080;transport=udp");
+					proxy, "sip:147@qa-kotter-test.qa.kotter.net:5080;transport=udp");
                     //sip:voip-metrics@sip.linphone.org;transport=tls
-                    //sip:105@qa-kotter-test.qa.kotter.net:5080;transport=udp
+                  
                     
 				linphone_proxy_config_set_quality_reporting_interval(proxy, 5080);
 				linphone_proxy_config_enable_quality_reporting(proxy, TRUE);

@@ -20,6 +20,7 @@
 #import "HistoryListView.h"
 #import "PhoneMainView.h"
 #import "LinphoneUI/UIHistoryCell.h"
+#import "AssistantView.h"
 
 @implementation HistoryListView
 
@@ -35,7 +36,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 															  statusBar:StatusBarView.class
 																 //tabBar:TabBarView.class
                                                                  tabBar:nil
-															   sideMenu:SideMenuView.class
+															   //sideMenu:SideMenuView.class
+                                                               sideMenu:nil
 															 fullscreen:false
 														 isLeftFragment:YES
 														   fragmentWith:HistoryDetailsView.class];
@@ -68,6 +70,40 @@ static UICompositeViewDescription *compositeDescription = nil;
 	self.view = NULL;
 }
 
+
+//-(void)callHistory:(NSString *)token {
+//    __block NSMutableDictionary *resp;
+//    NSString *authHeader = [NSString stringWithFormat:@"%@%@", @"Bearer ", token];
+//
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+//    [request setURL:[NSURL URLWithString:@"https://qa.onescreen.kotter.net/call/gethistory"]];
+//    [request setHTTPMethod:@"POST"];
+//    [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
+//    NSLog(@" authHeader is %@", authHeader);
+//
+//    NSOperationQueue *queue = [NSOperationQueue new];
+//    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+//        if ([data length]>0 && error == nil) { // success rest call
+//            resp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//
+//                NSDictionary *sucessData = [resp valueForKey:@"success"];
+//                NSDictionary *data = [sucessData valueForKey:@"data"];
+//
+//                NSString *UserExtention = [data objectForKey:@"user_uuid"];
+//
+//                NSLog(@"the user infoforlinphone rest response is %@",resp);
+//            });
+//        }
+//        else {
+//            NSLog(@"%@error for linphone rest call @", error);
+//        }
+//
+//        }];
+//                           }
+
+
+
 #pragma mark -
 
 - (void)changeView:(HistoryView)view {
@@ -77,11 +113,12 @@ static UICompositeViewDescription *compositeDescription = nil;
 		_allButton.selected = TRUE;
 		[_tableController setMissedFilter:FALSE];
 		_missedButton.selected = FALSE;
+
 	} else {
 		frame.origin.x = _missedButton.frame.origin.x;
 		_missedButton.selected = TRUE;
 		[_tableController setMissedFilter:TRUE];
-		_allButton.selected = FALSE;
+		_allButton.selected = TRUE;
 	}
 	_selectedButtonImage.frame = frame;
 }

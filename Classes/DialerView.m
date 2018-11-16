@@ -35,7 +35,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 															  statusBar:StatusBarView.class
 																 //tabBar:TabBarView.class
                                                                  tabBar:nil
-															   sideMenu:SideMenuView.class
+															   //sideMenu:SideMenuView.class
+                                                               sideMenu:nil
 															 fullscreen:false
 														 isLeftFragment:YES
 														   fragmentWith:nil];

@@ -893,8 +893,8 @@
 
 		if ([self integerForKey:@"use_rls_presence"]) {
 			[self setInteger:0 forKey:@"use_rls_presence"];
-			NSString *rls_uri = [lm lpConfigStringForKey:@"rls_uri" inSection:@"sip" withDefault:@"sip:%@%@@qa-kotter-test.qa.kotter.net"];
-            //sip:105@qa-kotter-test.qa.kotter.net:5080;transport=udp
+			NSString *rls_uri = [lm lpConfigStringForKey:@"rls_uri" inSection:@"sip" withDefault:@"sip:147@qa-kotter-test.qa.kotter.net"];
+            
             
 			LinphoneAddress *rls_addr = linphone_address_new(rls_uri.UTF8String);
 			const char *rls_domain = linphone_address_get_domain(rls_addr);

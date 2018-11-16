@@ -100,6 +100,8 @@
 - (IBAction)onDialerClick:(id)sender;
 
 
+- (IBAction)loginButtonClicked:(UIButton *)sender;
+
 
 - (IBAction)onGotoCreateAccountClick:(id)sender;
 - (IBAction)onGotoLinphoneLoginClick:(id)sender;

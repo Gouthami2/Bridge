@@ -132,7 +132,7 @@
             </subviews>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="361.60000000000002" y="-32.383808095952027"/>
+            <point key="canvasLocation" x="360" y="-19"/>
         </view>
         <view contentMode="scaleToFill" id="ni3-kk-RmM">
             <rect key="frame" x="0.0" y="0.0" width="90" height="333"/>

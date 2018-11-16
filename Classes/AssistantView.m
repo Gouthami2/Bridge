@@ -83,7 +83,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 		compositeDescription = [[UICompositeViewDescription alloc] init:self.class
 															  statusBar:StatusBarView.class
 																 tabBar:nil
-															   sideMenu:SideMenuView.class
+															   //sideMenu:SideMenuView.class
+                                                               sideMenu:nil
 															 fullscreen:false
 														 isLeftFragment:NO
 														   fragmentWith:nil];
@@ -132,6 +133,9 @@ static UICompositeViewDescription *compositeDescription = nil;
     _outgoingView = DialerView.compositeViewDescription;
     _qrCodeButton.hidden = !ENABLE_QRCODE;
 	[self resetLiblinphone:FALSE];
+    
+    
+    self.welcomeView.frame = self.view.bounds;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -1542,7 +1546,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 	}
 
 	if (uri) {
-		_accountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Your SIP address will be sip:%@@%@qa-kotter-test.qa.kotter.net", nil), uri];
+		_accountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Your SIP address will be sip:147@qa-kotter-test.qa.kotter.net", nil), uri];
 	} else if (!username.superview.hidden) {
 		_accountLabel.text = NSLocalizedString(@"Please enter your username", nil);
 	} else {
@@ -1660,6 +1664,8 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
   
 }
 
+
+
 - (IBAction)onLinkTap:(id)sender {
 	NSString *url = @"https://qa.onescreen.kotter.net/newlogin";
 	if (![UIApplication.sharedApplication openURL:[NSURL URLWithString:url]]) {
@@ -1699,14 +1705,18 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
 
 
 //modified code
+- (IBAction)loginButtonClicked:(UIButton *)sender {
+//}
  
-- (IBAction)LoginPressed:(UIRoundBorderedButton *)sender {
+//- (IBAction)LoginPressed:(UIRoundBorderedButton *)sender {
     
-[self changeView:_waitView back:NO animation:TRUE];
-    _waitView.hidden = NO;
-  
+   
+    NSLog(@"Username : %@",_Username.text);
+    NSLog(@"Password : %@",_Password.text);
     if(_Username.text.length > 0  && _Password.text.length > 0)
     {
+        [self changeView:_waitView back:NO animation:TRUE];
+        _waitView.hidden = NO;
         [self.Username becomeFirstResponder];
         [self.Password becomeFirstResponder];
         __block NSMutableDictionary *resultsDictionary;
@@ -1748,6 +1758,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                 
                 [errView addAction:defaultAction];
                 [self presentViewController:errView animated:YES completion:nil];
+                    _waitView.hidden = YES;
                 return;
                 });
             }

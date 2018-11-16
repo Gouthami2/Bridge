@@ -673,7 +673,7 @@ static RootViewManager *rootViewManagerInstance = nil;
 }
 
 - (void)changeCurrentView:(UICompositeViewDescription *)view {
-	[self _changeCurrentView:view transition:nil animated:ANIMATED];
+    [self _changeCurrentView:view transition:nil animated:ANIMATED];
 }
 
 - (UIViewController *)_changeCurrentView:(UICompositeViewDescription *)view
@@ -979,3 +979,4 @@ shouldRestoreApplicationState:(NSCoder *)coder; {
 }
 
 @end
+
