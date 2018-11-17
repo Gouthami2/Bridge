@@ -773,7 +773,7 @@ void update_hash_cbs(LinphoneAccountCreator *creator, LinphoneAccountCreatorStat
 	}
 #endif
 	if ([key isEqual:@"assistant_button"]) {
-		[PhoneMainView.instance changeCurrentView:AssistantView.compositeViewDescription];
+		[PhoneMainView.instance changeCurrentView:SettingsView.compositeViewDescription];
 		return;
 	} else if ([key isEqual:@"account_mandatory_remove_button"]) {
 		UIAlertController *errView = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Warning", nil)
