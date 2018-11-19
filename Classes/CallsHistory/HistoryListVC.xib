@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="fa-solid-900.ttf">
+            <string>FontAwesome5FreeSolid</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryListVC">
+            <connections>
+                <outlet property="tbl_callList" destination="B15-OM-4kZ" id="rlD-3p-6nm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view_callsDeleteMenu" destination="ho2-Ow-2Fv" id="Pcx-sp-A5a"/>
+                <outlet property="view_callsTopMenu" destination="efz-Hr-1WC" id="rcQ-Xb-xhn"/>
+                <outlet property="view_selectedLine" destination="6tv-8P-X0u" id="qPH-B4-8Va"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvl-4F-fxP">
+                    <rect key="frame" x="0.0" y="42" width="320" height="55"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efz-Hr-1WC">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                            <subviews>
+                                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucM-Y8-ZnK" customClass="UIIconButton">
+                                    <rect key="frame" x="5" y="0.0" width="55" height="55"/>
+                                    <accessibility key="accessibilityConfiguration" label="All contacts filter"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="55" id="Btl-Ld-UXK"/>
+                                        <constraint firstAttribute="width" constant="55" id="XYa-J3-3Bl"/>
+                                    </constraints>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" image="history_all_default.png">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="disabled" image="history_all_disabled.png"/>
+                                    <state key="selected" image="history_all_selected.png"/>
+                                    <state key="highlighted" backgroundImage="color_E.png"/>
+                                    <connections>
+                                        <action selector="callsMenuButtonsClicked:" destination="-1" eventType="touchUpInside" id="Ui5-eg-R3R"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="11" contentMode="bottom" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOH-wS-yFP" userLabel="Button" customClass="UIIconButton">
+                                    <rect key="frame" x="70" y="0.0" width="55" height="55"/>
+                                    <accessibility key="accessibilityConfiguration" label="Missed contacts filter"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="55" id="5aS-J3-t5o"/>
+                                        <constraint firstAttribute="height" constant="55" id="Zd0-PM-I9h"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="35"/>
+                                    <state key="normal" title="">
+                                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="color_E.png"/>
+                                    <connections>
+                                        <action selector="callsMenuButtonsClicked:" destination="-1" eventType="touchUpInside" id="EhC-ZG-X8X"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMP-Pb-xGX" customClass="UIIconButton">
+                                    <rect key="frame" x="260" y="0.0" width="55" height="55"/>
+                                    <accessibility key="accessibilityConfiguration" label="Edit"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="55" id="6Rt-GQ-Keq"/>
+                                        <constraint firstAttribute="height" constant="55" id="eOi-Ue-Io4"/>
+                                    </constraints>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="18" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" image="edit_list_default.png">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="disabled" image="edit_list_disabled.png"/>
+                                    <state key="highlighted" backgroundImage="color_E.png"/>
+                                    <connections>
+                                        <action selector="callsMenuButtonsClicked:" destination="-1" eventType="touchUpInside" id="RiB-X6-rsE"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YQ-Y8-cLt">
+                                    <rect key="frame" x="0.0" y="53" width="65" height="2"/>
+                                    <color key="backgroundColor" red="0.94117647059999998" green="0.42745098040000001" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="65" id="E7d-II-kfH"/>
+                                        <constraint firstAttribute="height" constant="2" id="MDL-OG-6HQ"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="0YQ-Y8-cLt" firstAttribute="leading" secondItem="efz-Hr-1WC" secondAttribute="leading" id="6tv-8P-X0u"/>
+                                <constraint firstAttribute="bottom" secondItem="0YQ-Y8-cLt" secondAttribute="bottom" id="GUu-GY-SC2"/>
+                                <constraint firstItem="ZOH-wS-yFP" firstAttribute="centerY" secondItem="efz-Hr-1WC" secondAttribute="centerY" id="ZiQ-f4-pcG"/>
+                                <constraint firstItem="jMP-Pb-xGX" firstAttribute="centerY" secondItem="efz-Hr-1WC" secondAttribute="centerY" id="chU-sQ-08E"/>
+                                <constraint firstItem="ucM-Y8-ZnK" firstAttribute="centerY" secondItem="efz-Hr-1WC" secondAttribute="centerY" id="ofM-ex-OJ4"/>
+                                <constraint firstItem="ZOH-wS-yFP" firstAttribute="leading" secondItem="ucM-Y8-ZnK" secondAttribute="trailing" constant="10" id="pUq-RS-Dnr"/>
+                                <constraint firstItem="ucM-Y8-ZnK" firstAttribute="leading" secondItem="efz-Hr-1WC" secondAttribute="leading" constant="5" id="uBl-bT-1hK"/>
+                                <constraint firstAttribute="trailing" secondItem="jMP-Pb-xGX" secondAttribute="trailing" constant="5" id="wua-E3-SvG"/>
+                            </constraints>
+                        </view>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ho2-Ow-2Fv">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                            <subviews>
+                                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gb5-X4-IGb" customClass="UIIconButton">
+                                    <rect key="frame" x="5" y="0.0" width="55" height="55"/>
+                                    <accessibility key="accessibilityConfiguration" label="Delete all"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="55" id="58R-hT-6Bm"/>
+                                        <constraint firstAttribute="height" constant="55" id="DEP-Zc-TLo"/>
+                                    </constraints>
+                                    <state key="normal" image="cancel_edit_default.png">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="disabled" image="cancel_edit_disabled.png"/>
+                                    <state key="highlighted" backgroundImage="color_E.png"/>
+                                    <connections>
+                                        <action selector="deleteMenuButtonsClicked:" destination="-1" eventType="touchUpInside" id="bbS-8h-pDr"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVU-su-CPN" customClass="UIIconButton">
+                                    <rect key="frame" x="200" y="0.0" width="55" height="55"/>
+                                    <accessibility key="accessibilityConfiguration" label="Select all"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="55" id="ZkW-nA-7rz"/>
+                                        <constraint firstAttribute="height" constant="55" id="dws-vs-bNG"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="18" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" image="deselect_all.png">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="disabled" image="select_all_disabled.png"/>
+                                    <state key="selected" image="select_all_default.png"/>
+                                    <state key="highlighted" backgroundImage="color_E.png"/>
+                                    <connections>
+                                        <action selector="deleteMenuButtonsClicked:" destination="-1" eventType="touchUpInside" id="PN5-ho-q15"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSc-2c-6IG" customClass="UIIconButton">
+                                    <rect key="frame" x="260" y="0.0" width="55" height="55"/>
+                                    <accessibility key="accessibilityConfiguration" label="Delete all"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="55" id="UrU-3N-LEl"/>
+                                        <constraint firstAttribute="width" constant="55" id="uDO-d9-5m3"/>
+                                    </constraints>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="18" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" image="delete_default.png">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="disabled" image="delete_disabled.png"/>
+                                    <state key="highlighted" backgroundImage="color_E.png"/>
+                                    <connections>
+                                        <action selector="deleteMenuButtonsClicked:" destination="-1" eventType="touchUpInside" id="kzb-Be-x7G"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstItem="BVU-su-CPN" firstAttribute="centerY" secondItem="ho2-Ow-2Fv" secondAttribute="centerY" id="HSy-UR-UZS"/>
+                                <constraint firstItem="Gb5-X4-IGb" firstAttribute="centerY" secondItem="ho2-Ow-2Fv" secondAttribute="centerY" id="I0q-Df-g4L"/>
+                                <constraint firstAttribute="trailing" secondItem="uSc-2c-6IG" secondAttribute="trailing" constant="5" id="PiI-vU-ewS"/>
+                                <constraint firstItem="Gb5-X4-IGb" firstAttribute="leading" secondItem="ho2-Ow-2Fv" secondAttribute="leading" constant="5" id="RSv-g2-0Jx"/>
+                                <constraint firstItem="uSc-2c-6IG" firstAttribute="centerY" secondItem="ho2-Ow-2Fv" secondAttribute="centerY" id="enD-o8-lFn"/>
+                                <constraint firstItem="uSc-2c-6IG" firstAttribute="leading" secondItem="BVU-su-CPN" secondAttribute="trailing" constant="5" id="rS5-vg-SoU"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ho2-Ow-2Fv" secondAttribute="trailing" id="4sh-0L-glc"/>
+                        <constraint firstItem="ho2-Ow-2Fv" firstAttribute="leading" secondItem="Gvl-4F-fxP" secondAttribute="leading" id="6RL-aF-neH"/>
+                        <constraint firstItem="ho2-Ow-2Fv" firstAttribute="top" secondItem="Gvl-4F-fxP" secondAttribute="top" id="ATM-gp-0Nk"/>
+                        <constraint firstAttribute="height" constant="55" id="Aqf-lZ-46J"/>
+                        <constraint firstAttribute="trailing" secondItem="efz-Hr-1WC" secondAttribute="trailing" id="FVc-6y-x4x"/>
+                        <constraint firstItem="ho2-Ow-2Fv" firstAttribute="top" secondItem="Gvl-4F-fxP" secondAttribute="top" id="QtR-6l-dad"/>
+                        <constraint firstAttribute="bottom" secondItem="ho2-Ow-2Fv" secondAttribute="bottom" id="YUl-jI-hgv"/>
+                        <constraint firstAttribute="trailing" secondItem="ho2-Ow-2Fv" secondAttribute="trailing" id="ZRE-L0-l6V"/>
+                        <constraint firstAttribute="bottom" secondItem="efz-Hr-1WC" secondAttribute="bottom" id="beo-CV-Uoy"/>
+                        <constraint firstItem="efz-Hr-1WC" firstAttribute="top" secondItem="Gvl-4F-fxP" secondAttribute="top" id="eDb-hR-0rw"/>
+                        <constraint firstItem="ho2-Ow-2Fv" firstAttribute="leading" secondItem="Gvl-4F-fxP" secondAttribute="leading" id="kqL-Jd-bjz"/>
+                        <constraint firstAttribute="bottom" secondItem="ho2-Ow-2Fv" secondAttribute="bottom" id="tWf-TT-jxC"/>
+                        <constraint firstItem="efz-Hr-1WC" firstAttribute="leading" secondItem="Gvl-4F-fxP" secondAttribute="leading" id="wbL-I3-kCa"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B15-OM-4kZ">
+                    <rect key="frame" x="0.0" y="97" width="320" height="383"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Gvl-4F-fxP" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="22" id="FVB-i3-XHt"/>
+                <constraint firstItem="Gvl-4F-fxP" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Gte-eh-sM7"/>
+                <constraint firstItem="B15-OM-4kZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="NrU-PW-PHA"/>
+                <constraint firstItem="B15-OM-4kZ" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Ykc-MO-qiv"/>
+                <constraint firstItem="B15-OM-4kZ" firstAttribute="top" secondItem="Gvl-4F-fxP" secondAttribute="bottom" id="nHh-Qr-cvB"/>
+                <constraint firstItem="Gvl-4F-fxP" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="tux-G0-wNa"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="B15-OM-4kZ" secondAttribute="bottom" id="uyb-MX-Epg"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cancel_edit_default.png" width="29" height="29"/>
+        <image name="cancel_edit_disabled.png" width="29" height="29"/>
+        <image name="color_E.png" width="2" height="2"/>
+        <image name="delete_default.png" width="21" height="28"/>
+        <image name="delete_disabled.png" width="21" height="28"/>
+        <image name="deselect_all.png" width="27" height="27"/>
+        <image name="edit_list_default.png" width="30" height="28"/>
+        <image name="edit_list_disabled.png" width="30" height="28"/>
+        <image name="history_all_default.png" width="33" height="32"/>
+        <image name="history_all_disabled.png" width="33" height="32"/>
+        <image name="history_all_selected.png" width="33" height="32"/>
+        <image name="select_all_default.png" width="27" height="27"/>
+        <image name="select_all_disabled.png" width="27" height="27"/>
+    </resources>
+</document>

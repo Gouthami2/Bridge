@@ -1743,6 +1743,20 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                     [self setDomainAndTransport:[resultsDictionary objectForKey:@"token"]];
                     _Username.text = @"";
                     _Password.text = @"";
+                    
+                    // token saving...
+                    NSDictionary *token_dict = [[VKRemoveNull shared] filterNullsDictionary:resultsDictionary WithEmpty:YES];
+                    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@", [token_dict objectForKey:@"token"]]
+                                                              forKey:kLogin_token];
+                    
+                    
+                    
+                    
+                    
+                    // headers...
+                    NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
+                    [headers setObject:[NSString stringWithFormat:@"Bearer %@", [token_dict objectForKey:@"token"]] forKey:@"Authorization"];
+                    [[APIService shared] setHeaders_dict:headers];
                 });
             }
             else {
