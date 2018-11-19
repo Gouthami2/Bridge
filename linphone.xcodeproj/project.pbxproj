@@ -754,6 +754,17 @@
 		B01D16EE217E2FA200BE4925 /* TextMessaging.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16ED217E2FA200BE4925 /* TextMessaging.png */; };
 		B01D16F0217E31E500BE4925 /* conferenceCall.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16EF217E31E400BE4925 /* conferenceCall.png */; };
 		B01D16F2217E35FD00BE4925 /* homeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16F1217E35FC00BE4925 /* homeButton.png */; };
+		B082E38821A07D99002C1A07 /* HistoryCallsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B082E37A21A07D99002C1A07 /* HistoryCallsCell.m */; };
+		B082E38921A07D99002C1A07 /* HistoryCallHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B082E37B21A07D99002C1A07 /* HistoryCallHeaderCell.m */; };
+		B082E38A21A07D99002C1A07 /* HistoryCallsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B082E37C21A07D99002C1A07 /* HistoryCallsCell.xib */; };
+		B082E38B21A07D99002C1A07 /* HistoryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B082E37D21A07D99002C1A07 /* HistoryListVC.m */; };
+		B082E38C21A07D99002C1A07 /* HistoryListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B082E37F21A07D99002C1A07 /* HistoryListVC.xib */; };
+		B082E38D21A07D99002C1A07 /* HistoryCallHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B082E38021A07D99002C1A07 /* HistoryCallHeaderCell.xib */; };
+		B082E39C21A07DC6002C1A07 /* VKRemoveNullDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B082E39221A07DC6002C1A07 /* VKRemoveNullDictionary.m */; };
+		B082E39D21A07DC6002C1A07 /* VKRemoveNullArray.m in Sources */ = {isa = PBXBuildFile; fileRef = B082E39321A07DC6002C1A07 /* VKRemoveNullArray.m */; };
+		B082E39E21A07DC6002C1A07 /* VKRemoveNull.m in Sources */ = {isa = PBXBuildFile; fileRef = B082E39421A07DC6002C1A07 /* VKRemoveNull.m */; };
+		B082E39F21A07DC6002C1A07 /* KSToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = B082E39821A07DC6002C1A07 /* KSToastView.m */; };
+		B082E3A021A07DC6002C1A07 /* APIService.m in Sources */ = {isa = PBXBuildFile; fileRef = B082E39B21A07DC6002C1A07 /* APIService.m */; };
 		B083F5962174DFA900502D7A /* Customer-Login.gif in Resources */ = {isa = PBXBuildFile; fileRef = B083F5952174DFA900502D7A /* Customer-Login.gif */; };
 		B083F598217632CD00502D7A /* background image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B083F597217632CC00502D7A /* background image.jpg */; };
 		B083F59A217633D200502D7A /* loginbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B083F599217633D100502D7A /* loginbutton.png */; };
@@ -1888,6 +1899,25 @@
 		B01D16ED217E2FA200BE4925 /* TextMessaging.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextMessaging.png; sourceTree = "<group>"; };
 		B01D16EF217E31E400BE4925 /* conferenceCall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = conferenceCall.png; sourceTree = "<group>"; };
 		B01D16F1217E35FC00BE4925 /* homeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeButton.png; sourceTree = "<group>"; };
+		B082E37921A07D99002C1A07 /* HistoryListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryListVC.h; sourceTree = "<group>"; };
+		B082E37A21A07D99002C1A07 /* HistoryCallsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCallsCell.m; sourceTree = "<group>"; };
+		B082E37B21A07D99002C1A07 /* HistoryCallHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCallHeaderCell.m; sourceTree = "<group>"; };
+		B082E37C21A07D99002C1A07 /* HistoryCallsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCallsCell.xib; sourceTree = "<group>"; };
+		B082E37D21A07D99002C1A07 /* HistoryListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryListVC.m; sourceTree = "<group>"; };
+		B082E37E21A07D99002C1A07 /* HistoryCallsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCallsCell.h; sourceTree = "<group>"; };
+		B082E37F21A07D99002C1A07 /* HistoryListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryListVC.xib; sourceTree = "<group>"; };
+		B082E38021A07D99002C1A07 /* HistoryCallHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCallHeaderCell.xib; sourceTree = "<group>"; };
+		B082E38121A07D99002C1A07 /* HistoryCallHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCallHeaderCell.h; sourceTree = "<group>"; };
+		B082E39021A07DC6002C1A07 /* VKRemoveNullArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKRemoveNullArray.h; sourceTree = "<group>"; };
+		B082E39121A07DC6002C1A07 /* VKRemoveNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKRemoveNull.h; sourceTree = "<group>"; };
+		B082E39221A07DC6002C1A07 /* VKRemoveNullDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKRemoveNullDictionary.m; sourceTree = "<group>"; };
+		B082E39321A07DC6002C1A07 /* VKRemoveNullArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKRemoveNullArray.m; sourceTree = "<group>"; };
+		B082E39421A07DC6002C1A07 /* VKRemoveNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKRemoveNull.m; sourceTree = "<group>"; };
+		B082E39521A07DC6002C1A07 /* VKRemoveNullDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKRemoveNullDictionary.h; sourceTree = "<group>"; };
+		B082E39721A07DC6002C1A07 /* KSToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSToastView.h; sourceTree = "<group>"; };
+		B082E39821A07DC6002C1A07 /* KSToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSToastView.m; sourceTree = "<group>"; };
+		B082E39A21A07DC6002C1A07 /* APIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIService.h; sourceTree = "<group>"; };
+		B082E39B21A07DC6002C1A07 /* APIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIService.m; sourceTree = "<group>"; };
 		B083F5952174DFA900502D7A /* Customer-Login.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Customer-Login.gif"; sourceTree = "<group>"; };
 		B083F597217632CC00502D7A /* background image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background image.jpg"; sourceTree = "<group>"; };
 		B083F599217633D100502D7A /* loginbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbutton.png; sourceTree = "<group>"; };
@@ -2256,6 +2286,8 @@
 				B00A6844219BB20C00E9C58B /* HomeViewController.xib */,
 				63F1DF491BCE983100EDED90 /* CallConferenceTableView.h */,
 				63F1DF4A1BCE983200EDED90 /* CallConferenceTableView.m */,
+				B082E38E21A07DC6002C1A07 /* Models */,
+				B082E37821A07D98002C1A07 /* CallsHistory */,
 				D3F26BEE15986B71005F9CAB /* CallIncomingView.h */,
 				D3F26BEF15986B71005F9CAB /* CallIncomingView.m */,
 				D38187DC15FE347700C3EDCA /* CallIncomingView.xib */,
@@ -3315,6 +3347,63 @@
 			path = ringtones;
 			sourceTree = "<group>";
 		};
+		B082E37821A07D98002C1A07 /* CallsHistory */ = {
+			isa = PBXGroup;
+			children = (
+				B082E37921A07D99002C1A07 /* HistoryListVC.h */,
+				B082E37D21A07D99002C1A07 /* HistoryListVC.m */,
+				B082E37F21A07D99002C1A07 /* HistoryListVC.xib */,
+				B082E37E21A07D99002C1A07 /* HistoryCallsCell.h */,
+				B082E37A21A07D99002C1A07 /* HistoryCallsCell.m */,
+				B082E37C21A07D99002C1A07 /* HistoryCallsCell.xib */,
+				B082E38121A07D99002C1A07 /* HistoryCallHeaderCell.h */,
+				B082E37B21A07D99002C1A07 /* HistoryCallHeaderCell.m */,
+				B082E38021A07D99002C1A07 /* HistoryCallHeaderCell.xib */,
+			);
+			path = CallsHistory;
+			sourceTree = "<group>";
+		};
+		B082E38E21A07DC6002C1A07 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B082E38F21A07DC6002C1A07 /* VKRemoveNull */,
+				B082E39621A07DC6002C1A07 /* KSToastView */,
+				B082E39921A07DC6002C1A07 /* APIService */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B082E38F21A07DC6002C1A07 /* VKRemoveNull */ = {
+			isa = PBXGroup;
+			children = (
+				B082E39021A07DC6002C1A07 /* VKRemoveNullArray.h */,
+				B082E39121A07DC6002C1A07 /* VKRemoveNull.h */,
+				B082E39221A07DC6002C1A07 /* VKRemoveNullDictionary.m */,
+				B082E39321A07DC6002C1A07 /* VKRemoveNullArray.m */,
+				B082E39421A07DC6002C1A07 /* VKRemoveNull.m */,
+				B082E39521A07DC6002C1A07 /* VKRemoveNullDictionary.h */,
+			);
+			path = VKRemoveNull;
+			sourceTree = "<group>";
+		};
+		B082E39621A07DC6002C1A07 /* KSToastView */ = {
+			isa = PBXGroup;
+			children = (
+				B082E39721A07DC6002C1A07 /* KSToastView.h */,
+				B082E39821A07DC6002C1A07 /* KSToastView.m */,
+			);
+			path = KSToastView;
+			sourceTree = "<group>";
+		};
+		B082E39921A07DC6002C1A07 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				B082E39A21A07DC6002C1A07 /* APIService.h */,
+				B082E39B21A07DC6002C1A07 /* APIService.m */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
 		D326483415887D4400930C67 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -3874,6 +3963,7 @@
 				CF15F21F20E4F9A3008B1DE6 /* UIImageViewDeletable.xib in Resources */,
 				633FEE951D3CD55A0014B822 /* micro_default@2x.png in Resources */,
 				633FEE6A1D3CD5590014B822 /* footer_dialer_default.png in Resources */,
+				B082E38A21A07D99002C1A07 /* HistoryCallsCell.xib in Resources */,
 				633FEEC91D3CD55A0014B822 /* numpad_5~ipad.png in Resources */,
 				633FEDFA1D3CD5590014B822 /* camera_selected.png in Resources */,
 				633FEF451D3CD55A0014B822 /* speaker_default@2x.png in Resources */,
@@ -3986,6 +4076,7 @@
 				633FEEBB1D3CD55A0014B822 /* numpad_4_default.png in Resources */,
 				633FEF2B1D3CD55A0014B822 /* route_earpiece_disabled@2x.png in Resources */,
 				639E9CA31C0DB7EA00019A75 /* UIChatBubbleTextCell.xib in Resources */,
+				B082E38D21A07D99002C1A07 /* HistoryCallHeaderCell.xib in Resources */,
 				633FEDD21D3CD5590014B822 /* call_quality_indicator_3.png in Resources */,
 				633FEDAF1D3CD5590014B822 /* call_add_default@2x.png in Resources */,
 				633FEE931D3CD55A0014B822 /* menu@2x.png in Resources */,
@@ -4065,6 +4156,7 @@
 				63AADBF61B6A0FF200AA16FD /* linphonerc-factory in Resources */,
 				633FEE671D3CD5590014B822 /* footer_contacts_default@2x.png in Resources */,
 				63B8D68C1BCBE65600C12B09 /* ChatConversationCreateView.xib in Resources */,
+				B082E38C21A07D99002C1A07 /* HistoryListVC.xib in Resources */,
 				D38187D915FE347700C3EDCA /* CallIncomingView.xib in Resources */,
 				63CDC45F1C3BDE370085F529 /* ringback.wav in Resources */,
 				8CD99A1C20908C27008A7CDA /* callkit_logo@2x.png in Resources */,
@@ -4578,6 +4670,7 @@
 				22AA8B0113D83F6300B30535 /* UICamSwitch.m in Sources */,
 				63B8D6A21BCBF43100C12B09 /* UIChatCreateCell.m in Sources */,
 				636BC9971B5F921B00C754CE /* UIIconButton.m in Sources */,
+				B082E39F21A07DC6002C1A07 /* KSToastView.m in Sources */,
 				63423C0A1C4501D000D9A050 /* Contact.m in Sources */,
 				340751E7150F38FD00B89C47 /* UIVideoButton.m in Sources */,
 				34216F401547EBCD00EA9777 /* VideoZoomHandler.m in Sources */,
@@ -4585,11 +4678,13 @@
 				8C2595DD1DEDC92D007A6424 /* ProviderDelegate.m in Sources */,
 				63F1DF4B1BCE983200EDED90 /* CallConferenceTableView.m in Sources */,
 				D3F83F8E15822ABE00336684 /* PhoneMainView.m in Sources */,
+				B082E38B21A07D99002C1A07 /* HistoryListVC.m in Sources */,
 				6377AC801BDE4069007F7625 /* UIBackToCallButton.m in Sources */,
 				6308F9C51BF0DD6600D1234B /* XMLRPCHelper.m in Sources */,
 				D3ED3E871586291E006C0DE4 /* TabBarView.m in Sources */,
 				D3ED3EA71587334E006C0DE4 /* HistoryListTableView.m in Sources */,
 				D3ED3EB81587392C006C0DE4 /* HistoryListView.m in Sources */,
+				B082E39E21A07DC6002C1A07 /* VKRemoveNull.m in Sources */,
 				24A345A61D95798A00881A5C /* UIShopTableCell.m in Sources */,
 				8C1B67061E671826001EA2FE /* AudioHelper.m in Sources */,
 				D35497FE15875372000081D8 /* ContactsListView.m in Sources */,
@@ -4603,6 +4698,7 @@
 				D326483815887D5200930C67 /* OrderedDictionary.m in Sources */,
 				D32648441588F6FC00930C67 /* UIToggleButton.m in Sources */,
 				D36FB2D51589EF7C0036F6F2 /* UIPauseButton.m in Sources */,
+				B082E38821A07D99002C1A07 /* HistoryCallsCell.m in Sources */,
 				D31C9C98158A1CDF00756B45 /* UIHistoryCell.m in Sources */,
 				D35E7597159460580066B1C1 /* ChatsListView.m in Sources */,
 				D35E759F159460B70066B1C1 /* SettingsView.m in Sources */,
@@ -4627,6 +4723,7 @@
 				D32B9DFC15A2F131000B6DEC /* FastAddressBook.m in Sources */,
 				D350F20E15A43BB100149E54 /* AssistantView.m in Sources */,
 				D3F795D615A582810077328B /* ChatConversationView.m in Sources */,
+				B082E39D21A07DC6002C1A07 /* VKRemoveNullArray.m in Sources */,
 				D32B6E2915A5BC440033019F /* ChatConversationTableView.m in Sources */,
 				D3A8BB7015A6C7D500F96BE5 /* UIChatBubbleTextCell.m in Sources */,
 				63D11C531C3D501200E8FCEE /* Log.m in Sources */,
@@ -4637,6 +4734,7 @@
 				631348301B6F7B6600C6BDCB /* UIRoundBorderedButton.m in Sources */,
 				C90FAA7915AF54E6002091CB /* HistoryDetailsView.m in Sources */,
 				63FB30351A680E73008CA393 /* UIRoundedImageView.m in Sources */,
+				B082E3A021A07DC6002C1A07 /* APIService.m in Sources */,
 				635775251B6673EC00C8B704 /* HistoryDetailsTableView.m in Sources */,
 				63C441C31BBC23ED0053DC5E /* UIAssistantTextField.m in Sources */,
 				6346100F1B61409800548952 /* CallOutgoingView.m in Sources */,
@@ -4665,11 +4763,13 @@
 				D3807FFE15C2894A005BE9BC /* IASKSlider.m in Sources */,
 				D380800015C2894A005BE9BC /* IASKSwitch.m in Sources */,
 				D380800215C2894A005BE9BC /* IASKTextField.m in Sources */,
+				B082E39C21A07DC6002C1A07 /* VKRemoveNullDictionary.m in Sources */,
 				D380801315C299D0005BE9BC /* ColorSpaceUtilites.m in Sources */,
 				8C92ABF31FA773E50006FB5D /* UIChatNotifiedEventCell.m in Sources */,
 				633FEF581D3CD5E00014B822 /* UIAvatarPresence.m in Sources */,
 				637157A11B283FE200C91677 /* FileTransferDelegate.m in Sources */,
 				D378AB2A15DCDB4A0098505D /* ImagePickerView.m in Sources */,
+				B082E38921A07D99002C1A07 /* HistoryCallHeaderCell.m in Sources */,
 				22405F001601C19200B92522 /* ImageView.m in Sources */,
 				63BC49E21BA2CDFC004EC273 /* UICallPausedCell.m in Sources */,
 				D37EE162160377D7003608A6 /* DTActionSheet.m in Sources */,
