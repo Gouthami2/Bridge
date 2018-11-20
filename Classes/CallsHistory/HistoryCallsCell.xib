@@ -81,6 +81,7 @@
                             <constraint firstItem="2Jh-eU-dut" firstAttribute="leading" secondItem="UXL-q9-VgU" secondAttribute="leading" constant="10" id="WWL-QQ-9hm"/>
                             <constraint firstItem="iv4-vB-Ybb" firstAttribute="centerY" secondItem="UXL-q9-VgU" secondAttribute="centerY" id="YVn-zM-xsj"/>
                             <constraint firstItem="58z-gL-dxl" firstAttribute="leading" secondItem="2Jh-eU-dut" secondAttribute="trailing" constant="10" id="kCb-4N-4PW"/>
+                            <constraint firstAttribute="height" constant="44" id="knr-Y9-Z1m"/>
                             <constraint firstItem="18k-mT-0Sr" firstAttribute="leading" secondItem="Jw5-Ln-4uh" secondAttribute="trailing" constant="10" id="mPe-1h-iRS"/>
                             <constraint firstAttribute="trailing" secondItem="18k-mT-0Sr" secondAttribute="trailing" constant="10" id="w4w-sd-wn9"/>
                         </constraints>

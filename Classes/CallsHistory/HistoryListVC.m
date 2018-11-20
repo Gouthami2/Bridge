@@ -8,10 +8,11 @@
 #import "HistoryListVC.h"
 #import "HistoryCallHeaderCell.h"
 #import "HistoryCallsCell.h"
+#import "AssistantView.h"
+#import "PhoneMainView.h"
+#import "linphone/core.h"
 
-
-#import "APIService.h"
-#import "VKRemoveNull.h"
+#import "AgencyHistoryCallsCell.h"
 
 
 // calls type
@@ -82,6 +83,8 @@ static UICompositeViewDescription *compositeDescription = nil;
     // delegates...
     self.tbl_callList.delegate = self;
     self.tbl_callList.dataSource = self;
+    self.tbl_callList.estimatedRowHeight = 45;
+    self.tbl_callList.rowHeight = UITableViewAutomaticDimension;
     
     // Reset missed call
     linphone_core_reset_missed_calls_count(LC);
@@ -286,6 +289,9 @@ static UICompositeViewDescription *compositeDescription = nil;
                     index_existed = YES;
                     NSMutableArray *calls_array = [[section_dict objectForKey:@"calls"] mutableCopy];
                     [calls_array addObject:call_dict];
+                    
+                    [section_dict setObject:calls_array forKey:@"calls"];
+                    [calls_sectionsArray replaceObjectAtIndex:j withObject:section_dict];
                     break;
                 }
             }
@@ -329,7 +335,7 @@ static UICompositeViewDescription *compositeDescription = nil;
             NSString *second_str = [NSString stringWithFormat:@"%@", [obj2 objectForKey:@"start_stamp"]];
             [self->date_formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
             NSDate *second_date = [self->date_formatter dateFromString:second_str];
-            return [first_date compare: second_date];
+            return [second_date compare: first_date];
         }];
         [section_dict setObject:childCalls_array forKey:@"calls"];
         [calls_sectionsArray replaceObjectAtIndex:i withObject:section_dict];
@@ -437,7 +443,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 30;
+    return UITableViewAutomaticDimension;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -470,35 +476,65 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // cell creation...
-    HistoryCallsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCallsCell"];
-    if (cell == nil) {
-        [tableView registerNib:[UINib nibWithNibName:@"HistoryCallsCell" bundle:nil] forCellReuseIdentifier:@"HistoryCallsCell"];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCallsCell"];
-    }
-    
     if (callListType == Calls_Agency) {
+        
+        // cell creation...
+        AgencyHistoryCallsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AgencyHistoryCallsCell"];
+        if (cell == nil) {
+            [tableView registerNib:[UINib nibWithNibName:@"AgencyHistoryCallsCell" bundle:nil] forCellReuseIdentifier:@"AgencyHistoryCallsCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"AgencyHistoryCallsCell"];
+        }
         
         // call dict...
         NSDictionary *callMain_dict = [agency_callsArray objectAtIndex:indexPath.section];
         NSArray *call_array = [callMain_dict objectForKey:@"calls"];
         NSDictionary *call_dict = [call_array objectAtIndex:indexPath.row];
         
-        NSString *user_name = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"caller_id_name"]];
-        if (user_name.length == 0) {
-            user_name = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"caller_id_number"]];
+        // display infomration...
+        NSString *from_name = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"caller_id_number"]];
+        if (from_name.length == 0) {
+            from_name = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"caller_id_number"]];
         }
-        cell.lbl_name.text = [NSString stringWithFormat:@"%@", user_name];
+        cell.lbl_fromName.text = [NSString stringWithFormat:@"%@", from_name];
+        
+        NSString *to_name = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"destination_number"]]; // duplicate key
+        if (to_name.length == 0) {
+            to_name = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"destination_number"]];
+        }
+        cell.lbl_toName.text = [NSString stringWithFormat:@"%@", to_name];
+        
+        // start date...
+        cell.lbl_date.text = @"";
+        [date_formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSString *start_stamp = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"start_stamp"]];
+        if (start_stamp.length != 0) {
+            
+            NSDate *start_stampDate = [date_formatter dateFromString:start_stamp];
+            [date_formatter setDateFormat:@"MMM dd, yyyy, hh:mm a"];
+            cell.lbl_date.text = [NSString stringWithFormat:@"%@", [date_formatter stringFromDate:start_stampDate]];
+        }
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+
     }
     else {
+        
+        // cell creation...
+        HistoryCallsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCallsCell"];
+        if (cell == nil) {
+            [tableView registerNib:[UINib nibWithNibName:@"HistoryCallsCell" bundle:nil] forCellReuseIdentifier:@"HistoryCallsCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCallsCell"];
+        }
         
         id logId = [_sections objectForKey:_sortedDays[indexPath.section]][indexPath.row];
         LinphoneCallLog *log = [logId pointerValue];
         [cell update:log];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+
     }
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

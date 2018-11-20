@@ -745,6 +745,8 @@
 		B00A6845219BB20C00E9C58B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A683C219BB20C00E9C58B /* HomeViewController.m */; };
 		B00A6846219BB20C00E9C58B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00A6844219BB20C00E9C58B /* HomeViewController.xib */; };
 		B00A6848219BB8A300E9C58B /* bridgeicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = B00A6847219BB8A200E9C58B /* bridgeicon1.png */; };
+		B01603E921A39D6C00EBA6A4 /* AgencyHistoryCallsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B01603E021A39D6B00EBA6A4 /* AgencyHistoryCallsCell.m */; };
+		B01603EA21A39D6C00EBA6A4 /* AgencyHistoryCallsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B01603E721A39D6C00EBA6A4 /* AgencyHistoryCallsCell.xib */; };
 		B01D16DE217E2F7500BE4925 /* VideoConference.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16DD217E2F7500BE4925 /* VideoConference.png */; };
 		B01D16E0217E2F7A00BE4925 /* ChatPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16DF217E2F7A00BE4925 /* ChatPlus.png */; };
 		B01D16E2217E2F7F00BE4925 /* DailerMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16E1217E2F7F00BE4925 /* DailerMenu.png */; };
@@ -1890,6 +1892,9 @@
 		B00A6843219BB20C00E9C58B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = "../../../Desktop/untitled folder/HomeViewController.h"; sourceTree = "<group>"; };
 		B00A6844219BB20C00E9C58B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = "../../../Desktop/untitled folder/HomeViewController.xib"; sourceTree = "<group>"; };
 		B00A6847219BB8A200E9C58B /* bridgeicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bridgeicon1.png; sourceTree = "<group>"; };
+		B01603E021A39D6B00EBA6A4 /* AgencyHistoryCallsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyHistoryCallsCell.m; sourceTree = "<group>"; };
+		B01603E721A39D6C00EBA6A4 /* AgencyHistoryCallsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgencyHistoryCallsCell.xib; sourceTree = "<group>"; };
+		B01603E821A39D6C00EBA6A4 /* AgencyHistoryCallsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyHistoryCallsCell.h; sourceTree = "<group>"; };
 		B01D16DD217E2F7500BE4925 /* VideoConference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VideoConference.png; sourceTree = "<group>"; };
 		B01D16DF217E2F7A00BE4925 /* ChatPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatPlus.png; sourceTree = "<group>"; };
 		B01D16E1217E2F7F00BE4925 /* DailerMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DailerMenu.png; sourceTree = "<group>"; };
@@ -3359,6 +3364,9 @@
 				B082E38121A07D99002C1A07 /* HistoryCallHeaderCell.h */,
 				B082E37B21A07D99002C1A07 /* HistoryCallHeaderCell.m */,
 				B082E38021A07D99002C1A07 /* HistoryCallHeaderCell.xib */,
+				B01603E821A39D6C00EBA6A4 /* AgencyHistoryCallsCell.h */,
+				B01603E021A39D6B00EBA6A4 /* AgencyHistoryCallsCell.m */,
+				B01603E721A39D6C00EBA6A4 /* AgencyHistoryCallsCell.xib */,
 			);
 			path = CallsHistory;
 			sourceTree = "<group>";
@@ -4201,6 +4209,7 @@
 				633FEE8F1D3CD55A0014B822 /* list_details_default@2x.png in Resources */,
 				633FEE5E1D3CD5590014B822 /* edit_list_default.png in Resources */,
 				633FEDB11D3CD5590014B822 /* call_add_disabled@2x.png in Resources */,
+				B01603EA21A39D6C00EBA6A4 /* AgencyHistoryCallsCell.xib in Resources */,
 				633FEDB21D3CD5590014B822 /* call_alt_back_default.png in Resources */,
 				633FEE3D1D3CD5590014B822 /* contacts_all_default@2x.png in Resources */,
 				633FEF251D3CD55A0014B822 /* route_bluetooth_disabled@2x.png in Resources */,
@@ -4768,6 +4777,7 @@
 				8C92ABF31FA773E50006FB5D /* UIChatNotifiedEventCell.m in Sources */,
 				633FEF581D3CD5E00014B822 /* UIAvatarPresence.m in Sources */,
 				637157A11B283FE200C91677 /* FileTransferDelegate.m in Sources */,
+				B01603E921A39D6C00EBA6A4 /* AgencyHistoryCallsCell.m in Sources */,
 				D378AB2A15DCDB4A0098505D /* ImagePickerView.m in Sources */,
 				B082E38921A07D99002C1A07 /* HistoryCallHeaderCell.m in Sources */,
 				22405F001601C19200B92522 /* ImageView.m in Sources */,
