@@ -1385,20 +1385,24 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                 NSDictionary *sucessData = [resp valueForKey:@"success"];
                 NSDictionary *data = [sucessData valueForKey:@"data"];
                 
+                
                // NSDictionary *firebase_info = [data objectForKey:@"firebase_info"];
                 
                 NSString *UserExtention = [data objectForKey:@"user_ext"];
                 NSString *Domain = [data objectForKey:@"domain_name"];
                 NSString *Password = [data objectForKey:@"password"];
                 NSString *displayname = [data objectForKey:@"username"];
+               
                 
                 NSString *domain = [self findTextField:ViewElement_Domain].text = Domain;
                 NSString *username = [self findTextField:ViewElement_Username].text = UserExtention;
                 NSString *displayName = [self findTextField:ViewElement_DisplayName].text = displayname;
                 NSString *pwd = [self findTextField:ViewElement_Password].text = Password;
+               
                 LinphoneProxyConfig *config = linphone_core_create_proxy_config(LC);
                 LinphoneAddress *addr = linphone_address_new(NULL);
                 LinphoneAddress *tmpAddr = linphone_address_new([NSString stringWithFormat:@"sip:%@",domain].UTF8String);
+                
                 linphone_address_set_username(addr, username.UTF8String);
                 linphone_address_set_port(addr, linphone_address_get_port(tmpAddr));
                 linphone_address_set_domain(addr, linphone_address_get_domain(tmpAddr));

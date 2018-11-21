@@ -49,6 +49,7 @@
     if (count > 1) {
         self.lbl_name.text = [self.lbl_name.text stringByAppendingString:[NSString stringWithFormat:@" (%lu)", count]];
     }
+
     
     // [self.img_avatar setImage:[FastAddressBook imageForAddress:addr] bordered:NO withRoundedRadius:YES];
 }

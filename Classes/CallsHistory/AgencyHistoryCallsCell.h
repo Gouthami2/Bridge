@@ -9,6 +9,8 @@
 
 @interface AgencyHistoryCallsCell : UITableViewCell
 
+
+
 // outlets...
 @property (weak, nonatomic) IBOutlet UIImageView *img_avatar;
 @property (weak, nonatomic) IBOutlet UIImageView *img_callState;

@@ -20,6 +20,7 @@
 #import "HistoryDetailsView.h"
 #import "PhoneMainView.h"
 #import "FastAddressBook.h"
+#import "HistoryListVC.h"
 
 @implementation HistoryDetailsView
 
@@ -37,7 +38,7 @@ static UICompositeViewDescription *compositeDescription = nil;
                                                                sideMenu:nil
 															 fullscreen:false
 														 isLeftFragment:NO
-														   fragmentWith:HistoryListView.class];
+														   fragmentWith:HistoryListVC.class];
 	}
 	return compositeDescription;
 }
@@ -157,7 +158,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 #pragma mark - Action Functions
 
 - (IBAction)onBackClick:(id)event {
-	HistoryListView *view = VIEW(HistoryListView);
+	HistoryListVC *view = VIEW(HistoryListVC);
 	[PhoneMainView.instance popToView:view.compositeViewDescription];
 }
 

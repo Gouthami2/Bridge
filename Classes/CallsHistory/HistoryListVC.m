@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, CallsType) {
     Calls_Agency,
 };
 
-@interface HistoryListVC () <UITableViewDelegate, UITableViewDataSource>
+@interface HistoryListVC () <UITableViewDelegate, UITableViewDataSource, HistoryCallsCellDelegate>
 {
     NSDateFormatter *date_formatter;
     NSMutableArray *agency_callsArray;
@@ -60,7 +60,6 @@ static UICompositeViewDescription *compositeDescription = nil;
 - (UICompositeViewDescription *)compositeViewDescription {
     return self.class.compositeViewDescription;
 }
-
 
 #pragma mark - LifeCycle
 - (void)viewDidLoad {
@@ -252,6 +251,15 @@ static UICompositeViewDescription *compositeDescription = nil;
                                                    toDate:[NSDate date]
                                                   options:0];
     return month_date;
+}
+
+- (NSString *)timeFormatted:(int)totalSeconds {
+    
+    int seconds = totalSeconds % 60;
+    int minutes = (totalSeconds / 60) % 60;
+    int hours = totalSeconds / 3600;
+    
+    return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
 }
 
 - (void)convertCalls_intoDaywideCalls:(NSArray *)agency_array {
@@ -513,6 +521,28 @@ static UICompositeViewDescription *compositeDescription = nil;
             [date_formatter setDateFormat:@"MMM dd, yyyy, hh:mm a"];
             cell.lbl_date.text = [NSString stringWithFormat:@"%@", [date_formatter stringFromDate:start_stampDate]];
         }
+        int durationSeconds = [[NSString stringWithFormat:@"%@", [call_dict objectForKey:@"duration"]] intValue];
+        cell.lbl_duration.text = [self timeFormatted:durationSeconds];
+        
+        
+        // call state icons...
+        NSString *call_state = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"call_status"]];
+        // "call_status": "answered"
+        if ([call_state isEqualToString:@"answered"]) {
+            cell.img_callState.image = [UIImage imageNamed:@"ic_incomingCall"];
+        }
+        else if ([call_state isEqualToString:@"unanswered"]) {
+            //
+        }
+        else if ([call_state isEqualToString:@"missed"]) {
+            cell.img_callState.image = [UIImage imageNamed:@"ic_missedCall"];
+        }
+        else if ([call_state isEqualToString:@"sent_to_voicemail"]) {
+            //
+        }
+        else {
+            cell.img_callState.image = [UIImage imageNamed:@"ic_outgoingCall"];
+        }
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -526,6 +556,8 @@ static UICompositeViewDescription *compositeDescription = nil;
             [tableView registerNib:[UINib nibWithNibName:@"HistoryCallsCell" bundle:nil] forCellReuseIdentifier:@"HistoryCallsCell"];
             cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCallsCell"];
         }
+        cell.delegate = self;
+        cell.btn_checkbox.hidden = YES;
         
         id logId = [_sections objectForKey:_sortedDays[indexPath.section]][indexPath.row];
         LinphoneCallLog *log = [logId pointerValue];
@@ -538,6 +570,45 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (callListType != Calls_Agency) {
+        
+        HistoryCallsCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (cell.btn_checkbox.hidden == YES) {
+            
+            id log = [_sections objectForKey:_sortedDays[indexPath.section]][indexPath.row];
+            LinphoneCallLog *callLog = [log pointerValue];
+            if (callLog != NULL && (!IPAD)) {
+                const LinphoneAddress *addr = linphone_call_log_get_remote_address(callLog);
+                [LinphoneManager.instance call:addr];
+            }
+        }
+    }
+    else  {
+        NSLog(@"Agency table cell clicked");
+    }
+}
+
+#pragma mark - CellButtonAction
+- (void)detailsClicked:(UIButton *)button cell:(HistoryCallsCell *)cell {
+    
+    // getting indexpath...
+    NSIndexPath *index_path = [self.tbl_callList indexPathForCell:cell];
+    
+    // getting caller log...
+    id logId = [_sections objectForKey:_sortedDays[index_path.section]][index_path.row];
+    LinphoneCallLog *callLog = [logId pointerValue];
+    if (callLog != NULL) {
+        HistoryDetailsView *view = VIEW(HistoryDetailsView);
+        if (linphone_call_log_get_call_id(callLog) != NULL) {
+            // Go to History details view
+            [view setCallLogId:[NSString stringWithUTF8String:linphone_call_log_get_call_id(callLog)]];
+        }
+        [PhoneMainView.instance changeCurrentView:view.compositeViewDescription];
+    }
+}
+
+- (void)checkboxClicked:(UIButton *)button cell:(HistoryCallsCell *)cell {
     
 }
 
