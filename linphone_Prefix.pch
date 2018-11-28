@@ -21,3 +21,4 @@
 #import "VKRemoveNull.h"
 
 #define kLogin_token @"login_token"
+#define kConfig_data @"config_data"

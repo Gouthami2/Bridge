@@ -11,6 +11,7 @@
 #import "AssistantView.h"
 #import "PhoneMainView.h"
 #import "linphone/core.h"
+#import "HistoryListView.h"
 
 #import "AgencyHistoryCallsCell.h"
 
@@ -92,12 +93,56 @@ static UICompositeViewDescription *compositeDescription = nil;
     [self loadData];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(loadData)
+                                               name:kLinphoneAddressBookUpdate
+                                             object:nil];
+    
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(loadData)
+                                               name:kLinphoneCallUpdate
+                                             object:nil];
+    
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(coreUpdateEvent:)
+                                               name:kLinphoneCoreUpdate
+                                             object:nil];
+    [self loadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [NSNotificationCenter.defaultCenter removeObserver:self name:kLinphoneAddressBookUpdate object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:kLinphoneCoreUpdate object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:kLinphoneCallUpdate object:nil];
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Calls Helpers
+- (void)coreUpdateEvent:(NSNotification *)notif {
+    @try {
+        // Invalid all pointers
+        [self loadData];
+    }
+    @catch (NSException *exception) {
+        if ([exception.name isEqualToString:@"LinphoneCoreException"]) {
+            LOGE(@"Core already destroyed");
+            return;
+        }
+        LOGE(@"Uncaught exception : %@", exception.description);
+        abort();
+    }
+}
+
 - (void)loadData {
     
     for (id day in self.sections.allKeys) {
@@ -371,11 +416,12 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 - (IBAction)callsMenuButtonsClicked:(UIButton *)sender {
     
-    if (sender.tag == 10) {
+        if (sender.tag == 10) {
         
         // main call list...
         callListType = Calls_ALL;
         self.view_selectedLine.constant = 0;
+        self.btn_edit.hidden = NO;
         [self.tbl_callList reloadData];
     }
     else if (sender.tag == 11) {
@@ -383,6 +429,8 @@ static UICompositeViewDescription *compositeDescription = nil;
         // agency call list...
         callListType = Calls_Agency;
         self.view_selectedLine.constant = 65;
+        self.btn_edit.hidden = YES;
+        [self.tbl_callList reloadData];
         
         if (agency_callsArray.count == 0) {
             [self GetAgencyCallHistory_HTTPConnection];
@@ -538,7 +586,7 @@ static UICompositeViewDescription *compositeDescription = nil;
             cell.img_callState.image = [UIImage imageNamed:@"ic_missedCall"];
         }
         else if ([call_state isEqualToString:@"sent_to_voicemail"]) {
-            //
+             cell.img_callState.image = [UIImage imageNamed:@"ic_voicemail"];
         }
         else {
             cell.img_callState.image = [UIImage imageNamed:@"ic_outgoingCall"];
@@ -663,4 +711,6 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 
 
+- (IBAction)edit_buttonMenu:(UIButton *)sender {
+}
 @end

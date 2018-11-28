@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryListVC">
             <connections>
+                <outlet property="btn_edit" destination="jMP-Pb-xGX" id="RCa-YZ-0rT"/>
                 <outlet property="tbl_callList" destination="B15-OM-4kZ" id="rlD-3p-6nm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="view_callsDeleteMenu" destination="ho2-Ow-2Fv" id="Pcx-sp-A5a"/>

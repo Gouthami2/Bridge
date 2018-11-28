@@ -1457,6 +1457,11 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                         // todo: STOP doing that!
                         [[LinphoneManager.instance fastAddressBook] fetchContactsInBackGroundThread];
                         [[LinphoneManager.instance fastAddressBook] fetchFirebaseContactsInBackGroundThread: data];
+                        NSDictionary *config_data = [[VKRemoveNull shared] filterNullsDictionary:data WithEmpty:YES];
+                        if (config_data != nil) {
+                            [[NSUserDefaults standardUserDefaults] setObject:config_data forKey:kConfig_data];
+                        }
+                        
                        // [PhoneMainView.instance changeCurrentView:HomeViewController.compositeViewDescription];
                         
                         // [self changeView:_menuView back:TRUE animation:TRUE];
