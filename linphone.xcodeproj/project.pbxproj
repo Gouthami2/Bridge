@@ -742,8 +742,6 @@
 		8CF25D961F9F336100BEA0C1 /* check_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D941F9F336100BEA0C1 /* check_unselected.png */; };
 		8CF25D9D1F9F76BD00BEA0C1 /* chat_group_informations.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D9B1F9F76BC00BEA0C1 /* chat_group_informations.png */; };
 		8CF25D9E1F9F76BD00BEA0C1 /* chat_group_informations@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF25D9C1F9F76BD00BEA0C1 /* chat_group_informations@2x.png */; };
-		B00A6845219BB20C00E9C58B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A683C219BB20C00E9C58B /* HomeViewController.m */; };
-		B00A6846219BB20C00E9C58B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00A6844219BB20C00E9C58B /* HomeViewController.xib */; };
 		B00A6848219BB8A300E9C58B /* bridgeicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = B00A6847219BB8A200E9C58B /* bridgeicon1.png */; };
 		B01603E921A39D6C00EBA6A4 /* AgencyHistoryCallsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B01603E021A39D6B00EBA6A4 /* AgencyHistoryCallsCell.m */; };
 		B01603EA21A39D6C00EBA6A4 /* AgencyHistoryCallsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B01603E721A39D6C00EBA6A4 /* AgencyHistoryCallsCell.xib */; };
@@ -781,6 +779,8 @@
 		B0B7AB6B2180CC010026F4F4 /* settingsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B0B7AB642180CC010026F4F4 /* settingsicon.png */; };
 		B0B9C66C2183A0F200399F08 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0B9C66B2183A0F200399F08 /* fa-solid-900.ttf */; };
 		B0C273A2218E00A100675640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0C2739B218E00A100675640 /* GoogleService-Info.plist */; };
+		B0E6CC9C21B04A0400A0770E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E6CC9A21B04A0400A0770E /* HomeViewController.m */; };
+		B0E6CC9D21B04A0400A0770E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E6CC9B21B04A0400A0770E /* HomeViewController.xib */; };
 		C90FAA7915AF54E6002091CB /* HistoryDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FAA7715AF54E6002091CB /* HistoryDetailsView.m */; };
 		CF15F21E20E4F9A3008B1DE6 /* UIImageViewDeletable.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F21C20E4F9A3008B1DE6 /* UIImageViewDeletable.m */; };
 		CF15F21F20E4F9A3008B1DE6 /* UIImageViewDeletable.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15F21D20E4F9A3008B1DE6 /* UIImageViewDeletable.xib */; };
@@ -1888,9 +1888,6 @@
 		8CF25D9B1F9F76BC00BEA0C1 /* chat_group_informations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_group_informations.png; sourceTree = "<group>"; };
 		8CF25D9C1F9F76BD00BEA0C1 /* chat_group_informations@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_group_informations@2x.png"; sourceTree = "<group>"; };
 		A1652A9174A503F3643E321B /* Pods-linphone.distributionadhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-linphone.distributionadhoc.xcconfig"; path = "Pods/Target Support Files/Pods-linphone/Pods-linphone.distributionadhoc.xcconfig"; sourceTree = "<group>"; };
-		B00A683C219BB20C00E9C58B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = "../../../Desktop/untitled folder/HomeViewController.m"; sourceTree = "<group>"; };
-		B00A6843219BB20C00E9C58B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = "../../../Desktop/untitled folder/HomeViewController.h"; sourceTree = "<group>"; };
-		B00A6844219BB20C00E9C58B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = "../../../Desktop/untitled folder/HomeViewController.xib"; sourceTree = "<group>"; };
 		B00A6847219BB8A200E9C58B /* bridgeicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bridgeicon1.png; sourceTree = "<group>"; };
 		B01603E021A39D6B00EBA6A4 /* AgencyHistoryCallsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyHistoryCallsCell.m; sourceTree = "<group>"; };
 		B01603E721A39D6C00EBA6A4 /* AgencyHistoryCallsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgencyHistoryCallsCell.xib; sourceTree = "<group>"; };
@@ -1935,9 +1932,11 @@
 		B09573F42173E48800F8D388 /* Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Password.png; sourceTree = "<group>"; };
 		B09573F62173E6EF00F8D388 /* Welcome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Welcome.jpg; sourceTree = "<group>"; };
 		B0B7AB642180CC010026F4F4 /* settingsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsicon.png; sourceTree = "<group>"; };
-		B0B9C66A2183A0A000399F08 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fa-solid-900.ttf"; path = "/Users/gouthamireddy/linphone/linphone-iphone/fa-solid-900.ttf"; sourceTree = "<absolute>"; };
 		B0B9C66B2183A0F200399F08 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		B0C2739B218E00A100675640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B0E6CC9921B04A0400A0770E /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		B0E6CC9A21B04A0400A0770E /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		B0E6CC9B21B04A0400A0770E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		B9993E38F47E707CD7CEC32F /* Pods-linphoneTests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-linphoneTests.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-linphoneTests/Pods-linphoneTests.distribution.xcconfig"; sourceTree = "<group>"; };
 		C90FAA7615AF54E6002091CB /* HistoryDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailsView.h; sourceTree = "<group>"; };
 		C90FAA7715AF54E6002091CB /* HistoryDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailsView.m; sourceTree = "<group>"; };
@@ -2286,9 +2285,9 @@
 				D350F20C15A43BB100149E54 /* AssistantView.m */,
 				D38187E015FE348A00C3EDCA /* AssistantView.xib */,
 				D3D5126A160B3A8E00946DF8 /* AssistantViewScreens.xib */,
-				B00A6843219BB20C00E9C58B /* HomeViewController.h */,
-				B00A683C219BB20C00E9C58B /* HomeViewController.m */,
-				B00A6844219BB20C00E9C58B /* HomeViewController.xib */,
+				B0E6CC9921B04A0400A0770E /* HomeViewController.h */,
+				B0E6CC9A21B04A0400A0770E /* HomeViewController.m */,
+				B0E6CC9B21B04A0400A0770E /* HomeViewController.xib */,
 				63F1DF491BCE983100EDED90 /* CallConferenceTableView.h */,
 				63F1DF4A1BCE983200EDED90 /* CallConferenceTableView.m */,
 				B082E38E21A07DC6002C1A07 /* Models */,
@@ -2554,7 +2553,6 @@
 				B0B9C66B2183A0F200399F08 /* fa-solid-900.ttf */,
 				B09573DA2170EF3E00F8D388 /* linphone-Info.plist */,
 				8C23BCB71D82AAC3005F19BB /* linphone.entitlements */,
-				B0B9C66A2183A0A000399F08 /* fa-solid-900.ttf */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				61AE364C20C00B370089D9D3 /* linphoneExtension */,
 				5EEE8F9C20C80C23006E4176 /* latestCallsWidget */,
@@ -4200,6 +4198,7 @@
 				633FEEBC1D3CD55A0014B822 /* numpad_4_default@2x.png in Resources */,
 				633FEEA91D3CD55A0014B822 /* numpad_1~ipad.png in Resources */,
 				633FEDF71D3CD5590014B822 /* camera_default@2x.png in Resources */,
+				B0E6CC9D21B04A0400A0770E /* HomeViewController.xib in Resources */,
 				633FEDB31D3CD5590014B822 /* call_alt_back_default@2x.png in Resources */,
 				633FEDCF1D3CD5590014B822 /* call_quality_indicator_1@2x.png in Resources */,
 				633FEF131D3CD55A0014B822 /* pause_big_over_selected@2x.png in Resources */,
@@ -4221,7 +4220,6 @@
 				63CDC45E1C3BDE370085F529 /* msg.caf in Resources */,
 				633FEE6D1D3CD5590014B822 /* footer_dialer_disabled@2x.png in Resources */,
 				633FEF171D3CD55A0014B822 /* pause_small_disabled@2x.png in Resources */,
-				B00A6846219BB20C00E9C58B /* HomeViewController.xib in Resources */,
 				D38187DD15FE348A00C3EDCA /* AssistantView.xib in Resources */,
 				633FEDA61D3CD5590014B822 /* back_disabled.png in Resources */,
 				633FEED61D3CD55A0014B822 /* numpad_7_over@2x.png in Resources */,
@@ -4657,7 +4655,6 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				8CD99A3C2090B9FA008A7CDA /* ChatConversationImdnView.m in Sources */,
 				1D3623260D0F684500981E51 /* LinphoneAppDelegate.m in Sources */,
-				B00A6845219BB20C00E9C58B /* HomeViewController.m in Sources */,
 				CF15F21E20E4F9A3008B1DE6 /* UIImageViewDeletable.m in Sources */,
 				22F2508E107141E100AC9B3F /* DialerView.m in Sources */,
 				633756451B67D2B200E21BAD /* SideMenuView.m in Sources */,
@@ -4752,6 +4749,7 @@
 				D3807FBF15C28940005BE9BC /* DCRoundSwitch.m in Sources */,
 				D3807FC115C28940005BE9BC /* DCRoundSwitchKnobLayer.m in Sources */,
 				6306440E1BECB08500134C72 /* FirstLoginView.m in Sources */,
+				B0E6CC9C21B04A0400A0770E /* HomeViewController.m in Sources */,
 				D3807FC315C28940005BE9BC /* DCRoundSwitchOutlineLayer.m in Sources */,
 				D3807FC515C28940005BE9BC /* DCRoundSwitchToggleLayer.m in Sources */,
 				633E41821D74259000320475 /* AssistantLinkView.m in Sources */,

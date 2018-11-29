@@ -2,14 +2,16 @@
 //  HomeViewController.m
 //  linphone
 //
-//  Created by Gouthami Reddy on 10/25/18.
+//  Created by Gouthami Reddy on 11/29/18.
 //
+
 #import <Firebase/Firebase.h>
 #import <FirebaseAuth/FirebaseAuth.h>
 #import "HomeViewController.h"
 #import "PhoneMainView.h"
 #import "UICompositeView.h"
 #import <QuartzCore/QuartzCore.h>
+
 
 
 @implementation HomeViewController
@@ -20,7 +22,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 + (UICompositeViewDescription *)compositeViewDescription {
     if (compositeDescription == nil) {
         compositeDescription = [[UICompositeViewDescription alloc] init:self.class
-                                                              //statusBar:StatusBarView.class
+                                //statusBar:StatusBarView.class
                                                               statusBar:nil
                                 //tabBar:TabBarView.class
                                                                  tabBar:nil
@@ -33,7 +35,7 @@ static UICompositeViewDescription *compositeDescription = nil;
     return compositeDescription;
 }
 
-- (UICompositeViewDescription *)compositeViewDescription { 
+- (UICompositeViewDescription *)compositeViewDescription {
     return self.class.compositeViewDescription;
 }
 
@@ -41,62 +43,62 @@ static UICompositeViewDescription *compositeDescription = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   
+    
     // corners...
     [self cornerSetupMethod];
     
-//    _contactsIcon.layer.cornerRadius = 40;
-//    _contactsIcon.layer.masksToBounds = YES;
-//
-//    _callHistoryIcon.layer.cornerRadius = 40;
-//    _callHistoryIcon.layer.masksToBounds = YES;
-//
-//    _chatplusIcon.layer.cornerRadius = 40;
-//    _chatplusIcon.layer.masksToBounds = YES;
-//
-//    _textMessagingIcon.layer.cornerRadius = 40;
-//    _textMessagingIcon.layer.masksToBounds = YES;
-//
-//    _videoConferenceIcon.layer.cornerRadius = 40;
-//    _videoConferenceIcon.layer.masksToBounds = YES;
-//
-//    _conferenceCallIcon.layer.cornerRadius = 40;
-//    _conferenceCallIcon.layer.masksToBounds = YES;
-//
-//
-//    _contactsView.layer.borderWidth = 0.5;
-//    _contactsView.layer.borderColor = [[UIColor grayColor]CGColor];
-//    _contactsView.layer.cornerRadius = 10;
-//
-//    _callHistoryView.layer.borderWidth = 0.5;
-//    _callHistoryView.layer.borderColor = [[UIColor grayColor]CGColor];
-//    _callHistoryView.layer.cornerRadius = 10;
-//
-//    _chatPlusView.layer.borderWidth = 0.5;
-//   _chatPlusView.layer.borderColor = [[UIColor grayColor]CGColor];
-//    _chatPlusView.layer.cornerRadius = 10;
-//
-//    _textMessagingview.layer.borderWidth = 0.5;
-//   _textMessagingview.layer.borderColor = [[UIColor grayColor]CGColor];
-//    _textMessagingview.layer.cornerRadius = 10;
-//
-//       _conferenceCallView.layer.borderWidth = 0.5;
-//       _conferenceCallView.layer.borderColor = [[UIColor grayColor]CGColor];
-//       _conferenceCallView.layer.cornerRadius = 10;
-//
-//    _videoConferenceView.layer.borderWidth = 0.5;
-//     _videoConferenceView.layer.borderColor = [[UIColor grayColor]CGColor];
-//     _videoConferenceView.layer.cornerRadius = 10;
-//
-//    _AboutView.layer.borderWidth = 0.5;
-//     _AboutView.layer.borderColor = [[UIColor grayColor]CGColor];
-//     _AboutView.layer.cornerRadius = 10;
-//
-//
-//    _logoutView.layer.borderWidth = 0.5;
-//    _logoutView.layer.borderColor = [[UIColor grayColor]CGColor];
-//    _logoutView.layer.cornerRadius = 10;
-//
+    //    _contactsIcon.layer.cornerRadius = 40;
+    //    _contactsIcon.layer.masksToBounds = YES;
+    //
+    //    _callHistoryIcon.layer.cornerRadius = 40;
+    //    _callHistoryIcon.layer.masksToBounds = YES;
+    //
+    //    _chatplusIcon.layer.cornerRadius = 40;
+    //    _chatplusIcon.layer.masksToBounds = YES;
+    //
+    //    _textMessagingIcon.layer.cornerRadius = 40;
+    //    _textMessagingIcon.layer.masksToBounds = YES;
+    //
+    //    _videoConferenceIcon.layer.cornerRadius = 40;
+    //    _videoConferenceIcon.layer.masksToBounds = YES;
+    //
+    //    _conferenceCallIcon.layer.cornerRadius = 40;
+    //    _conferenceCallIcon.layer.masksToBounds = YES;
+    //
+    //
+    //    _contactsView.layer.borderWidth = 0.5;
+    //    _contactsView.layer.borderColor = [[UIColor grayColor]CGColor];
+    //    _contactsView.layer.cornerRadius = 10;
+    //
+    //    _callHistoryView.layer.borderWidth = 0.5;
+    //    _callHistoryView.layer.borderColor = [[UIColor grayColor]CGColor];
+    //    _callHistoryView.layer.cornerRadius = 10;
+    //
+    //    _chatPlusView.layer.borderWidth = 0.5;
+    //   _chatPlusView.layer.borderColor = [[UIColor grayColor]CGColor];
+    //    _chatPlusView.layer.cornerRadius = 10;
+    //
+    //    _textMessagingview.layer.borderWidth = 0.5;
+    //   _textMessagingview.layer.borderColor = [[UIColor grayColor]CGColor];
+    //    _textMessagingview.layer.cornerRadius = 10;
+    //
+    //       _conferenceCallView.layer.borderWidth = 0.5;
+    //       _conferenceCallView.layer.borderColor = [[UIColor grayColor]CGColor];
+    //       _conferenceCallView.layer.cornerRadius = 10;
+    //
+    //    _videoConferenceView.layer.borderWidth = 0.5;
+    //     _videoConferenceView.layer.borderColor = [[UIColor grayColor]CGColor];
+    //     _videoConferenceView.layer.cornerRadius = 10;
+    //
+    //    _AboutView.layer.borderWidth = 0.5;
+    //     _AboutView.layer.borderColor = [[UIColor grayColor]CGColor];
+    //     _AboutView.layer.cornerRadius = 10;
+    //
+    //
+    //    _logoutView.layer.borderWidth = 0.5;
+    //    _logoutView.layer.borderColor = [[UIColor grayColor]CGColor];
+    //    _logoutView.layer.cornerRadius = 10;
+    //
     
     
 }
@@ -210,7 +212,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 - (IBAction)conferenceCall:(id)sender {
-   
+    
 }
 
 - (IBAction)aboutClicked:(id)sender {
@@ -234,3 +236,4 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 
 @end
+
