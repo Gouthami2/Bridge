@@ -1384,7 +1384,10 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                 
                 NSDictionary *sucessData = [resp valueForKey:@"success"];
                 NSDictionary *data = [sucessData valueForKey:@"data"];
-                
+                NSDictionary *config_data = [[VKRemoveNull shared] filterNullsDictionary:data WithEmpty:YES];
+                if (config_data != nil) {
+                    [[NSUserDefaults standardUserDefaults] setObject:config_data forKey:kProfile];
+                }
                 
                // NSDictionary *firebase_info = [data objectForKey:@"firebase_info"];
                 
@@ -1457,10 +1460,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                         // todo: STOP doing that!
                         [[LinphoneManager.instance fastAddressBook] fetchContactsInBackGroundThread];
                         [[LinphoneManager.instance fastAddressBook] fetchFirebaseContactsInBackGroundThread: data];
-                        NSDictionary *config_data = [[VKRemoveNull shared] filterNullsDictionary:data WithEmpty:YES];
-                        if (config_data != nil) {
-                            [[NSUserDefaults standardUserDefaults] setObject:config_data forKey:kConfig_data];
-                        }
+                        
                         
                        // [PhoneMainView.instance changeCurrentView:HomeViewController.compositeViewDescription];
                         
@@ -1774,6 +1774,7 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                 UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Ok", nil)
                                                                         style:UIAlertActionStyleDefault
                                                                       handler:^(UIAlertAction * action) {}];
+                       [self changeView:_welcomeView back:YES animation:YES];
                 
                 [errView addAction:defaultAction];
                 [self presentViewController:errView animated:YES completion:nil];
@@ -1796,7 +1797,9 @@ void assistant_is_account_linked(LinphoneAccountCreator *creator, LinphoneAccoun
                                                                 style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * action) {}];
         
+        
         [errView addAction:defaultAction];
+        
         [self presentViewController:errView animated:YES completion:nil];
         return;
         

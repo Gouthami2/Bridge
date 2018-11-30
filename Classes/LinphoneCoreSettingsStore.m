@@ -448,6 +448,7 @@
 	[PhoneMainView.instance presentViewController:errView animated:YES completion:nil];
 }
 
+
 - (void)synchronizeAccounts {
 	LOGI(@"Account changed, synchronizing.");
 	LinphoneManager *lm = LinphoneManager.instance;

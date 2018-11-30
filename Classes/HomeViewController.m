@@ -47,6 +47,15 @@ static UICompositeViewDescription *compositeDescription = nil;
     // corners...
     [self cornerSetupMethod];
     
+    NSString *token_str = [[NSUserDefaults standardUserDefaults] objectForKey:kLogin_token];
+    if (token_str != nil) {
+        // headers...
+        NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
+        [headers setObject:[NSString stringWithFormat:@"Bearer %@", token_str] forKey:@"Authorization"];
+        [[APIService shared] setHeaders_dict:headers];
+    }
+    
+    
     //    _contactsIcon.layer.cornerRadius = 40;
     //    _contactsIcon.layer.masksToBounds = YES;
     //
