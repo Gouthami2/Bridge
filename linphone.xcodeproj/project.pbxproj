@@ -756,6 +756,7 @@
 		B01D16F2217E35FD00BE4925 /* homeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B01D16F1217E35FC00BE4925 /* homeButton.png */; };
 		B02589DB21B0D37600A98A20 /* UsersHistoryCallsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B02589D921B0D37600A98A20 /* UsersHistoryCallsCell.m */; };
 		B02589DC21B0D37600A98A20 /* UsersHistoryCallsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02589DA21B0D37600A98A20 /* UsersHistoryCallsCell.xib */; };
+		B05019FD21B1BC2800AC00EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B05019F621B1BC2800AC00EB /* GoogleService-Info.plist */; };
 		B082E38821A07D99002C1A07 /* HistoryCallsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B082E37A21A07D99002C1A07 /* HistoryCallsCell.m */; };
 		B082E38921A07D99002C1A07 /* HistoryCallHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B082E37B21A07D99002C1A07 /* HistoryCallHeaderCell.m */; };
 		B082E38A21A07D99002C1A07 /* HistoryCallsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B082E37C21A07D99002C1A07 /* HistoryCallsCell.xib */; };
@@ -780,7 +781,6 @@
 		B09573F72173E6F000F8D388 /* Welcome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B09573F62173E6EF00F8D388 /* Welcome.jpg */; };
 		B0B7AB6B2180CC010026F4F4 /* settingsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B0B7AB642180CC010026F4F4 /* settingsicon.png */; };
 		B0B9C66C2183A0F200399F08 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0B9C66B2183A0F200399F08 /* fa-solid-900.ttf */; };
-		B0CDC0F821B1AEE500EBF841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0CDC0F121B1AEE500EBF841 /* GoogleService-Info.plist */; };
 		B0E6CC9C21B04A0400A0770E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E6CC9A21B04A0400A0770E /* HomeViewController.m */; };
 		B0E6CC9D21B04A0400A0770E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0E6CC9B21B04A0400A0770E /* HomeViewController.xib */; };
 		C90FAA7915AF54E6002091CB /* HistoryDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C90FAA7715AF54E6002091CB /* HistoryDetailsView.m */; };
@@ -1906,6 +1906,7 @@
 		B02589D821B0D37600A98A20 /* UsersHistoryCallsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsersHistoryCallsCell.h; sourceTree = "<group>"; };
 		B02589D921B0D37600A98A20 /* UsersHistoryCallsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsersHistoryCallsCell.m; sourceTree = "<group>"; };
 		B02589DA21B0D37600A98A20 /* UsersHistoryCallsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersHistoryCallsCell.xib; sourceTree = "<group>"; };
+		B05019F621B1BC2800AC00EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B082E37921A07D99002C1A07 /* HistoryListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryListVC.h; sourceTree = "<group>"; };
 		B082E37A21A07D99002C1A07 /* HistoryCallsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCallsCell.m; sourceTree = "<group>"; };
 		B082E37B21A07D99002C1A07 /* HistoryCallHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCallHeaderCell.m; sourceTree = "<group>"; };
@@ -1938,7 +1939,6 @@
 		B09573F62173E6EF00F8D388 /* Welcome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Welcome.jpg; sourceTree = "<group>"; };
 		B0B7AB642180CC010026F4F4 /* settingsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsicon.png; sourceTree = "<group>"; };
 		B0B9C66B2183A0F200399F08 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
-		B0CDC0F121B1AEE500EBF841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Desktop/linphoneone/linphone-iphone/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0E6CC9921B04A0400A0770E /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		B0E6CC9A21B04A0400A0770E /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		B0E6CC9B21B04A0400A0770E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -2554,7 +2554,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				B0CDC0F121B1AEE500EBF841 /* GoogleService-Info.plist */,
+				B05019F621B1BC2800AC00EB /* GoogleService-Info.plist */,
 				B0B9C66B2183A0F200399F08 /* fa-solid-900.ttf */,
 				B09573DA2170EF3E00F8D388 /* linphone-Info.plist */,
 				8C23BCB71D82AAC3005F19BB /* linphone.entitlements */,
@@ -4384,7 +4384,7 @@
 				633FEEF91D3CD55A0014B822 /* numpad_star_over~ipad@2x.png in Resources */,
 				633FEDCB1D3CD5590014B822 /* call_outgoing@2x.png in Resources */,
 				633FEF501D3CD55A0014B822 /* valid_disabled.png in Resources */,
-				B0CDC0F821B1AEE500EBF841 /* GoogleService-Info.plist in Resources */,
+				B05019FD21B1BC2800AC00EB /* GoogleService-Info.plist in Resources */,
 				631348321B6FA53300C6BDCB /* rootca.pem in Resources */,
 				633FEEB31D3CD55A0014B822 /* numpad_3_default.png in Resources */,
 				633FEE1C1D3CD5590014B822 /* chat_start_body_default~ipad.png in Resources */,

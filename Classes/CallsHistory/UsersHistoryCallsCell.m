@@ -20,4 +20,11 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)callerDialButtonClicked:(UIButton *)sender {
+    
+    if([self.delegate respondsToSelector:@selector(callerDialButtonClicked:cell:)]) {
+        [self.delegate callerDialButtonClicked:sender cell:self];
+    }
+}
+
 @end

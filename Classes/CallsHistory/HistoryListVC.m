@@ -7,12 +7,12 @@
 
 #import "HistoryListVC.h"
 #import "HistoryCallHeaderCell.h"
-#import "HistoryCallsCell.h"
 #import "AssistantView.h"
 #import "PhoneMainView.h"
 #import "linphone/core.h"
 #import "HistoryListView.h"
 
+#import "UsersHistoryCallsCell.h"
 #import "AgencyHistoryCallsCell.h"
 
 
@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, CallsType) {
     Calls_Agency,
 };
 
-@interface HistoryListVC () <UITableViewDelegate, UITableViewDataSource, HistoryCallsCellDelegate>
+@interface HistoryListVC () <UITableViewDelegate, UITableViewDataSource, UsersHistoryCallsCellDelegate>
 {
     NSDateFormatter *date_formatter;
     NSMutableArray *users_callsArray;
@@ -88,7 +88,6 @@ static UICompositeViewDescription *compositeDescription = nil;
     self.tbl_callList.estimatedRowHeight = 45;
     self.tbl_callList.rowHeight = UITableViewAutomaticDimension;
     
-    [self GetCallHistory_HTTPConnection];
     
     // Reset missed call
     linphone_core_reset_missed_calls_count(LC);
@@ -99,6 +98,16 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    // Background work...
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        [self GetCallHistory_HTTPConnection];
+        [self GetAgencyCallHistory_HTTPConnection];
+    });
+    
+    
+    
     [NSNotificationCenter.defaultCenter addObserver:self
                                            selector:@selector(loadData)
                                                name:kLinphoneAddressBookUpdate
@@ -398,9 +407,15 @@ static UICompositeViewDescription *compositeDescription = nil;
         [calls_sectionsArray replaceObjectAtIndex:i withObject:section_dict];
     }
     
-    users_callsArray = [calls_sectionsArray mutableCopy];
-    [self.tbl_callList reloadData];
-    NSLog(@"Final users list array : %@", users_callsArray);
+    // Update UI main queue...
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        users_callsArray = [calls_sectionsArray mutableCopy];
+        if (callListType == Calls_ALL) {
+            [self.tbl_callList reloadData];
+        }
+        NSLog(@"Final users list array : %@", users_callsArray);
+    });
 }
 
 
@@ -491,9 +506,15 @@ static UICompositeViewDescription *compositeDescription = nil;
         [calls_sectionsArray replaceObjectAtIndex:i withObject:section_dict];
     }
     
-    agency_callsArray = [calls_sectionsArray mutableCopy];
-    [self.tbl_callList reloadData];
-    NSLog(@"Final agency list array : %@", agency_callsArray);
+    // Update UI main queue...
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        agency_callsArray = [calls_sectionsArray mutableCopy];
+        if (callListType == Calls_Agency) {
+            [self.tbl_callList reloadData];
+        }
+        NSLog(@"Final agency list array : %@", agency_callsArray);
+    });
 }
 
 #pragma mark - ButtonAction
@@ -521,10 +542,6 @@ static UICompositeViewDescription *compositeDescription = nil;
         self.view_selectedLine.constant = 0;
         self.btn_edit.hidden = NO;
         [self.tbl_callList reloadData];
-        
-        if (users_callsArray.count == 0) {
-            [self GetCallHistory_HTTPConnection];
-        }
     }
     else if (sender.tag == 11) {
         
@@ -533,10 +550,6 @@ static UICompositeViewDescription *compositeDescription = nil;
         self.view_selectedLine.constant = 65;
         self.btn_edit.hidden = YES;
         [self.tbl_callList reloadData];
-        
-        if (agency_callsArray.count == 0) {
-            [self GetAgencyCallHistory_HTTPConnection];
-        }
     }
     else if (sender.tag == 12) {
         self.view_callsTopMenu.hidden = YES;
@@ -674,7 +687,7 @@ static UICompositeViewDescription *compositeDescription = nil;
         NSDictionary *call_dict = [call_array objectAtIndex:indexPath.row];
         
         // display infomration...
-        NSString *from_name = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"caller_id_number"]];
+        NSString *from_name = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"caller_id_name"]];
         if (from_name.length == 0) {
             from_name = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"caller_id_number"]];
         }
@@ -726,13 +739,13 @@ static UICompositeViewDescription *compositeDescription = nil;
     else {
         
         // cell creation...
-        HistoryCallsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCallsCell"];
+        UsersHistoryCallsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UsersHistoryCallsCell"];
         if (cell == nil) {
-            [tableView registerNib:[UINib nibWithNibName:@"HistoryCallsCell" bundle:nil] forCellReuseIdentifier:@"HistoryCallsCell"];
-            cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCallsCell"];
+            [tableView registerNib:[UINib nibWithNibName:@"UsersHistoryCallsCell" bundle:nil] forCellReuseIdentifier:@"UsersHistoryCallsCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"UsersHistoryCallsCell"];
         }
         cell.delegate = self;
-        cell.btn_checkbox.hidden = YES;
+        
         
         // call dict...
         NSDictionary *callMain_dict = [users_callsArray objectAtIndex:indexPath.section];
@@ -744,9 +757,22 @@ static UICompositeViewDescription *compositeDescription = nil;
         if (to_name.length == 0) {
             to_name = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"destination_number"]];
         }
-        cell.lbl_name.text = [NSString stringWithFormat:@"%@", to_name];
+        cell.lbl_toName.text = [NSString stringWithFormat:@"%@", to_name];
         
     
+        // start date...
+        cell.lbl_date.text = @"";
+        [date_formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSString *start_stamp = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"start_stamp"]];
+        if (start_stamp.length != 0) {
+            
+            NSDate *start_stampDate = [date_formatter dateFromString:start_stamp];
+            [date_formatter setDateFormat:@"MMM dd, yyyy, hh:mm a"];
+            cell.lbl_date.text = [NSString stringWithFormat:@"%@", [date_formatter stringFromDate:start_stampDate]];
+        }
+        int durationSeconds = [[NSString stringWithFormat:@"%@", [call_dict objectForKey:@"duration"]] intValue];
+        cell.lbl_duration.text = [self timeFormatted:durationSeconds];
+        
         // call state icons...
         NSString *call_state = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"call_status"]];
         // "call_status": "answered"
@@ -797,33 +823,56 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 #pragma mark - CellButtonAction
-- (void)detailsClicked:(UIButton *)button cell:(HistoryCallsCell *)cell {
-   
-    /*
+- (void)callerDialButtonClicked:(UIButton *)button cell:(UsersHistoryCallsCell *)cell {
+    
     // getting indexpath...
     NSIndexPath *index_path = [self.tbl_callList indexPathForCell:cell];
+    NSLog(@"index - %d", (int)index_path.row);
+
+    // call dict...
+    NSDictionary *callMain_dict = [users_callsArray objectAtIndex:index_path.section];
+    NSArray *call_array = [callMain_dict objectForKey:@"calls"];
+    NSDictionary *call_dict = [call_array objectAtIndex:index_path.row];
     
-    // getting caller log...
-    id logId = [_sections objectForKey:_sortedDays[index_path.section]][index_path.row];
-    LinphoneCallLog *callLog = [logId pointerValue];
-    if (callLog != NULL) {
-        HistoryDetailsView *view = VIEW(HistoryDetailsView);
-        if (linphone_call_log_get_call_id(callLog) != NULL) {
-            // Go to History details view
-            [view setCallLogId:[NSString stringWithUTF8String:linphone_call_log_get_call_id(callLog)]];
-        }
-        [PhoneMainView.instance changeCurrentView:view.compositeViewDescription];
-    }*/
+    NSString *address = [NSString stringWithFormat:@"%@", [call_dict objectForKey:@"destination_number"]];
+    if ([address length] > 0) {
+        LinphoneAddress *addr = [LinphoneUtils normalizeSipOrPhoneAddress:address];
+        [LinphoneManager.instance call:addr];
+        if (addr)
+            linphone_address_destroy(addr);
+    }
+    
 }
 
-- (void)checkboxClicked:(UIButton *)button cell:(HistoryCallsCell *)cell {
-    
-}
+//- (void)detailsClicked:(UIButton *)button cell:(HistoryCallsCell *)cell {
+//
+//    /*
+//    // getting indexpath...
+//    NSIndexPath *index_path = [self.tbl_callList indexPathForCell:cell];
+//
+//    // getting caller log...
+//    id logId = [_sections objectForKey:_sortedDays[index_path.section]][index_path.row];
+//    LinphoneCallLog *callLog = [logId pointerValue];
+//    if (callLog != NULL) {
+//        HistoryDetailsView *view = VIEW(HistoryDetailsView);
+//        if (linphone_call_log_get_call_id(callLog) != NULL) {
+//            // Go to History details view
+//            [view setCallLogId:[NSString stringWithUTF8String:linphone_call_log_get_call_id(callLog)]];
+//        }
+//        [PhoneMainView.instance changeCurrentView:view.compositeViewDescription];
+//    }*/
+//}
+//
+//- (void)checkboxClicked:(UIButton *)button cell:(HistoryCallsCell *)cell {
+//
+//}
 
 #pragma mark - APIs
 - (void)GetCallHistory_HTTPConnection {
     
     //*** start indicator....
+    
+    
     
     // from and to dates...
     [date_formatter setDateFormat:@"MM/dd/yyyy"];
